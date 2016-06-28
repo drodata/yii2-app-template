@@ -9,15 +9,15 @@ use yii\web\AssetBundle;
  */
 class AppAsset extends AssetBundle
 {
-    public $basePath = '@webroot';
-    public $baseUrl = '@web';
+    public $sourcePath = '@vendor/almasaeed2010/adminlte/dist/';
     public $css = [
-        'css/site.css',
+        'css/AdminLTE.css',
+        'css/skins/skin-blue.css',
     ];
-    public $js = [
-    ];
+    public $js = ['js/app.js'];
     public $depends = [
         'yii\web\YiiAsset',
         'yii\bootstrap\BootstrapAsset',
+        'yii\bootstrap\BootstrapPluginAsset',
     ];
 }
