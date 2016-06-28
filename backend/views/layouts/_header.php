@@ -14,9 +14,7 @@ use yii\bootstrap\NavBar;
         'options' => [
             'class' => 'navbar navbar-static-top',
         ],
-        'innerContainerOptions' => [
-            'class' => 'container-fluid',
-        ],
+        //'innerContainerOptions' => [ 'class' => 'container-fluid', ],
 
     ]);
     $leftMenuItems = [
