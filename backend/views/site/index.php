@@ -1,5 +1,7 @@
 <?php
-
+$this->title = 'Login';
+$this->params['title'] = $this->title;
+$this->params['breadcrumbs'][] = $this->title;
 /* @var $this yii\web\View */
 
 $this->title = 'My Yii Application';
