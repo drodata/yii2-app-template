@@ -1,6 +1,8 @@
 <?php
 return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
+    'language' => 'zh-CN',
+    'timeZone' => 'Asia/Shanghai',
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
@@ -18,5 +20,13 @@ return [
             'rules' => [
             ],
         ],
+        'formatter' => [
+            'dateFormat' => 'php:Y-m-d',
+            'timeFormat' => 'H:i',
+            'datetimeFormat' => 'php:Y-m-d H:i',
+            'decimalSeparator' => '.',
+            'thousandSeparator' => ' ',
+            'defaultTimeZone' => 'Asia/Shanghai',
+       ],
     ],
 ];
