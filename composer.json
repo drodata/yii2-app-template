@@ -18,7 +18,12 @@
         "yiisoft/yii2": ">=2.0.6",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
-        "almasaeed2010/adminlte": "~2.0"
+        "almasaeed2010/adminlte": "~2.0",
+        "kartik-v/yii2-widget-select2": "@dev",
+        "npm-asset/light7": "v0.4.3",
+        "alexgx/yii2-phpexcel": "@dev",
+        "bower-asset/framework7": "@dev",
+        "2amigos/yii2-file-upload-widget": "~1.0"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
