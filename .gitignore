@@ -33,3 +33,6 @@ phpunit.phar
 /.vagrant
 
 vim-session
+*.mwb.bak
+yat.sql
+yat-bak.sql

@@ -12,19 +12,26 @@ use yii\web\IdentityInterface;
  *
  * @property integer $id
  * @property string $username
+ * @property string $screen_name
  * @property string $password_hash
  * @property string $password_reset_token
  * @property string $email
  * @property string $auth_key
  * @property integer $status
+ * @property integer $group_id
  * @property integer $created_at
  * @property integer $updated_at
+ * @property integer $last_login_at
+ * @property integer $created_by
+ * @property integer $updated_by
+ * @property integer $owned_by
+ * @property string $note
  * @property string $password write-only password
  */
 class User extends ActiveRecord implements IdentityInterface
 {
-    const STATUS_DELETED = 0;
-    const STATUS_ACTIVE = 10;
+    const FROZEN = 0;
+    const ACTIVE = 1;
 
 
     /**
@@ -32,7 +39,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function tableName()
     {
-        return '{{%user}}';
+        return 'user';
     }
 
     /**
@@ -51,8 +58,8 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            ['status', 'default', 'value' => self::STATUS_ACTIVE],
-            ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_DELETED]],
+            ['status', 'default', 'value' => self::ACTIVE],
+            //['status', 'in', 'range' => [self::ACTIVE, self::FROZEN]],
         ];
     }
 
@@ -61,7 +68,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function findIdentity($id)
     {
-        return static::findOne(['id' => $id, 'status' => self::STATUS_ACTIVE]);
+        return static::findOne(['id' => $id, 'status' => self::ACTIVE]);
     }
 
     /**
@@ -80,7 +87,7 @@ class User extends ActiveRecord implements IdentityInterface
      */
     public static function findByUsername($username)
     {
-        return static::findOne(['username' => $username, 'status' => self::STATUS_ACTIVE]);
+        return static::findOne(['username' => $username, 'status' => self::ACTIVE]);
     }
 
     /**
@@ -97,7 +104,7 @@ class User extends ActiveRecord implements IdentityInterface
 
         return static::findOne([
             'password_reset_token' => $token,
-            'status' => self::STATUS_ACTIVE,
+            'status' => self::ACTIVE,
         ]);
     }
 
@@ -186,4 +193,64 @@ class User extends ActiveRecord implements IdentityInterface
     {
         $this->password_reset_token = null;
     }
+    /** just role name **/
+    public function getRoles()
+    {
+        $a = [];
+        $auth = Yii::$app->authManager;
+        $roles = $auth->getRolesByUser($this->id);
+        if (sizeof($roles) > 0) {
+            foreach ($roles as $role) {
+                $a[] = $role->name;
+            }
+        }
+        return $a;
+    }
+    public function getRolesString()
+    {
+        $auth = Yii::$app->authManager;
+        $roles = $auth->getRolesByUser($this->id);
+        if (sizeof($roles) == 0) {
+            return '';
+        }
+        $a = [];
+        $colorMap = [
+            'admin' => 'danger',
+            'dispatcher' => 'success',
+            'customerService' => 'info',
+            'outsourcing' => 'warning',
+            'customer' => 'warning',
+        ];
+        foreach ($roles as $r) {
+            $a[] = Html::tag('span', $r->description, [
+                'class' => 'label label-' . $colorMap[$r->name],
+            ]);
+        }
+        return implode("&nbsp;", $a);
+    }
+    public function getReadableName()
+    {
+        return empty($this->screen_name) 
+            ? $this->username 
+            : $this->screen_name . ' (' . $this->username . ')';
+    }
+
+    /**
+     * Judge whether current user in a role (group)
+     * @param string | array $role
+     * @return boolean
+     */
+	public function in($role)
+	{
+		if (gettype($role) == 'string') {
+			return in_array($role, $this->roles);
+        } else if (gettype($role) == 'array') {
+			$flag = false;
+			foreach ($this->roles as $roleName)
+			{
+				$flag = $flag || in_array($roleName, $role);
+			}
+			return $flag;
+		}
+	}
 }

@@ -6,7 +6,8 @@ $arg = [
 ];
 return [
     'aliases' => [
-        //'@iepweb'  => 'http://i.ep.' . $arg['domain'],
+        '@frontendweb'  => 'http://www.' . $arg['domain'],
+        '@backendweb'  => 'http://backend.' . $arg['domain'],
     ],
     'components' => [
         'db' => [

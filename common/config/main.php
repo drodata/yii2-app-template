@@ -28,5 +28,8 @@ return [
             'thousandSeparator' => ' ',
             'defaultTimeZone' => 'Asia/Shanghai',
        ],
+        'authManager' => [
+            'class' => 'yii\rbac\DbManager', 
+        ],
     ],
 ];

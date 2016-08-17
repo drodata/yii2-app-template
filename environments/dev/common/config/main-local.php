@@ -6,6 +6,8 @@ $arg = [
 ];
 return [
     'aliases' => [
+        '@frontendweb'  => 'http://www.' . $arg['domain'],
+        '@backendweb'  => 'http://backend.' . $arg['domain'],
     ],
     'components' => [
         'db' => [

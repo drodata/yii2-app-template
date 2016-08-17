@@ -45,7 +45,7 @@ AppAsset::register($this);
         <div class="pull-right hidden-xs">
             <?= Yii::powered() ?>
         </div>
-        <strong>&copy; My Company <?= date('Y') ?></strong> All rights reserved.
+        <strong>&copy; <?= Html::a('My Company', Yii::getAlias('@frontendweb')) ?> <?= date('Y') ?></strong> All rights reserved.
     </div>
 </footer>
 

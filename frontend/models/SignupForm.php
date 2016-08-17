@@ -1,10 +1,10 @@
 <?php
 namespace frontend\models;
 
+use Yii;
 use yii\base\Model;
 use common\models\User;
-use backend\models\Team;
-use backend\models\Department;
+use backend\models\UserGroup;
 
 /**
  * Signup form
@@ -14,7 +14,6 @@ class SignupForm extends Model
     public $username;
     public $email;
     public $password;
-    public $teamname;
 
 
     /**
@@ -37,8 +36,6 @@ class SignupForm extends Model
             ['password', 'required'],
             ['password', 'string', 'min' => 6],
 
-            [['teamname'], 'required'],
-            [['teamname'], 'string', 'max' => 45],
         ];
     }
 
@@ -53,25 +50,13 @@ class SignupForm extends Model
             return null;
         }
         
-        $transaction = Team::getDb()->beginTransaction();
+        $transaction = Yii::$app->db->beginTransaction();
 
         try {
-            $team = new Team();
-            $team->name = $this->teamname;
-            $team->level = Team::LEVEL_BASIC;
-            $team->save();
-        
-            $department = new Department();
-            $department->name = '信息部';
-            $department->slug = 'admin';
-            $department->parent_id = 0;
-            $department->team_id = $team->id;
-            $department->save();
-        
             $user = new User();
             $user->username = $this->username;
             $user->email = $this->email;
-            $user->department_id = $department->id;
+            $user->group_id = UserGroup::STAFF;
             $user->setPassword($this->password);
             $user->generateAuthKey();
             $user->save();
