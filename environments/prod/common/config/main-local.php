@@ -1,13 +1,12 @@
 <?php
 $arg = [
     'password' => '',
-    'domain' => 'drodata.com',
-    'dbname' => 'drodata_com',
+    'domain' => 'yat.com',
+    'dbname' => 'yii2_app_template',
 ];
 return [
     'aliases' => [
-        '@epweb'  => 'http://ep.' . $arg['domain'],
-        '@iepweb'  => 'http://i.ep.' . $arg['domain'],
+        //'@iepweb'  => 'http://i.ep.' . $arg['domain'],
     ],
     'components' => [
         'db' => [

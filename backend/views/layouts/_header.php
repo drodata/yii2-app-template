@@ -21,6 +21,10 @@ use yii\bootstrap\NavBar;
         ['label' => 'Home', 'url' => ['/site/index']],
         ['label' => 'Error', 'url' => ['/site/error']],
     ];
+    if (YII_ENV_DEV) {    
+        $leftMenuItems[] = ['label' => 'Gii', 'url' => ['/gii']];
+    }
+
     $rightMenuItems = [
         [
             'label' => 'Home',

@@ -21,5 +21,37 @@ if (!YII_ENV_TEST) {
         'class' => 'yii\gii\Module',
     ];
 }
+if (YII_ENV_DEV) {    
+    $config['modules']['gii'] = [
+        'class' => 'yii\gii\Module',      
+        'allowedIPs' => ['127.0.0.1', '::1', '192.168.0.*', '192.168.178.20'],  
+        'generators' => [
+            'crud' => [
+                'class' => 'yii\gii\generators\crud\Generator',
+                'templates' => [
+                    'drodata' => '@drodata/gii-templates/crud/default',
+                ]
+            ],
+            'model' => [
+                'class' => 'yii\gii\generators\model\Generator',
+                'templates' => [
+                    'drodata' => '@drodata/gii-templates/model/default',
+                ]
+            ],
+            'controller' => [
+                'class' => 'yii\gii\generators\controller\Generator',
+                'templates' => [
+                    'drodata' => '@drodata/gii-templates/controller/default',
+                ]
+            ],
+            'form' => [
+                'class' => 'yii\gii\generators\form\Generator',
+                'templates' => [
+                    'drodata' => '@drodata/gii-templates/form/default',
+                ]
+            ],
+        ],
+    ];
+}
 
 return $config;
