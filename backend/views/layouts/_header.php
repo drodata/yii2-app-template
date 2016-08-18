@@ -1,6 +1,5 @@
 <?php
-use yii\helpers\Html;
-use yii\bootstrap\BaseHtml;
+use yii\bootstrap\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
 ?>
@@ -18,8 +17,15 @@ use yii\bootstrap\NavBar;
 
     ]);
     $leftMenuItems = [
-        ['label' => 'Home', 'url' => ['/site/index']],
-        ['label' => 'Error', 'url' => ['/site/error']],
+        [
+            'label' => Html::icon('cog') . '&nbsp;设置',
+            'encode' => false,
+            'items' => [
+                 ['label' => 'Lookup', 'url' => '/lookup/index'],
+                 '<li class="divider"></li>',
+                 //'<li class="dropdown-header">Dropdown Header</li>',
+            ],
+        ],
     ];
     if (YII_ENV_DEV) {    
         $leftMenuItems[] = ['label' => 'Gii', 'url' => ['/gii']];
@@ -49,7 +55,7 @@ use yii\bootstrap\NavBar;
         $rightMenuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
     } else {
         $rightMenuItems[] = [
-            'label' => BaseHtml::icon('user') . '&nbsp;' . Yii::$app->user->identity->username,
+            'label' => Html::icon('user') . '&nbsp;' . Yii::$app->user->identity->username,
             'encode' => false,
             'items' => [
                  [
