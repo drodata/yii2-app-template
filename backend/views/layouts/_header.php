@@ -18,18 +18,33 @@ use yii\bootstrap\NavBar;
     ]);
     $leftMenuItems = [
         [
-            'label' => Html::icon('cog') . '&nbsp;设置',
+            'label' => Html::icon('cog'),
             'encode' => false,
+            'linkOptions' => [
+                'title' => '设置',
+            ],
             'items' => [
                  ['label' => 'Lookup', 'url' => '/lookup/index'],
                  '<li class="divider"></li>',
-                 //'<li class="dropdown-header">Dropdown Header</li>',
             ],
         ],
+        [
+            'label' => Html::icon('plus'),
+            'encode' => false,
+            'linkOptions' => [
+                'title' => '新建……',
+            ],
+            'items' => [
+                 ['label' => '用户', 'url' => '/user/create'],
+                 '<li class="divider"></li>',
+            ],
+        ],
+        [
+            'visible' => YII_ENV_DEV && Yii::$app->user->can('admin'),
+            'label' => 'Gii',
+            'url' => ['/gii'],
+        ],
     ];
-    if (YII_ENV_DEV) {    
-        $leftMenuItems[] = ['label' => 'Gii', 'url' => ['/gii']];
-    }
 
     $rightMenuItems = [
         [
@@ -46,18 +61,24 @@ use yii\bootstrap\NavBar;
             ],
         ],
         [
-            'label' => 'Login',
-            'url' => ['site/login'],
-            'visible' => Yii::$app->user->isGuest
+            'label' => '用户',
+            'url' => ['user/index'],
         ],
-    ];
-    if (Yii::$app->user->isGuest) {
-        $rightMenuItems[] = ['label' => 'Login', 'url' => ['/site/login']];
-    } else {
-        $rightMenuItems[] = [
+        [
+            'label' => '登录',
+            'url' => ['site/login'],
+            'visible' => Yii::$app->user->isGuest,
+        ],
+        [
             'label' => Html::icon('user') . '&nbsp;' . Yii::$app->user->identity->username,
             'encode' => false,
+            'visible' => !Yii::$app->user->isGuest,
             'items' => [
+                 [
+                    'label' => '账户信息',
+                    'url' => ['/user/profile'],
+                ],
+                 '<li class="divider"></li>',
                  [
                     'label' => '登出',
                     'url' => ['/site/logout'],
@@ -65,14 +86,9 @@ use yii\bootstrap\NavBar;
                         'data-method' => 'post',
                     ],
                 ],
-                 /*
-                 '<li class="divider"></li>',
-                 '<li class="dropdown-header">Dropdown Header</li>',
-                 ['label' => 'Level 1 - Dropdown B', 'url' => '#'],
-                 */
             ],
-        ];
-    }
+        ],
+    ];
     echo Nav::widget([
         'items' => $leftMenuItems,
         'options' => ['class' => 'navbar-nav navbar-left'],

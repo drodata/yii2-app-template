@@ -3,6 +3,7 @@
 namespace common\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 use yii\bootstrap\Html;
 use yii\behaviors\TimestampBehavior;
 use yii\behaviors\BlameableBehavior;
@@ -20,6 +21,7 @@ use common\models\Lookup;
  */
 class Lookup extends \yii\db\ActiveRecord
 {
+    private static $_items=array();
     /**
      * @inheritdoc
      */
@@ -77,21 +79,23 @@ class Lookup extends \yii\db\ActiveRecord
             'position' => 'Position',
         ];
     }
-    /*
-    public function append($orderIds)
-    {
-        $transaction = Yii::$app->db->beginTransaction();
-        try {
-            if (!$this->save()) {
-                throw new \yii\db\Exception('xxx failed to save.');
-            }
 
-            $transaction->commit();
-            return true;
-        } catch(\Exception $e) {
-            $transaction->rollBack();
-            throw $e;
-        }
+    public static function items($type, $key='code')
+    {
+        return ArrayHelper::map(
+            self::find()->where([
+                'type' => $type,
+            ])->orderBy('position')->asArray()->all(),
+            $key,
+            'name'
+        );
     }
-    */
+
+    public static function item($type,$code)
+    {
+        return self::findOne([
+            'type' => $type,
+            'code' => $code,
+        ])->name;
+    }
 }

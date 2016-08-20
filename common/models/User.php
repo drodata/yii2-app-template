@@ -2,10 +2,13 @@
 namespace common\models;
 
 use Yii;
+use yii\bootstrap\Html;
+use yii\helpers\ArrayHelper;
 use yii\base\NotSupportedException;
 use yii\behaviors\TimestampBehavior;
 use yii\db\ActiveRecord;
 use yii\web\IdentityInterface;
+use backend\models\UserGroup;
 
 /**
  * User model
@@ -30,6 +33,8 @@ use yii\web\IdentityInterface;
  */
 class User extends ActiveRecord implements IdentityInterface
 {
+    private $_userForm;
+
     const FROZEN = 0;
     const ACTIVE = 1;
 
@@ -40,6 +45,13 @@ class User extends ActiveRecord implements IdentityInterface
     public static function tableName()
     {
         return 'user';
+    }
+
+    public function transactions()
+    {
+        return [
+            'default' => self::OP_ALL,
+        ];
     }
 
     /**
@@ -58,9 +70,41 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
+            [['username', 'group_id'], 'required'],
+            [['username'], 'unique'],
             ['status', 'default', 'value' => self::ACTIVE],
             //['status', 'in', 'range' => [self::ACTIVE, self::FROZEN]],
+            [['group_id', 'screen_name'], 'safe'],
         ];
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id' => 'ID',
+            'username' => '用户名',
+            'screen_name' => '姓名',
+            'status' => '状态',
+            'group_id' => '用户组',
+            'created_at' => '加入日期',
+            'updated_at' => '修改日期',
+            'last_login_at' => '最近登录日期',
+            'created_by' => '创建人',
+            'updated_by' => '修改人',
+            'owned_by' => '当前负责人',
+            'note' => '备注',
+        ];
+    }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getGroup()
+    {
+        return $this->hasOne(UserGroup::className(), ['id' => 'group_id']);
     }
 
     /**
@@ -253,4 +297,54 @@ class User extends ActiveRecord implements IdentityInterface
 			return $flag;
 		}
 	}
+    public static function rolesList()
+    {
+        $auth = Yii::$app->authManager;
+        $a = [];
+        foreach ($auth->getRoles() as $name=>$role)
+        {
+            $a[$name] = $role->description;
+        }
+        // the `customer` role is belonged to group 'proxy'
+        ArrayHelper::remove($a, 'customer');
+        return $a;
+    }
+
+    public function getUserForm() 
+    {
+        return $this->_userForm;
+    }
+    public function setUserForm($value) 
+    {
+        $this->_userForm = $value;
+    }
+
+    public function beforeSave($insert)
+    {
+        if (parent::beforeSave($insert)) {
+            if ($insert) {
+                $this->password = $this->userForm->password;
+                $this->generateAuthKey();
+            } else {
+            }
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function afterSave($insert, $changedAttributes)
+    {
+        parent::afterSave($insert, $changedAttributes);
+        $auth = Yii::$app->authManager;
+        if ($insert) {
+            // save roles
+            $role = $auth->getRole($this->userForm->role);
+            $auth->assign($role, $this->id);
+        } else {
+            // update roles
+            $auth->revokeAll($this->id);
+            $role = $auth->getRole($this->userForm->role);
+            $auth->assign($role, $this->id);
+        }
+    }
 }

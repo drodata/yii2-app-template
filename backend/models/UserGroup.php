@@ -3,6 +3,7 @@
 namespace backend\models;
 
 use Yii;
+use yii\helpers\ArrayHelper;
 use yii\bootstrap\Html;
 use yii\behaviors\TimestampBehavior;
 use yii\behaviors\BlameableBehavior;
@@ -73,9 +74,9 @@ class UserGroup extends \yii\db\ActiveRecord
     {
         return [
             'id' => 'ID',
-            'name' => 'Name',
-            'slug' => 'Slug',
-            'parent_id' => 'Parent ID',
+            'name' => '用户分组名称',
+            'slug' => '简称',
+            'parent_id' => '父分组',
         ];
     }
 
@@ -85,6 +86,15 @@ class UserGroup extends \yii\db\ActiveRecord
     public function getUsers()
     {
         return $this->hasMany(User::className(), ['group_id' => 'id']);
+    }
+
+    public static function map()
+    {
+        return ArrayHelper::map(
+            UserGroup::find()->asArray()->all(),
+            'id',
+            'name'
+        );
     }
     /*
     public function append($orderIds)
