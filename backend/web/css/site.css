@@ -1,4 +1,5 @@
 /* customize AdminLTE */
+.content-wrapper { background-color: #f6f6f6; }
 .box-header > .box-tools > a {
     margin-left: 5px;
 }

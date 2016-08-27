@@ -9,6 +9,16 @@ use yii\widgets\Breadcrumbs;
 use common\widgets\Alert;
 
 AppAsset::register($this);
+
+// global js snippet
+$host = '"' . Yii::$app->request->hostInfo . '/"';
+$js = <<<JS
+var APP = {
+	"baseUrl": $host,
+    loadingText: '处理中……'
+};
+JS;
+$this->registerJs($js, $this::POS_HEAD, 'global-js-constant');
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

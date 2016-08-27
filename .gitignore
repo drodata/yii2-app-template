@@ -36,3 +36,7 @@ vim-session
 *.mwb.bak
 yat.sql
 yat-bak.sql
+
+backend/controllers/TestController.php
+backend/views/test/
+!backend/views/test/.gitignore

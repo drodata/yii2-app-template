@@ -24,6 +24,7 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
         'js/jquery.trekshot.js',
+        'js/ajax-operations.js',
     ];
     public $depends = [
         'backend\assets\AdminLTEAsset',

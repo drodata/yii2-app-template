@@ -41,6 +41,11 @@ use yii\bootstrap\NavBar;
         ],
         [
             'visible' => YII_ENV_DEV && Yii::$app->user->can('admin'),
+            'label' => 'Test',
+            'url' => ['/test/index'],
+        ],
+        [
+            'visible' => YII_ENV_DEV && Yii::$app->user->can('admin'),
             'label' => 'Gii',
             'url' => ['/gii'],
         ],
