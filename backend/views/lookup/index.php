@@ -1,8 +1,8 @@
 <?php
 
-use yii\bootstrap\Html;
+use drodata\helpers\Html;
 use yii\grid\GridView;
-use common\widgets\Box;
+use drodata\widgets\Box;
 use common\models\Lookup;
 
 /* @var $this yii\web\View */
@@ -20,12 +20,11 @@ $this->params = [
 ?>
 <div class="row lookup-index">
     <div class="col-sm-12">
-       <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
-        <p>
-            <?= Html::a('Create Lookup', ['create'], ['class' => 'btn btn-success']) ?>
-        </p>
         <?php Box::begin([
             'title' => $this->title,
+            'tools' => [
+                Html::a('新建 Lookup', ['create'], ['class' => 'btn btn-sm btn-success'])
+            ],
         ]);?>
 
             <?= GridView::widget([
