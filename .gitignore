@@ -40,3 +40,6 @@ yat-bak.sql
 backend/controllers/TestController.php
 backend/views/test/
 !backend/views/test/.gitignore
+
+# Vim's swap files
+*.swp

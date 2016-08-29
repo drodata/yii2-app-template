@@ -1,5 +1,51 @@
-/* customize AdminLTE */
+/* ==== customize Bootstrap ==== */
+
+.table-hover > tbody > tr:hover {
+  background-color: #d9ead3;
+}
+
+/* ==== customize AdminLTE ==== */
+
 .content-wrapper { background-color: #f6f6f6; }
 .box-header > .box-tools > a {
     margin-left: 5px;
 }
+.fa {font-size: 16px;}
+.btn > .fa {margin-right: 5px;}
+.grid-view .glyphicon, .grid-view .fa {margin:0 2px;}
+.form-group .btn {margin-right: 10px;}
+.input-group .input-group-addon {
+    background-color: #eee;
+}
+.bg-hl { /* highlight yellow bg */
+    background-color: #ffff00;
+    color: #000;
+    padding:2px 5px;
+}
+.bg-red { 
+    background-color: red;
+    color: #fff;
+    padding:2px 5px;
+}
+.text-red { color: red !important;}
+.text-green { color: green !important;}
+.label-purple {
+  background-color: #605ca8 !important;
+  color: white !important;
+}
+    /* override adminLTE's alert style, use bootstrap's */
+.alert-warning {
+ color: #8a6d3b !important;
+  background-color: #fcf8e3 !important;
+  border-color: #faebcc !important;
+}
+.alert-warning a.btn { 
+    text-decoration: none;
+    margin-left: 5px;
+}
+.alert-success {
+  color: #3c763d !important;
+  background-color: #dff0d8 !important;
+  border-color: #d6e9c6 !important;
+}
+.alert a {text-decoration: none;}
