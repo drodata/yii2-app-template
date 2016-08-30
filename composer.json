@@ -20,11 +20,10 @@
         "yiisoft/yii2-swiftmailer": "*",
         "drodata/yii2-utility": "*",
         "almasaeed2010/adminlte": "~2.0",
-        "kartik-v/yii2-widget-select2": "@dev",
-        "npm-asset/light7": "v0.4.3",
         "alexgx/yii2-phpexcel": "@dev",
-        "bower-asset/framework7": "@dev",
-        "2amigos/yii2-file-upload-widget": "~1.0"
+        "kartik-v/yii2-widget-select2": "@dev",
+        "kartik-v/yii2-mpdf": "dev-master",
+        "picqer/php-barcode-generator": "^0.2.0"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
