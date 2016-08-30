@@ -43,3 +43,5 @@ backend/views/test/
 
 # Vim's swap files
 *.swp
+
+common/yii2-sensitive.json
