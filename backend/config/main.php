@@ -8,6 +8,7 @@ $params = array_merge(
 
 return [
     'id' => 'app-backend',
+    'name' => 'YAT',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'defaultRoute' => 'dashboard/index',

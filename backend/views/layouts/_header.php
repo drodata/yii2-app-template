@@ -8,7 +8,7 @@ use yii\bootstrap\NavBar;
 <header class="main-header">
     <?php
     NavBar::begin([
-        'brandLabel' => '<b>My Co</b>mpany',
+        'brandLabel' => Yii::$app->name,
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar navbar-static-top',

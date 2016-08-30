@@ -30,7 +30,7 @@ $this->registerJs($js, $this::POS_HEAD, 'global-js-constant');
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body class="skin-purple layout-top-nav">
+<body class="skin-<?= Yii::$app->params['skin'] ?> layout-top-nav">
 <?php $this->beginBody() ?>
 
 <div class="wrap">
@@ -53,9 +53,9 @@ $this->registerJs($js, $this::POS_HEAD, 'global-js-constant');
 <footer class="main-footer">
     <div class="container">
         <div class="pull-right hidden-xs">
-            <?= Yii::powered() ?>
+            <?= Yii::powered() . " + " . Html::a('drodata', 'http://drodata.com/') ?>
         </div>
-        <strong>&copy; <?= Html::a('My Company', Yii::getAlias('@frontendweb')) ?> <?= date('Y') ?></strong> All rights reserved.
+        <strong>&copy; <?= Html::a(Yii::$app->name, Yii::getAlias('@frontendweb')) ?> <?= date('Y') ?></strong> All rights reserved.
     </div>
 </footer>
 

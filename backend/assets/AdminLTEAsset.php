@@ -2,6 +2,7 @@
 
 namespace backend\assets;
 
+use Yii;
 use yii\web\AssetBundle;
 
 /**
@@ -10,10 +11,6 @@ use yii\web\AssetBundle;
 class AdminLTEAsset extends AssetBundle
 {
     public $sourcePath = '@vendor/almasaeed2010/adminlte/dist/';
-    public $css = [
-        'css/AdminLTE.css',
-        'css/skins/skin-purple.css',
-    ];
     public $js = ['js/app.js'];
     public $depends = [
         'yii\web\YiiAsset',
@@ -21,4 +18,25 @@ class AdminLTEAsset extends AssetBundle
         'yii\bootstrap\BootstrapPluginAsset',
         'drodata\assets\FontAwesomeAsset',
     ];
+    private $_css;
+
+    protected function getCss()
+    {
+        return $this->_css;
+    }
+    protected function setCss($arr)
+    {
+        $this->_css = $arr;
+
+    }
+
+    public function init()
+    {
+        $this->css = [
+            'css/AdminLTE.css',
+            'css/skins/skin-' . Yii::$app->params['skin'] . '.css',
+        ];
+
+        parent::init();
+    }
 }
