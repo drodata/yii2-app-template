@@ -3,7 +3,7 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Lookup;
+use backend\models\Lookup;
 use backend\models\LookupSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;

@@ -7,8 +7,6 @@ use yii\helpers\ArrayHelper;
 use yii\bootstrap\Html;
 use yii\behaviors\TimestampBehavior;
 use yii\behaviors\BlameableBehavior;
-use common\models\Lookup;
-//use common\models\User;
 
 /**
  * This is the model class for table "user_group".

@@ -7,8 +7,6 @@ use yii\helpers\ArrayHelper;
 use yii\bootstrap\Html;
 use yii\behaviors\TimestampBehavior;
 use yii\behaviors\BlameableBehavior;
-use common\models\Lookup;
-//use common\models\User;
 
 /**
  * This is the model class for table "lookup".
@@ -19,7 +17,7 @@ use common\models\Lookup;
  * @property string $type
  * @property integer $position
  */
-class Lookup extends \yii\db\ActiveRecord
+class BaseLookup extends \yii\db\ActiveRecord
 {
     private static $_items=array();
     /**
