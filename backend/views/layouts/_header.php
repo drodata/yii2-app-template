@@ -1,7 +1,7 @@
 <?php
 use yii\bootstrap\Html;
 use yii\bootstrap\Nav;
-use yii\bootstrap\NavBar;
+use drodata\widgets\NavBar;
 ?>
 
 
