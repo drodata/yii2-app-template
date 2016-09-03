@@ -19,6 +19,13 @@ var APP = {
 };
 JS;
 $this->registerJs($js, $this::POS_HEAD, 'global-js-constant');
+unset($js);
+
+$js = <<<JS
+$('[data-toggle="popover"]').popover()
+$('a:not([data-toggle])').tooltip()
+JS;
+$this->registerJs($js);
 ?>
 <?php $this->beginPage() ?>
 <!DOCTYPE html>

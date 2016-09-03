@@ -8,8 +8,15 @@ use drodata\widgets\NavBar;
 <header class="main-header">
     <?php
     NavBar::begin([
-        'brandLabel' => Yii::$app->name,
+        'brandLabel' => Html::tag('strong', Yii::$app->name),
         'brandUrl' => Yii::$app->homeUrl,
+        'brandOptions' => [
+            'title' => 'Yii2 Application Template (by drodata)',
+            'data' => [
+                'toggle' => 'tooltip',
+                'placement' => 'bottom',
+            ],
+        ],
         'options' => [
             'class' => 'navbar navbar-static-top',
         ],
