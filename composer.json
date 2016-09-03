@@ -18,7 +18,7 @@
         "yiisoft/yii2": ">=2.0.6",
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-swiftmailer": "*",
-        "drodata/yii2-utility": "*",
+        "drodata/yii2-utility": "dev-master",
         "almasaeed2010/adminlte": "~2.0",
         "alexgx/yii2-phpexcel": "@dev",
         "kartik-v/yii2-widget-select2": "@dev",
