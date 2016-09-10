@@ -9,6 +9,7 @@ $params = array_merge(
 return [
     'id' => 'app-backend',
     'name' => 'YAT',
+    'timeZone' => 'Asia/Shanghai', // timezone list: http://php.net/manual/en/timezones.php
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'defaultRoute' => 'dashboard/index',
