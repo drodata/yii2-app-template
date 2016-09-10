@@ -30,9 +30,11 @@
  *  AdminLTE
  ** ====================== */
 .content-wrapper { background-color: #eee; }
-.fa {font-size: 16px;}
-.box-tools > a { margin: 0 5px; }
-.grid-view .glyphicon, .grid-view .fa {margin:0 2px;}
+.box-tools > a, .box-tools > button { margin: 0 5px; }
+.grid-view .glyphicon, .grid-view .fa {
+    margin:0 2px;
+    font-size: 16px;
+}
 
     /* override adminLTE's alert style, use bootstrap's */
 .alert-warning {

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "be4c4bdb705d1c4bac2f629d2d8e8e13",
-    "content-hash": "7961541d0c0e74a71df48b33c7895294",
+    "hash": "a3ead4b6a3557ca49f0877a36fa97124",
+    "content-hash": "0736b1e96e114bf3481f73fb6f2e1be4",
     "packages": [
         {
             "name": "alexgx/yii2-phpexcel",
@@ -345,12 +345,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/drodata/yii2-utility.git",
-                "reference": "778a6c4ff161530e171afa36c6d592d5eb30cf95"
+                "reference": "14dbec9b323e3891b2cc025f297503c0b5bf42f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drodata/yii2-utility/zipball/778a6c4ff161530e171afa36c6d592d5eb30cf95",
-                "reference": "778a6c4ff161530e171afa36c6d592d5eb30cf95",
+                "url": "https://api.github.com/repos/drodata/yii2-utility/zipball/14dbec9b323e3891b2cc025f297503c0b5bf42f2",
+                "reference": "14dbec9b323e3891b2cc025f297503c0b5bf42f2",
                 "shasum": ""
             },
             "require": {
@@ -388,7 +388,7 @@
                 "helper",
                 "yii2"
             ],
-            "time": "2016-09-02 00:41:27"
+            "time": "2016-09-10 03:13:59"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -484,16 +484,16 @@
         },
         {
             "name": "kartik-v/yii2-krajee-base",
-            "version": "v1.8.6",
+            "version": "v1.8.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-krajee-base.git",
-                "reference": "713a1c4ad5b3f9be2832586584679c4b094c6937"
+                "reference": "8f558809e6093c8f4f4599b7b9fd64b366b22a60"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-krajee-base/zipball/713a1c4ad5b3f9be2832586584679c4b094c6937",
-                "reference": "713a1c4ad5b3f9be2832586584679c4b094c6937",
+                "url": "https://api.github.com/repos/kartik-v/yii2-krajee-base/zipball/8f558809e6093c8f4f4599b7b9fd64b366b22a60",
+                "reference": "8f558809e6093c8f4f4599b7b9fd64b366b22a60",
                 "shasum": ""
             },
             "require": {
@@ -531,7 +531,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2016-08-19 17:48:27"
+            "time": "2016-09-04 09:25:29"
         },
         {
             "name": "kartik-v/yii2-mpdf",
@@ -1013,21 +1013,21 @@
         },
         {
             "name": "yiisoft/yii2-bootstrap",
-            "version": "2.0.6",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-bootstrap.git",
-                "reference": "3fd2b8c950cce79d60e9702d6bcb24eb3c80f6c5"
+                "reference": "145235ffad542c7cf9a2736e9d119471fab9dbf9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/3fd2b8c950cce79d60e9702d6bcb24eb3c80f6c5",
-                "reference": "3fd2b8c950cce79d60e9702d6bcb24eb3c80f6c5",
+                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/145235ffad542c7cf9a2736e9d119471fab9dbf9",
+                "reference": "145235ffad542c7cf9a2736e9d119471fab9dbf9",
                 "shasum": ""
             },
             "require": {
                 "bower-asset/bootstrap": "3.3.* | 3.2.* | 3.1.*",
-                "yiisoft/yii2": ">=2.0.6"
+                "yiisoft/yii2": "~2.0.6"
             },
             "type": "yii2-extension",
             "extra": {
@@ -1059,7 +1059,7 @@
                 "bootstrap",
                 "yii2"
             ],
-            "time": "2016-03-17 03:29:28"
+            "time": "2016-09-05 10:55:27"
         },
         {
             "name": "yiisoft/yii2-composer",
@@ -1110,21 +1110,21 @@
         },
         {
             "name": "yiisoft/yii2-swiftmailer",
-            "version": "2.0.5",
+            "version": "2.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-swiftmailer.git",
-                "reference": "e2c6315caff30a9271a7afad4d684627721dc69a"
+                "reference": "26b900767f1031ff3a4668dfa36c10595875f0a5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-swiftmailer/zipball/e2c6315caff30a9271a7afad4d684627721dc69a",
-                "reference": "e2c6315caff30a9271a7afad4d684627721dc69a",
+                "url": "https://api.github.com/repos/yiisoft/yii2-swiftmailer/zipball/26b900767f1031ff3a4668dfa36c10595875f0a5",
+                "reference": "26b900767f1031ff3a4668dfa36c10595875f0a5",
                 "shasum": ""
             },
             "require": {
                 "swiftmailer/swiftmailer": "~5.0",
-                "yiisoft/yii2": ">=2.0.4"
+                "yiisoft/yii2": "~2.0.4"
             },
             "type": "yii2-extension",
             "extra": {
@@ -1156,7 +1156,7 @@
                 "swiftmailer",
                 "yii2"
             ],
-            "time": "2016-03-17 03:58:49"
+            "time": "2016-09-09 11:48:11"
         }
     ],
     "packages-dev": [
@@ -1469,6 +1469,7 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
+        "yiisoft/yii2-bootstrap": 20,
         "drodata/yii2-utility": 20,
         "alexgx/yii2-phpexcel": 20,
         "kartik-v/yii2-widget-select2": 20,
