@@ -8,7 +8,8 @@
 .input-group .input-group-addon {
     background-color: #eee;
 }
-.form-group .btn {margin-right: 10px;}
+.form-group .btn,
+.button-group .btn {margin: 0 3px;}
 .bg-hl {
     background-color: #ffff00;
     color: #000;
@@ -25,6 +26,9 @@
   background-color: #605ca8 !important;
   color: white !important;
 }
+.nav-tabs .badge,
+.box-header .badge
+{margin-left: 5px;}
 
 /** ======================
  *  AdminLTE
@@ -87,4 +91,6 @@
     border-color: #ddd;
 }
 .tab-content { padding: 20px 0 10px; }
-.nav-tabs .fa { margin-right:5px; }
+.nav-tabs-custom > .nav-tabs .fa,
+.btn .fa
+{margin: 0 3px;}
