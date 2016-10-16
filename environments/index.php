@@ -42,6 +42,7 @@ return [
             'frontend/models',
             'frontend/views',
             'frontend/controllers',
+            'static',
         ],
         'setExecutable' => [
             'yii',
@@ -59,6 +60,7 @@ return [
             'backend/web/assets',
             'frontend/runtime',
             'frontend/web/assets',
+            'static',
         ],
         'setExecutable' => [
             'yii',
