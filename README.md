@@ -1,4 +1,4 @@
-Drodata's Yii2 Project Template
+Drodata's Yii2 Application Template
 ===============================
 
 ## 安装步骤
@@ -13,7 +13,7 @@ Drodata's Yii2 Project Template
 }
 ```
 
-之后修改其权限为 `640`, 确保安全性。
+之后修改其权限为 `640`, 确保安全性；同时修改 group owner, 确保 Apache 有读取权限。
 
 ### 2. 配置数据库
 
@@ -25,3 +25,76 @@ Drodata's Yii2 Project Template
 
 - 在 Workbench 中导出表格为 `dump.sql`, 同时导入；
 - 再依次导入 `rbac.sql` 和 `test-data.sql`.
+
+### 4. 配置 Apache 虚拟主机
+
+在 Apache 配置文件中新增如下内容：
+
+```bash
+<VirtualHost *:80>
+    ServerName yat.com
+    DocumentRoot "/Users/drodata/www/yii2-app-template/frontend/web"
+    <Directory "/Users/drodata/www/yii2-app-template/frontend/web">
+           # use mod_rewrite for pretty URL support
+           RewriteEngine on
+           # If a directory or a file exists, use the request directly
+           RewriteCond %{REQUEST_FILENAME} !-f
+           RewriteCond %{REQUEST_FILENAME} !-d
+           # Otherwise forward the request to index.php
+           RewriteRule . index.php
+
+           # use index.php as index file
+           DirectoryIndex index.php
+
+           # ...other settings...
+    </Directory>
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName i.yat.com
+    DocumentRoot "/Users/drodata/www/yii2-app-template/backend/web"
+    <Directory "/Users/drodata/www/yii2-app-template/backend/web">
+           # use mod_rewrite for pretty URL support
+           RewriteEngine on
+           # If a directory or a file exists, use the request directly
+           RewriteCond %{REQUEST_FILENAME} !-f
+           RewriteCond %{REQUEST_FILENAME} !-d
+           # Otherwise forward the request to index.php
+           RewriteRule . index.php
+
+           # use index.php as index file
+           DirectoryIndex index.php
+
+           # ...other settings...
+    </Directory>
+</VirtualHost>
+
+<VirtualHost *:80>
+    ServerName static.yat.com
+    DocumentRoot "/Users/drodata/www/yii2-app-template/static"
+    <Directory "/Users/drodata/www/yii2-app-template/static">
+           # use mod_rewrite for pretty URL support
+           RewriteEngine on
+           # If a directory or a file exists, use the request directly
+           RewriteCond %{REQUEST_FILENAME} !-f
+           RewriteCond %{REQUEST_FILENAME} !-d
+           # Otherwise forward the request to index.php
+           RewriteRule . index.php
+
+           # use index.php as index file
+           DirectoryIndex index.php
+
+           # ...other settings...
+    </Directory>
+</VirtualHost>
+```
+
+修改 `/etc/hosts`, 新增如下内容：
+
+```bash
+127.0.0.1	           yat.com
+127.0.0.1	         i.yat.com
+127.0.0.1	    static.yat.com
+```
+
+最后，重启 Apache 。
