@@ -24,6 +24,9 @@ unset($js);
 $js = <<<JS
 $('[data-toggle="popover"]').popover()
 $('a:not([data-toggle])').tooltip()
+$(".navbar-collapse").css({
+    maxHeight: $(window).height() - $(".navbar-header").height() + "px" 
+});
 JS;
 $this->registerJs($js);
 ?>
