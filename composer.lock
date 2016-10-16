@@ -281,16 +281,16 @@
         },
         {
             "name": "cebe/markdown",
-            "version": "1.1.0",
+            "version": "1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/cebe/markdown.git",
-                "reference": "54a2c49de31cc44e864ebf0500a35ef21d0010b2"
+                "reference": "c30eb5e01fe021cc5bba2f9ee0eeef96d4931166"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/cebe/markdown/zipball/54a2c49de31cc44e864ebf0500a35ef21d0010b2",
-                "reference": "54a2c49de31cc44e864ebf0500a35ef21d0010b2",
+                "url": "https://api.github.com/repos/cebe/markdown/zipball/c30eb5e01fe021cc5bba2f9ee0eeef96d4931166",
+                "reference": "c30eb5e01fe021cc5bba2f9ee0eeef96d4931166",
                 "shasum": ""
             },
             "require": {
@@ -337,7 +337,7 @@
                 "markdown",
                 "markdown-extra"
             ],
-            "time": "2015-03-06 05:28:07"
+            "time": "2016-09-14 20:40:20"
         },
         {
             "name": "drodata/yii2-utility",
@@ -345,12 +345,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/drodata/yii2-utility.git",
-                "reference": "14dbec9b323e3891b2cc025f297503c0b5bf42f2"
+                "reference": "07412aef42693fc718da2f6e33b19ab1d9557f56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drodata/yii2-utility/zipball/14dbec9b323e3891b2cc025f297503c0b5bf42f2",
-                "reference": "14dbec9b323e3891b2cc025f297503c0b5bf42f2",
+                "url": "https://api.github.com/repos/drodata/yii2-utility/zipball/07412aef42693fc718da2f6e33b19ab1d9557f56",
+                "reference": "07412aef42693fc718da2f6e33b19ab1d9557f56",
                 "shasum": ""
             },
             "require": {
@@ -388,7 +388,7 @@
                 "helper",
                 "yii2"
             ],
-            "time": "2016-09-10 03:13:59"
+            "time": "2016-10-16 05:54:50"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -539,12 +539,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-mpdf.git",
-                "reference": "d2513eb34e507097ceafc1125164c50aeb905547"
+                "reference": "c9a888f5755d09bb10a9e5c0675e13565262a1bb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-mpdf/zipball/d2513eb34e507097ceafc1125164c50aeb905547",
-                "reference": "d2513eb34e507097ceafc1125164c50aeb905547",
+                "url": "https://api.github.com/repos/kartik-v/yii2-mpdf/zipball/c9a888f5755d09bb10a9e5c0675e13565262a1bb",
+                "reference": "c9a888f5755d09bb10a9e5c0675e13565262a1bb",
                 "shasum": ""
             },
             "require": {
@@ -583,7 +583,7 @@
                 "utf8",
                 "yii2"
             ],
-            "time": "2016-04-09 18:17:46"
+            "time": "2016-09-11 05:41:04"
         },
         {
             "name": "kartik-v/yii2-widget-select2",
@@ -591,12 +591,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-widget-select2.git",
-                "reference": "ed4467366f5ef50a7cfa957d5f07fa3c6d235a72"
+                "reference": "a37f76a565e99119ac013fc92ce081ffccb7f858"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-widget-select2/zipball/ed4467366f5ef50a7cfa957d5f07fa3c6d235a72",
-                "reference": "ed4467366f5ef50a7cfa957d5f07fa3c6d235a72",
+                "url": "https://api.github.com/repos/kartik-v/yii2-widget-select2/zipball/a37f76a565e99119ac013fc92ce081ffccb7f858",
+                "reference": "a37f76a565e99119ac013fc92ce081ffccb7f858",
                 "shasum": ""
             },
             "require": {
@@ -636,7 +636,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2016-08-30 13:16:04"
+            "time": "2016-10-08 18:27:20"
         },
         {
             "name": "mpdf/mpdf",

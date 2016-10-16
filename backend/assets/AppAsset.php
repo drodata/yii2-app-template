@@ -20,7 +20,6 @@ class AppAsset extends AssetBundle
     public $basePath = '@webroot';
     public $baseUrl  = '@web';
     public $css = [
-        'css/compatibility.css',
         'css/site.css',
     ];
     public $js = [
@@ -28,7 +27,7 @@ class AppAsset extends AssetBundle
         'js/ajax-operations.js',
     ];
     public $depends = [
-        'backend\assets\AdminLTEAsset',
+        'drodata\assets\AdminLTECustomAsset',
     ];
 }
 
