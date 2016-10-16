@@ -67,7 +67,7 @@ $this->params = [
                         },
                     ],
                     */
-                    ['class' => 'yii\grid\ActionColumn'],
+                    ['class' => 'drodata\grid\ActionColumn'],
                     /*
                     [
                         'class' => 'yii\grid\ActionColumn',
