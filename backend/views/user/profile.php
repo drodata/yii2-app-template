@@ -2,7 +2,7 @@
 
 use yii\bootstrap\Html;
 use drodata\widgets\Box;
-use common\models\Lookup;
+use backend\models\Lookup;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */

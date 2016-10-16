@@ -3,7 +3,7 @@
 use yii\bootstrap\Html;
 use yii\grid\GridView;
 use common\widgets\Box;
-use common\models\Lookup;
+use backend\models\Lookup;
 use backend\models\UserGroup;
 
 /* @var $this yii\web\View */
