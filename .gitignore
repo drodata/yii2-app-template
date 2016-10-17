@@ -47,3 +47,6 @@ static/
 *.swp
 
 common/yii2-sensitive.json
+
+# gitbook's published directory
+docs/_book/
