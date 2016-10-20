@@ -43,6 +43,7 @@ return [
         ],
         'urlManager' => [
             'rules' => [
+                'demo/<category>' => 'demo/index',
             ],
         ],
     ],

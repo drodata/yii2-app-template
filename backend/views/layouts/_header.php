@@ -60,13 +60,10 @@ use drodata\widgets\NavBar;
 
     $rightMenuItems = [
         [
-            'label' => 'Home',
-            'url' => ['site/index'],
-        ],
-        [
-            'label' => 'Dropdown',
+            'label' => 'Demo',
             'items' => [
-                 ['label' => 'Level 1 - Dropdown A', 'url' => '#'],
+                 ['label' => 'Select2', 'url' => '/demo/select2'],
+                 ['label' => 'Box', 'url' => '/demo/box'],
                  '<li class="divider"></li>',
                  '<li class="dropdown-header">Dropdown Header</li>',
                  ['label' => 'Level 1 - Dropdown B', 'url' => '#'],
