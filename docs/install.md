@@ -1,18 +1,12 @@
 # Installation
 
-## 0. 下载
+## 1. 下载安装
 
 ```bash
-git clone git@github.com:drodata/yii2-app-template.git
+composer create-project --prefer-dist --stability=dev drodata/yii2-app-template
 ```
 
-## 1. 初始化应用
-
-```bash
-cd yii2-app-template
-./init
-composer install
-```
+> :bell: 请确保电脑上已安装 Composer 和 `fxp/composer-asset-plugin` 插件。如未安装，参考 https://github.com/drodata/learning-notes/blob/master/meet/composer/download.md 安装
 
 ## 2. 配置数据库
 
