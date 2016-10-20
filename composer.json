@@ -1,16 +1,19 @@
 {
-    "name": "yiisoft/yii2-app-advanced",
-    "description": "Yii 2 Advanced Project Template",
-    "keywords": ["yii2", "framework", "advanced", "project template"],
-    "homepage": "http://www.yiiframework.com/",
+    "name": "drodata/yii2-app-template",
+    "description": "Improved Version of Yii 2 Advanced Project Template",
+    "keywords": ["yii2", "framework", "advanced", "project template", "drodata", "yat"],
+    "authors": [
+        {
+            "name": "drodata",
+            "email": "drodata@foxmail.com"
+        }
+    ],
+    "homepage": "https://github.com/drodata/yii2-app-template",
     "type": "project",
     "license": "BSD-3-Clause",
     "support": {
-        "issues": "https://github.com/yiisoft/yii2/issues?state=open",
-        "forum": "http://www.yiiframework.com/forum/",
-        "wiki": "http://www.yiiframework.com/wiki/",
-        "irc": "irc://irc.freenode.net/yii",
-        "source": "https://github.com/yiisoft/yii2"
+        "issues": "https://github.com/drodata/yii2-app-template/issues",
+        "source": "https://github.com/drodata/yii2-app-template"
     },
     "minimum-stability": "stable",
     "require": {
@@ -18,7 +21,7 @@
         "yiisoft/yii2": ">=2.0.6",
         "yiisoft/yii2-bootstrap": "dev-master",
         "yiisoft/yii2-swiftmailer": "*",
-        "drodata/yii2-utility": "dev-master",
+        "drodata/yii2-utility": "@dev",
         "almasaeed2010/adminlte": "~2.0",
         "alexgx/yii2-phpexcel": "@dev",
         "kartik-v/yii2-widget-select2": "@dev",
@@ -38,6 +41,9 @@
         "asset-installer-paths": {
             "npm-asset-library": "vendor/npm",
             "bower-asset-library": "vendor/bower"
+        },
+        "branch-alias": {
+            "dev-master": "1.0.x-dev"
         }
     },
     "scripts": {

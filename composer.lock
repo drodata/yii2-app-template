@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "a3ead4b6a3557ca49f0877a36fa97124",
-    "content-hash": "0736b1e96e114bf3481f73fb6f2e1be4",
+    "hash": "a000a362d5d87656a1576634f6ebb9a5",
+    "content-hash": "98b2e88e924167c6e3c6e3080ce94e8c",
     "packages": [
         {
             "name": "alexgx/yii2-phpexcel",
@@ -53,16 +53,16 @@
         },
         {
             "name": "almasaeed2010/adminlte",
-            "version": "v2.3.6",
+            "version": "v2.3.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/almasaeed2010/AdminLTE.git",
-                "reference": "be11566d9539370b196ac85f22a6baf9f42c87cb"
+                "reference": "797b65b3ca90525a4e048de5b8d02ba6878ea239"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/almasaeed2010/AdminLTE/zipball/be11566d9539370b196ac85f22a6baf9f42c87cb",
-                "reference": "be11566d9539370b196ac85f22a6baf9f42c87cb",
+                "url": "https://api.github.com/repos/almasaeed2010/AdminLTE/zipball/797b65b3ca90525a4e048de5b8d02ba6878ea239",
+                "reference": "797b65b3ca90525a4e048de5b8d02ba6878ea239",
                 "shasum": ""
             },
             "type": "library",
@@ -89,7 +89,7 @@
                 "theme",
                 "web"
             ],
-            "time": "2016-08-04 23:22:06"
+            "time": "2016-10-19 15:34:25"
         },
         {
             "name": "bower-asset/bootstrap",
@@ -345,12 +345,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/drodata/yii2-utility.git",
-                "reference": "e251cb987edd3d8d9c4e09c9350b5439f6caefde"
+                "reference": "d3db6c245b34c9dca4f8d2a7d6da3e3395a9ef78"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drodata/yii2-utility/zipball/e251cb987edd3d8d9c4e09c9350b5439f6caefde",
-                "reference": "e251cb987edd3d8d9c4e09c9350b5439f6caefde",
+                "url": "https://api.github.com/repos/drodata/yii2-utility/zipball/d3db6c245b34c9dca4f8d2a7d6da3e3395a9ef78",
+                "reference": "d3db6c245b34c9dca4f8d2a7d6da3e3395a9ef78",
                 "shasum": ""
             },
             "require": {
@@ -388,7 +388,7 @@
                 "helper",
                 "yii2"
             ],
-            "time": "2016-10-16 07:44:55"
+            "time": "2016-10-20 02:21:27"
         },
         {
             "name": "ezyang/htmlpurifier",
