@@ -48,7 +48,7 @@ $this->registerJs($js);
     <div class="content-wrapper">
         <div class="container">
             <section class="content-header">
-                <h1> <?= $this->params['title'] ?><small></small> </h1>
+                <h1><?= $this->params['title'] ?><small><?= $this->params['subtitle'] ?></small> </h1>
                 <?= Breadcrumbs::widget([
                     'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
                 ]) ?>
