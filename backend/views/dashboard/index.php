@@ -3,10 +3,22 @@ use drodata\widgets\Box;
 /* @var $this yii\web\View */
 
 $this->title = 'Dashboard';
-?>
-<?php Box::begin([
+$this->params = [
     'title' => $this->title,
-    //'style' => 'danger',
-]);?>
-
-<?php Box::end();?>
+    'breadcrumbs' => [
+        ['label' => 'Index', 'url' => 'index'],
+        $this->title,
+    ],
+];
+?>
+<div class="row">
+    <div class="col-md-8 col-sm-12">
+        <?= Box::widget([
+            'title' => 'Sale Report',
+            'tools' => [
+                'collapse',
+            ],
+            'content' => $this->render('/demo/_widget-sale-chart'),
+        ]) ?>
+    </div>
+</div>
