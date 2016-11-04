@@ -47,6 +47,10 @@ use drodata\widgets\NavBar;
             ],
         ],
         [
+            'label' => 'WeUI',
+            'url' => ['/weui/index'],
+        ],
+        [
             'visible' => YII_ENV_DEV && Yii::$app->user->can('admin'),
             'label' => 'Test',
             'url' => ['/test/index'],
