@@ -199,12 +199,12 @@
             "version": "3.2.7",
             "source": {
                 "type": "git",
-                "url": "https://github.com/RobinHerbots/jquery.inputmask.git",
+                "url": "https://github.com/RobinHerbots/Inputmask.git",
                 "reference": "5a72c563b502b8e05958a524cdfffafe9987be38"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/RobinHerbots/jquery.inputmask/zipball/5a72c563b502b8e05958a524cdfffafe9987be38",
+                "url": "https://api.github.com/repos/RobinHerbots/Inputmask/zipball/5a72c563b502b8e05958a524cdfffafe9987be38",
                 "reference": "5a72c563b502b8e05958a524cdfffafe9987be38",
                 "shasum": ""
             },
@@ -368,12 +368,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/drodata/yii2-utility.git",
-                "reference": "341731e3a4037bd8bf9addcb944fc9c717ef5c0d"
+                "reference": "54bf3e1f7a5461c07c4ae06151fada6513154722"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drodata/yii2-utility/zipball/341731e3a4037bd8bf9addcb944fc9c717ef5c0d",
-                "reference": "341731e3a4037bd8bf9addcb944fc9c717ef5c0d",
+                "url": "https://api.github.com/repos/drodata/yii2-utility/zipball/54bf3e1f7a5461c07c4ae06151fada6513154722",
+                "reference": "54bf3e1f7a5461c07c4ae06151fada6513154722",
                 "shasum": ""
             },
             "require": {
@@ -411,7 +411,7 @@
                 "helper",
                 "yii2"
             ],
-            "time": "2016-10-29 02:54:54"
+            "time": "2016-11-02 06:01:06"
         },
         {
             "name": "ezyang/htmlpurifier",
