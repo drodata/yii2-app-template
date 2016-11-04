@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f891c8a7a5c8e2f6031cf3d006146f20",
-    "content-hash": "0ab563a43bd6ff5287fadc3c2640b632",
+    "hash": "f2f044aa04e9a3ca71da14fc1e193b62",
+    "content-hash": "54949932bcadcb8e35ed65eeb5bdd810",
     "packages": [
         {
             "name": "alexgx/yii2-phpexcel",
@@ -267,6 +267,36 @@
                     "package.json"
                 ]
             }
+        },
+        {
+            "name": "bower-asset/weui",
+            "version": "v1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/weui/weui.git",
+                "reference": "78a17c1c2e8155bc848d0ec4e03246f8f5d53f52"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/weui/weui/zipball/78a17c1c2e8155bc848d0ec4e03246f8f5d53f52",
+                "reference": "78a17c1c2e8155bc848d0ec4e03246f8f5d53f52",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "dist/style/weui.css",
+                "bower-asset-ignore": []
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "wechat mobile ui",
+            "keywords": [
+                "mobile",
+                "ui",
+                "wechat",
+                "weixin"
+            ]
         },
         {
             "name": "bower-asset/yii2-pjax",
