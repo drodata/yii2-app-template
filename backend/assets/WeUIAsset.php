@@ -9,7 +9,7 @@ use yii\web\AssetBundle;
  */
 class WeUIAsset extends AssetBundle
 {
-    public $basePath = '@bower/weui/dist/';
+    public $sourcePath = '@bower/weui/dist/';
     public $css = [
         'style/weui.css',
     ];
