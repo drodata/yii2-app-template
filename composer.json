@@ -25,6 +25,7 @@
         "alexgx/yii2-phpexcel": "@dev",
         "bower-asset/chartjs": "2.3.0",
         "bower-asset/weui": "1.0.2",
+        "bower-asset/weui.js": "0.3.0",
         "kartik-v/yii2-widget-select2": "2.0.8",
         "kartik-v/yii2-mpdf": "~1.0",
         "picqer/php-barcode-generator": "0.2.1",

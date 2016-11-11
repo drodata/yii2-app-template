@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "858c92b28b5e0d9235808874960fe9f6",
-    "content-hash": "312529d61ef4358d67ef49d5b2cb7d1e",
+    "hash": "11d4a772dab33b2e03fbeadbd761ffbc",
+    "content-hash": "f85136fa6b29b9af2a0afcadad386649",
     "packages": [
         {
             "name": "alexgx/yii2-phpexcel",
@@ -297,6 +297,36 @@
                 "wechat",
                 "weixin"
             ]
+        },
+        {
+            "name": "bower-asset/weui.js",
+            "version": "v0.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/progrape/weui.js.git",
+                "reference": "65aefd90c2c08bc3a616ad1e2fb3dc8a8146599a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/progrape/weui.js/zipball/65aefd90c2c08bc3a616ad1e2fb3dc8a8146599a",
+                "reference": "65aefd90c2c08bc3a616ad1e2fb3dc8a8146599a",
+                "shasum": ""
+            },
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": "dist/weui.js",
+                "bower-asset-ignore": [
+                    "**/.*",
+                    "node_modules",
+                    "bower_components",
+                    "test",
+                    "tests"
+                ]
+            },
+            "license": [
+                "MIT"
+            ],
+            "description": "JavaScript for WeUI"
         },
         {
             "name": "bower-asset/yii2-pjax",
