@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "f2f044aa04e9a3ca71da14fc1e193b62",
-    "content-hash": "54949932bcadcb8e35ed65eeb5bdd810",
+    "hash": "858c92b28b5e0d9235808874960fe9f6",
+    "content-hash": "312529d61ef4358d67ef49d5b2cb7d1e",
     "packages": [
         {
             "name": "alexgx/yii2-phpexcel",
