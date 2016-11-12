@@ -18,5 +18,6 @@ class WeUIAppAsset extends AssetBundle
     public $depends = [
         'yii\web\YiiAsset',
         'backend\assets\WeUIAsset',
+        'backend\assets\WeUIJsAsset',
     ];
 }
