@@ -18,9 +18,13 @@ WeUIAppAsset::register($this);
     <title><?= Html::encode($this->title) ?></title>
     <?php $this->head() ?>
 </head>
-<body>
+<body ontouchstart>
 <?php $this->beginBody() ?>
+
+<div class="container">
 <?= $content ?>
+</div>
+
 <?php $this->endBody() ?>
 </body>
 </html>
