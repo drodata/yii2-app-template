@@ -42,6 +42,7 @@ return [
             'frontend/models',
             'frontend/views',
             'frontend/controllers',
+            'common/models',
             'static',
         ],
         'setExecutable' => [

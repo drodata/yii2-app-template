@@ -3,7 +3,7 @@ $sensitive = json_decode(file_get_contents(Yii::getAlias('@common') . '/yii2-sen
 $arg = [
     'password' => $sensitive->password,
     'domain' => 'yat.com',
-    'dbname' => 'yii2_app_template',
+    'dbname' => 'yat',
 ];
 return [
     'aliases' => [
