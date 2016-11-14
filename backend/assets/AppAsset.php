@@ -7,7 +7,7 @@
 
 namespace backend\assets;
 
-use yii\web\AssetBundle;
+use drodata\web\AssetBundle;
 
 /**
  * @author Qiang Xue <qiang.xue@gmail.com>
@@ -17,6 +17,7 @@ use yii\web\AssetBundle;
  */
 class AppAsset extends AssetBundle
 {
+    public $appendMd5Hash = true;
     public $basePath = '@webroot';
     public $baseUrl  = '@web';
     public $css = [
@@ -29,17 +30,4 @@ class AppAsset extends AssetBundle
     public $depends = [
         'drodata\assets\AdminLTECustomAsset',
     ];
-
-    public function init()
-    {
-        parent::init();
-
-        // protect frequent changed assets from cached in browser
-        foreach (['css', 'js'] as $prop) {
-            for ($i = 0; $i < count($this->$prop); $i++) {
-                $hash = substr(md5_file($this->basePath . '/' . $this->{$prop}[$i]), 0, 10);
-                $this->{$prop}[$i] .= '?v=' . $hash;
-            }
-        }
-    }
 }
