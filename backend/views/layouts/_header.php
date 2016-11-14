@@ -33,6 +33,7 @@ use drodata\widgets\NavBar;
             'items' => [
                  ['label' => 'Lookup', 'url' => '/lookup/index'],
                  '<li class="divider"></li>',
+                 ['label' => 'Notification', 'url' => '/notification/'],
             ],
         ],
         [

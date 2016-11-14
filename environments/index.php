@@ -44,6 +44,7 @@ return [
             'frontend/controllers',
             'common/models',
             'static',
+            'dro',
         ],
         'setExecutable' => [
             'yii',

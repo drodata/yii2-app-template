@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "858c92b28b5e0d9235808874960fe9f6",
-    "content-hash": "312529d61ef4358d67ef49d5b2cb7d1e",
+    "hash": "d8c7c362d22651a7ac0456eedeb5a242",
+    "content-hash": "eb231929f8e7144ccdd4049cc9a417a6",
     "packages": [
         {
             "name": "alexgx/yii2-phpexcel",
@@ -391,6 +391,55 @@
                 "markdown-extra"
             ],
             "time": "2016-09-14 20:40:20"
+        },
+        {
+            "name": "dro/yii2-notification",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/drodata/yii2-notification.git",
+                "reference": "11c59a803b27c96be32f817bed922074ee771ce7"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/drodata/yii2-notification/zipball/11c59a803b27c96be32f817bed922074ee771ce7",
+                "reference": "11c59a803b27c96be32f817bed922074ee771ce7",
+                "shasum": ""
+            },
+            "require": {
+                "yiisoft/yii2": "~2.0"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "asset-installer-paths": {
+                    "npm-asset-library": "vendor/npm",
+                    "bower-asset-library": "vendor/bower"
+                },
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "dro\\notification\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "drodata",
+                    "email": "drodata@foxmail.com"
+                }
+            ],
+            "description": "Notification module",
+            "keywords": [
+                "notification",
+                "yii2"
+            ],
+            "time": "2016-11-14 12:17:20"
         },
         {
             "name": "drodata/yii2-utility",
@@ -1416,6 +1465,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "alexgx/yii2-phpexcel": 20,
+        "dro/yii2-notification": 20,
         "drodata/yii2-utility": 20
     },
     "prefer-stable": false,

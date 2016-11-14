@@ -28,6 +28,7 @@
         "kartik-v/yii2-widget-select2": "2.0.8",
         "kartik-v/yii2-mpdf": "~1.0",
         "picqer/php-barcode-generator": "0.2.1",
+        "dro/yii2-notification": "@dev",
         "drodata/yii2-utility": "@dev"
     },
     "require-dev": {

@@ -14,7 +14,11 @@ return [
     'controllerNamespace' => 'backend\controllers',
     'defaultRoute' => 'dashboard/index',
     'bootstrap' => ['log'],
-    'modules' => [],
+    'modules' => [
+        'notification' => [
+            'class' => 'dro\notification\Module',
+        ],
+    ],
     'components' => [
         'user' => [
             'identityClass' => 'common\models\User',
