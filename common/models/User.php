@@ -7,6 +7,7 @@ use yii\helpers\ArrayHelper;
 use drodata\helpers\Html;
 use yii\behaviors\TimestampBehavior;
 use yii\behaviors\BlameableBehavior;
+use yii\web\IdentityInterface;
 
 /**
  * This is the model class for table "user".
@@ -30,8 +31,10 @@ use yii\behaviors\BlameableBehavior;
  * @property Notification[] $notifications
  * @property Notification[] $notifications0
  */
-class User extends \yii\db\ActiveRecord
+class User extends \yii\db\ActiveRecord implements IdentityInterface
 {
+    const FROZEN = 0;
+    const ACTIVE = 1;
     /**
      * @inheritdoc
      */
@@ -102,6 +105,14 @@ class User extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    public static function findIdentity($id)
+    {
+        return static::findOne(['id' => $id, 'status' => self::ACTIVE]);
+    }
+
+    /**
+     * @inheritdoc
+     */
     public function attributeLabels()
     {
         return [
@@ -118,9 +129,84 @@ class User extends \yii\db\ActiveRecord
             'last_logined_at' => 'Last Logined At',
         ];
     }
-
+    /**
+     * @inheritdoc
+     */
+    public static function findIdentityByAccessToken($token, $type = null)
+    {
+        throw new NotSupportedException('"findIdentityByAccessToken" is not implemented.');
+    }
+    /**
+     * Finds user by username
+     *
+     * @param string $username
+     * @return static|null
+     */
+    public static function findByUsername($username)
+    {
+        return static::findOne(['username' => $username, 'status' => self::ACTIVE]);
+    }
+    /**
+     * Finds user by password reset token
+     *
+     * @param string $token password reset token
+     * @return static|null
+     */
+    public static function findByPasswordResetToken($token)
+    {
+        if (!static::isPasswordResetTokenValid($token)) {
+            return null;
+        }
+        return static::findOne([
+            'password_reset_token' => $token,
+            'status' => self::ACTIVE,
+        ]);
+    }
+    /**
+     * Finds out if password reset token is valid
+     *
+     * @param string $token password reset token
+     * @return boolean
+     */
+    public static function isPasswordResetTokenValid($token)
+    {
+        if (empty($token)) {
+            return false;
+        }
+        $timestamp = (int) substr($token, strrpos($token, '_') + 1);
+        $expire = Yii::$app->params['user.passwordResetTokenExpire'];
+        return $timestamp + $expire >= time();
+    }
+    /**
+     * @inheritdoc
+     */
+    public function getId()
+    {
+        return $this->getPrimaryKey();
+    }
+    /**
+     * @inheritdoc
+     */
+    public function getAuthKey()
+    {
+        return $this->auth_key;
+    }
+    /**
+     * @inheritdoc
+     */
+    public function validateAuthKey($authKey)
+    {
+        return $this->getAuthKey() === $authKey;
+    }
     // ==== getter starts ====
 
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+    public function getGroup()
+    {
+        return $this->hasOne(UserGroup::className(), ['id' => 'group_id']);
+    }
     /**
      * @return \yii\db\ActiveQuery
      */
@@ -166,52 +252,6 @@ class User extends \yii\db\ActiveRecord
 
     // ==== getter ends ====
 
-    /**
-     * @inheritdoc
-     * @return boolean
-     */
-    public function beforeSave($insert)
-    {
-        if (parent::beforeSave($insert)) {
-            if ($insert) {
-                // you logic
-            } else {
-            }
-            return true;
-        } else {
-            return false;
-        }
-    }
-    /**
-     * @inheritdoc
-     * @return void
-     */
-    public function afterSave($insert, $changedAttributes)
-    {
-        parent::afterSave($insert, $changedAttributes);
-        if ($insert) {
-            // logic
-        } else {
-            // logic
-        }
-    }
-    public function beforeDelete()
-    {
-        if (parent::beforeDelete()) {
-            // ...custom code here...
-            return true;
-        } else {
-            return false;
-        }
-    }
-    /**
-     * @inheritdoc
-     * @return void
-     */
-    public function afterDelete()
-    {
-        parent::afterDelete();
-    }
     /*
     public function append($orderIds)
     {

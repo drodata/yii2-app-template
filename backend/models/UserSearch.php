@@ -24,7 +24,7 @@ class UserSearch extends User
     public function rules()
     {
         return [
-            [['id', 'status', 'group_id', 'created_at', 'updated_at', 'last_login_at', 'created_by', 'updated_by', 'owned_by'], 'integer'],
+            [['id', 'status', 'group_id', 'created_at', 'updated_at', 'last_logined_at'], 'integer'],
             [['username', 'screen_name', 'auth_key', 'password_hash', 'password_reset_token', 'email', 'note'], 'safe'],
             // usefull when filtering on related columns
             //[['author.name'], 'safe'],
@@ -97,10 +97,7 @@ class UserSearch extends User
             'group_id' => $this->group_id,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
-            'last_login_at' => $this->last_login_at,
-            'created_by' => $this->created_by,
-            'updated_by' => $this->updated_by,
-            'owned_by' => $this->owned_by,
+            'last_logined_at' => $this->last_logined_at,
         ]);
 
         $query->andFilterWhere(['like', 'username', $this->username])
@@ -108,8 +105,7 @@ class UserSearch extends User
             ->andFilterWhere(['like', 'auth_key', $this->auth_key])
             ->andFilterWhere(['like', 'password_hash', $this->password_hash])
             ->andFilterWhere(['like', 'password_reset_token', $this->password_reset_token])
-            ->andFilterWhere(['like', 'email', $this->email])
-            ->andFilterWhere(['like', 'note', $this->note]);
+            ->andFilterWhere(['like', 'email', $this->email]);
             //->andFilterWhere(['LIKE', 'user_group.name', $this->getAttribute('group.name')])
         return $dataProvider;
     }

@@ -52,7 +52,7 @@ $this->params = [
                     ],
                     // 'created_at',
                     // 'updated_at',
-                    // 'last_login_at',
+                    // 'last_logined_at',
                     // 'created_by',
                     // 'updated_by',
                     // 'owned_by',

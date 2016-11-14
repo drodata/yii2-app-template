@@ -22,6 +22,7 @@ class m161114_075918_init extends Migration
         $this->createTable('{{%user}}', [
             'id' => $this->primaryKey(),
             'username' => $this->string()->notNull()->unique(),
+            'screen_name' => $this->string(30)->notNull(),
             'group_id' => $this->integer()->notNull(),
             'auth_key' => $this->string(32)->notNull(),
             'password_hash' => $this->string()->notNull(),
