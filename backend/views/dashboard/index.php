@@ -18,7 +18,7 @@ $this->params = [
             'tools' => [
                 'collapse',
             ],
-            'content' => $this->render('/demo/_widget-sale-chart'),
+            'content' => 'a',//$this->render('/demo/_widget-sale-chart'),
         ]) ?>
     </div>
 </div>

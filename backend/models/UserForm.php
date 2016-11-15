@@ -111,7 +111,7 @@ class UserForm extends Model
         return [
             'password' => '密码',
             'passwordRepeat' => '重复密码',
-            'role' => '职责',
+            'role' => '角色',
             'resetpswd' => '初始密码',
             'note' => '付款指令',
             'credit' => '外包客服信用额度',

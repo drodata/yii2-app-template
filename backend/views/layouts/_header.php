@@ -31,9 +31,14 @@ use drodata\widgets\NavBar;
                 'title' => '设置',
             ],
             'items' => [
-                 ['label' => 'Lookup', 'url' => '/lookup/index'],
-                 '<li class="divider"></li>',
-                 ['label' => 'Notification', 'url' => '/notification/'],
+                [
+                    'encode' => false,
+                    'label' => Html::fwicon('user') . '用户',
+                    'url' => '/user/index',
+                ],
+                ['label' => 'Lookup', 'url' => '/lookup/index'],
+                '<li class="divider"></li>',
+                ['label' => 'Notification', 'url' => '/notification/'],
             ],
         ],
         [

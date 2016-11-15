@@ -19,7 +19,6 @@ use backend\models\UserGroup;
         <?= $form->field($userForm, 'passwordRepeat')->passwordInput(['maxlength' => true]) ?>
 	<?php endif;?>
 
-    <?= $form->field($user, 'screen_name')->textInput(['maxlength' => true, 'placeholder' => '选填']) ?>
     <?= $form->field($user, 'group_id')->radioList(UserGroup::map()) ?>
 
 	<?php 

@@ -16,7 +16,7 @@ $this->params = [
 ];
 ?>
 <div class="row user-create">
-    <div class="col-md-12 col-lg-8 col-lg-offset-2">
+    <div class="col-md-12 col-lg-6 col-lg-offset-3">
         <?php Box::begin([
             'title' => $this->title,
         ]);?>
