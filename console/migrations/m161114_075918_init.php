@@ -30,6 +30,8 @@ class m161114_075918_init extends Migration
             'email' => $this->string()->notNull()->unique(),
 
             'status' => $this->boolean()->notNull()->defaultValue(1),
+            'created_by' => $this->integer()->notNull(),
+            'updated_by' => $this->integer()->notNull(),
             'created_at' => $this->integer()->notNull(),
             'updated_at' => $this->integer()->notNull(),
             'last_logined_at' => $this->integer()->notNull(),
@@ -46,7 +48,7 @@ class m161114_075918_init extends Migration
 
     public function down()
     {
-        $this->dropTable('{{%user_option}}');
+        $this->dropTable('{{%user_group}}');
         $this->dropTable('{{%user}}');
         $this->dropTable('{{%lookup}}');
     }
