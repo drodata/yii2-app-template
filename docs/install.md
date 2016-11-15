@@ -24,15 +24,24 @@ composer create-project --prefer-dist --stability=dev drodata/yii2-app-template
 
 ### 2.1 建立数据库
 
-新建一个 `yii2_app_template` 的数据库，并配置好 Apache.
+新建一个 `yat` 的数据库，并配置好 Apache.
 
 > 如果需要修改数据库名称，记得修改 `common/config/main-local.php` 中的对应字段。还有，如果使用 MySQL Workbench 开发，还需要修改默认的 `yat.mwb` 中的 schema name 字段，修改成新的数据库名称。
 
 
-### 2.3 导入 SQL 数据
+### 2.2 初始化数据库
 
-- 在 Workbench 中打开 `yat.mwb`, 并导出数据库, 再将该文件该导入数据库；
-- 再依次导入 `rbac.sql` 和 `test-data.sql`.
+在项目根目录下，依次运行如下命令：
+
+```bash
+# create basic tables such as `user`, `lookup`
+.yii migration
+
+# build RBAC tables
+.yii migration --migrationPath=@yii/rbac/migrations
+```
+
+最后，导入测试数据 (`test-data.sql`).
 
 ## 3. 配置 Apache 虚拟主机
 

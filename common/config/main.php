@@ -6,7 +6,7 @@ return [
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=localhost;dbname=drodata_com',
+            'dsn' => 'mysql:host=localhost;dbname=yii2_application_template',
             'username' => 'root',
             'charset' => 'utf8',
         ],
