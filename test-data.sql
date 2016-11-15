@@ -1,8 +1,3 @@
-/* rbac data population */
-INSERT INTO `auth_item` VALUES 
-    ('admin',1,'系统管理员',NULL,NULL,1467380617,1467380617);
-INSERT INTO `auth_assignment` VALUES ('admin','1',1467380617);
-
 INSERT INTO lookup (name, code, type, position) VALUES 
     ('正常', 1, 'UserStatus', 1),
     ('冻结', 2, 'UserStatus', 2),
