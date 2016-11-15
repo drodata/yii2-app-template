@@ -12,7 +12,7 @@ composer create-project --prefer-dist --stability=dev drodata/yii2-app-template
 
 ### 2.1 配置数据库敏感信息
 
-在 `common/` 目录下新建一个名为 `yii2-sensitive.json` 文件，内容如下：
+在 `common/` 目录下，将文件 `common/yii2-sensitive.json.sample` 重命名为 `yii2-sensitive.json` 文件；打开文件，输入 MySQL 密码
    
 ```
 {
