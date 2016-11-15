@@ -25,8 +25,7 @@ class UserForm extends Model
         return [
             [['role', 'password'], 'required'],
             [['password'], 'string', 'min' => 6],
-            [['passwordRepeat'], 'compare', 'compareAttribute' => 'password'],
-            [['note'], 'safe'],
+            [['passwordRepeat'], 'compare', 'compareAttribute' => 'password', 'on' => self::SCENARIO_CREATE],
             /*
             [['role'], 'required'],
             [['password'], 'required', 'on' => self::SCENARIO_CREATE],
@@ -63,14 +62,6 @@ class UserForm extends Model
             [['resetpswd'], 'required', 'on' => self::SCENARIO_RESET_PSWD],
             [['resetpswd'], 'string', 'min' => 6, 'on' => self::SCENARIO_RESET_PSWD],
             */
-        ];
-    }
-    public function scenarios()
-    {
-        return [
-            self::SCENARIO_CREATE => ['role', 'password', 'passwordRepeat', 'note'],
-            self::SCENARIO_UPDATE => ['role','note'],
-            self::SCENARIO_RESET_PSWD => ['resetpswd'],
         ];
     }
 

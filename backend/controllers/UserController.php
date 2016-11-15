@@ -93,7 +93,9 @@ class UserController extends Controller
         if ($user->load(Yii::$app->request->post()) && $userForm->load(Yii::$app->request->post())) {
 			if ($user->validate() && $userForm->validate()) {
 
-                $user->userForm = $userForm;
+                $user->on(User::EVENT_BEFORE_INSERT, [$user, 'generatePassword'], $userForm->password);
+                $user->on(User::EVENT_AFTER_INSERT, [$user, 'saveRole'], $userForm->role);
+
                 if ($user->save()) {
                     Yii::$app->session->setFlash('success', '用户已创建');
 				    return $this->redirect('index');

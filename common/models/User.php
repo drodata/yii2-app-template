@@ -81,7 +81,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            [['username', 'group_id', 'email', 'last_logined_at'], 'required'],
+            [['username', 'group_id'], 'required'],
             [['group_id', 'status', 'created_at', 'updated_at', 'last_logined_at'], 'integer'],
             [['username', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],
@@ -210,6 +210,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return Yii::$app->security->validatePassword($password, $this->password_hash);
     }
+
     /**
      * Generates password hash from password and sets it to the model
      *
@@ -218,6 +219,30 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     public function setPassword($password)
     {
         $this->password_hash = Yii::$app->security->generatePasswordHash($password);
+    }
+
+    /**
+     * Triggerred in user/create
+     *
+     * $event->data contains original password
+     */
+    public function generatePassword($event)
+    {
+        $this->setPassword($event->data);
+    }
+
+    /**
+     * Triggerred in user/create
+     *
+     * $event->data contains role
+     */
+    public function saveRole($event)
+    {
+        $roleString = $event->data;
+
+        $auth = Yii::$app->authManager;
+        $role = $auth->getRole($roleString);
+        $auth->assign($role, $this->id);
     }
     // ==== getter starts ====
 
