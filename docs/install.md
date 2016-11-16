@@ -41,7 +41,17 @@ composer create-project --prefer-dist --stability=dev drodata/yii2-app-template
 .yii migration --migrationPath=@yii/rbac/migrations
 ```
 
-最后，导入测试数据 (`test-data.sql`).
+### 2.3 导入基础数据
+
+1. 导入 RBAC 权限配置信息(如需变更，请更改后再执行命令)
+
+   ```bash
+   ./yii rbac/init
+   
+   # ./yii rbac/flush 可清空所有授权信息
+   ```
+
+2. 导入测试数据 `test-data.sql`
 
 ## 3. 配置 Apache 虚拟主机
 
