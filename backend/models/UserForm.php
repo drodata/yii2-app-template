@@ -12,7 +12,6 @@ class UserForm extends Model
     public $passwordRepeat;
     public $role;
     public $resetpswd;
-    public $note;
 
     const SCENARIO_CREATE = 'create';
     const SCENARIO_UPDATE = 'update';
@@ -31,7 +30,6 @@ class UserForm extends Model
             [['password'], 'required', 'on' => self::SCENARIO_CREATE],
             [['password'], 'string', 'min' => 6, 'on' => self::SCENARIO_CREATE],
             [['passwordRepeat'], 'compare', 'compareAttribute' => 'password','on' => self::SCENARIO_CREATE],
-            [['note'], 'safe', 'on' => self::SCENARIO_CREATE],
             [
                 'credit',
                 'required',
@@ -45,7 +43,6 @@ class UserForm extends Model
             ],
             ['credit', 'number', 'min' => 1, 'on' => self::SCENARIO_CREATE],
 
-            [['note'], 'safe', 'on' => self::SCENARIO_UPDATE],
             [
                 'credit',
                 'required',
@@ -87,7 +84,6 @@ class UserForm extends Model
     public static function loadModel($user)
     {
         $userForm = new UserForm(['scenario' => UserForm::SCENARIO_UPDATE]);
-        $userForm->note = $user->note;
         $auth = Yii::$app->authManager;
         foreach ($auth->getRolesByUser($user->id) as $name => $obj) {
             $userForm->role = $name;
@@ -104,7 +100,6 @@ class UserForm extends Model
             'passwordRepeat' => '重复密码',
             'role' => '角色',
             'resetpswd' => '初始密码',
-            'note' => '付款指令',
             'credit' => '外包客服信用额度',
         ];
     }

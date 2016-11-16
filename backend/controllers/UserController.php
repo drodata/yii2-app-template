@@ -7,7 +7,7 @@ use backend\models\User;
 use backend\models\UserSearch;
 use backend\models\UserForm;
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
+use yii\web\ForbiddenHttpException;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
 
@@ -25,6 +25,13 @@ class UserController extends Controller
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [
+                    /*
+                    [
+                        'actions' => ['index'],
+                        'allow' => true,
+                        'roles' => ['admin'],
+                    ],
+                    */
                     [
                         //'actions' => ['create', 'view', 'update', 'delete'],
                         'allow' => true,
@@ -117,6 +124,12 @@ class UserController extends Controller
     public function actionUpdate($id)
     {
         $user = $this->findModel($id);
+
+        // RBAC rule
+        if (!Yii::$app->user->can('updateOwnAccount', ['user' => $user])) {
+            throw new ForbiddenHttpException('Only your own account could be updated.');
+        }
+
         $userForm = UserForm::loadModel($user);
 
         if ($user->load(Yii::$app->request->post()) && $userForm->load(Yii::$app->request->post())) {
