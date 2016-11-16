@@ -54,17 +54,10 @@ $this->params = [
                 ],
                 'created_at:date',
                 'updated_at:datetime',
-                'last_login_at',
-                'created_by',
-                'updated_by',
-                'owned_by',
-                'note:ntext',
-                /*
                 [
-                    'attribute' => 'status',
-                    'value' => Lookup::item('UserStatus', $model->status),
+                    'attribute' => 'last_logined_at',
+                    'value' => $model->readableLastLoginedAt,
                 ],
-                */
             ],
         ]) ?>
 

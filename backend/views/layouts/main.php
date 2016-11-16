@@ -14,8 +14,7 @@ AppAsset::register($this);
 $host = '"' . Yii::$app->request->hostInfo . '/"';
 $js = <<<JS
 var APP = {
-	"baseUrl": $host,
-    loadingText: '处理中……'
+	"baseUrl": $host
 };
 JS;
 $this->registerJs($js, $this::POS_HEAD, 'global-js-constant');
@@ -37,7 +36,7 @@ $this->registerJs($js);
     <meta charset="<?= Yii::$app->charset ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
+    <title><?= Html::encode($this->title) ?> | <?= Yii::$app->name ?></title>
     <?php $this->head() ?>
 </head>
 <body class="skin-<?= Yii::$app->params['skin'] ?> layout-top-nav">

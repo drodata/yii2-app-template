@@ -36,6 +36,8 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
 {
     const FROZEN = 0;
     const ACTIVE = 1;
+
+    const EVENT_AFTER_LOGIN = 'after-login';
     /**
      * @inheritdoc
      */
@@ -44,6 +46,11 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         return 'user';
     }
 
+
+    public function init()
+    {
+        $this->on(self::EVENT_AFTER_LOGIN, [$this, 'updateLastLoginedAt']);
+    }
 
     public function scenarios()
     {
@@ -119,14 +126,16 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         return [
             'id' => 'ID',
             'username' => '用户名',
+            'screen_name' => '昵称',
             'group_id' => '用户组',
             'auth_key' => 'Auth Key',
             'password_hash' => 'Password Hash',
             'password_reset_token' => 'Password Reset Token',
-            'email' => 'Email',
+            'email' => '电子邮箱',
             'status' => '状态',
             'created_at' => '创建时间',
             'updated_at' => '修改时间',
+            'created_by' => '创建人',
             'last_logined_at' => '最近登录时间',
         ];
     }
@@ -335,6 +344,25 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         }
         return implode("&nbsp;", $a);
     }
+
+    public function getReadableLastLoginedAt()
+    {
+        return $this->last_logined_at == 0 
+            ? '未曾登录' 
+            : Yii::$app->formatter->asRelativeTime($this->last_logined_at);
+    }
+
+    // ==== getter ends ====
+
+    // ==== event handlers start ====
+
+    public function updateLastLoginedAt($event)
+    {
+        $this->updateAttributes(['last_logined_at' => time()]);
+    }
+
+    // ==== event handlers ends ====
+
     /**
      * Judge whether current user in a role (group)
      * @param string | array $role
