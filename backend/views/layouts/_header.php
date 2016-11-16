@@ -27,6 +27,7 @@ use drodata\widgets\NavBar;
         [
             'label' => Html::icon('cog'),
             'encode' => false,
+            'visible' => ! Yii::$app->user->isGuest,
             'linkOptions' => [
                 'title' => '设置',
             ],
@@ -43,6 +44,7 @@ use drodata\widgets\NavBar;
         ],
         [
             'label' => Html::icon('plus'),
+            'visible' => ! Yii::$app->user->isGuest,
             'encode' => false,
             'linkOptions' => [
                 'title' => '新建……',
@@ -53,26 +55,12 @@ use drodata\widgets\NavBar;
             ],
         ],
         [
-            'label' => 'WeUI',
-            'url' => ['/weui/index'],
-        ],
-        [
-            'visible' => YII_ENV_DEV && Yii::$app->user->can('admin'),
-            'label' => 'Test',
-            'url' => ['/test/index'],
-        ],
-        [
-            'visible' => YII_ENV_DEV && Yii::$app->user->can('admin'),
-            'label' => 'Gii',
-            'url' => ['/gii'],
-        ],
-    ];
-
-    $rightMenuItems = [
-        [
-            'label' => 'Demo',
+            'label' => Html::icon('book'),
+            'visible' => !Yii::$app->user->isGuest && YII_ENV_DEV,
+            'encode' => false,
             'items' => [
                  ['label' => 'Select2', 'url' => '/demo/select2', 'encode' => false],
+                 [ 'label' => 'WeUI', 'url' => ['/weui/index'], ],
                  ['label' => 'Box', 'url' => '/demo/box', 'encode' => false],
                  ['label' => Html::fwicon('line-chart') . 'Chart.js', 'url' => '/demo/chartjs', 'encode' => false],
                  ['label' => 'Tabs', 'url' => '/demo/tabs', 'encode' => false],
@@ -82,14 +70,18 @@ use drodata\widgets\NavBar;
             ],
         ],
         [
-            'label' => '用户',
-            'url' => ['user/index'],
+            'visible' => !Yii::$app->user->isGuest && YII_ENV_DEV,
+            'label' => 'Test',
+            'url' => ['/test/index'],
         ],
         [
-            'label' => '登录',
-            'url' => ['site/login'],
-            'visible' => Yii::$app->user->isGuest,
+            'visible' => !Yii::$app->user->isGuest && YII_ENV_DEV,
+            'label' => 'Gii',
+            'url' => ['/gii'],
         ],
+    ];
+
+    $rightMenuItems = [
         [
             'label' => Html::icon('user') . '&nbsp;' . Yii::$app->user->identity->username,
             'encode' => false,
