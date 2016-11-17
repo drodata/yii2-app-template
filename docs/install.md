@@ -35,10 +35,10 @@ composer create-project --prefer-dist --stability=dev drodata/yii2-app-template
 
 ```bash
 # create basic tables such as `user`, `lookup`
-.yii migration
+./yii migrate
 
 # build RBAC tables
-.yii migration --migrationPath=@yii/rbac/migrations
+./yii migrate --migrationPath=@yii/rbac/migrations
 ```
 
 ### 2.3 导入基础数据

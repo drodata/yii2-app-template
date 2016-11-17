@@ -37,6 +37,13 @@ class m161114_075918_init extends Migration
             'last_logined_at' => $this->integer()->notNull(),
         ], $tableOptions);
 
+        $this->addForeignKey(
+            'fk-user-group',
+            'user', 'group_id',
+            'user_group', 'id',
+            'NO ACTION', 'NO ACTION'
+        );
+
         $this->createTable('{{%lookup}}', [
             'id' => $this->primaryKey(),
             'name' => $this->string()->notNull(),
