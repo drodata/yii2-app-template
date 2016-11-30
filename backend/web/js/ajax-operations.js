@@ -10,6 +10,31 @@ $(function(){
             $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
         }, 0);
     });
+
+    $('.submit-once').on('click', function (e) {
+        var $button = $(this);
+        if ($button.data('brother') == undefined) {
+            var $brother = $(document.createElement($button[0].tagName));
+            $brother.html('处理中……');
+            $brother.attr('disabled', true);
+            $brother.addClass('disabled');
+            $brother.addClass($button.attr('class'));
+            $brother.hide();
+            $brother.insertAfter($button);
+            $button.data('brother', $brother)
+        }else{
+            var $brother = $button.data('brother');
+        }
+
+        if ($button.css('display') !== 'none') {
+            $brother.show();
+            $button.hide();
+            setTimeout(function () {
+                $brother.hide();
+                $button.show();
+            }, 10000);
+        }
+    });
     /*
     $('#batch-print-shipment-btn').click(function(e){
         var ab = $(this); 
