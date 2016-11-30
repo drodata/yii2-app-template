@@ -127,3 +127,15 @@ composer create-project --prefer-dist --stability=dev drodata/yii2-app-template
 最后，重启 Apache 。
 
 至此，程序安装完成，在浏览器内输入 http://i.yat.com, 即可进入系统后台登录界面。
+
+## 4 Troubshooting
+
+按照上面的设置后，浏览器中如果出现如下信息：
+
+> The i.yat.com page isn’t working
+> 
+> i.yat.com didn’t send any data. ERR_EMPTY_RESPONSE
+
+有一种原因是地本主机使用了代理翻墙，而没有将自定义的 `yat.com` 主机忽略掉。
+
+:question:, 同样是使用 ShadowSocks 代理上网，Debian 下如果不手动添加 Ignore Hosts, 就会出现上面的问题；Mac 下则没有该问题。
