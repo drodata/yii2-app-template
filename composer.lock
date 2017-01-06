@@ -447,17 +447,18 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/drodata/yii2-utility.git",
-                "reference": "9f7a05d868bafc642f3804d39ee86255f8b82c83"
+                "reference": "93743126472a4e6fec0fd0a24005b8a79b965118"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drodata/yii2-utility/zipball/9f7a05d868bafc642f3804d39ee86255f8b82c83",
-                "reference": "9f7a05d868bafc642f3804d39ee86255f8b82c83",
+                "url": "https://api.github.com/repos/drodata/yii2-utility/zipball/93743126472a4e6fec0fd0a24005b8a79b965118",
+                "reference": "93743126472a4e6fec0fd0a24005b8a79b965118",
                 "shasum": ""
             },
             "require": {
                 "bower-asset/bootstrap": "3.3.* | 3.2.* | 3.1.*",
                 "fortawesome/font-awesome": "*",
+                "npm-asset/bootstrap-tagsinput": "0.7.1",
                 "yiisoft/yii2": "*"
             },
             "type": "yii2-extension",
@@ -490,7 +491,7 @@
                 "helper",
                 "yii2"
             ],
-            "time": "2016-11-14 00:19:57"
+            "time": "2017-01-06 06:28:06"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -779,6 +780,66 @@
             "time": "2016-02-17 11:49:30"
         },
         {
+            "name": "npm-asset/bootstrap-tagsinput",
+            "version": "0.7.1",
+            "dist": {
+                "type": "tar",
+                "url": "https://registry.npmjs.org/bootstrap-tagsinput/-/bootstrap-tagsinput-0.7.1.tgz",
+                "reference": null,
+                "shasum": "ffe3b06bbe2a106945ef2814568005a94f211937"
+            },
+            "require-dev": {
+                "npm-asset/bower": "~1.3.8",
+                "npm-asset/grunt": "~0.4.1",
+                "npm-asset/grunt-bower-task": "~0.4.0",
+                "npm-asset/grunt-cli": "~0.1.13",
+                "npm-asset/grunt-contrib-copy": "~0.5.0",
+                "npm-asset/grunt-contrib-uglify": ">=0.9.1,<0.10.0",
+                "npm-asset/grunt-jquerymanifest": "~0.1.4",
+                "npm-asset/grunt-karma": "~0.8.3",
+                "npm-asset/grunt-zip": "~0.15.0",
+                "npm-asset/karma": "~0.12.19",
+                "npm-asset/karma-jasmine": "~0.1.5",
+                "npm-asset/karma-phantomjs-launcher": "~0.1.3",
+                "npm-asset/phantomjs": "~1.9.7-patch15"
+            },
+            "type": "npm-asset-library",
+            "extra": {
+                "npm-asset-bugs": {
+                    "url": "https://github.com/timschlechter/bootstrap-tagsinput/issues"
+                },
+                "npm-asset-main": "dist/bootstrap-tagsinput.js",
+                "npm-asset-directories": [],
+                "npm-asset-repository": {
+                    "type": "git",
+                    "url": "git://github.com/timschlechter/bootstrap-tagsinput.git"
+                },
+                "npm-asset-scripts": {
+                    "test": "karma start --single-run --no-auto-watch"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Tim Schlechter"
+                },
+                {
+                    "name": "Luckner Jr Jean-Baptiste"
+                }
+            ],
+            "description": "jQuery plugin providing a Twitter Bootstrap user interface for managing tags.",
+            "homepage": "http://timschlechter.github.io/bootstrap-tagsinput/examples/",
+            "keywords": [
+                "bootstrap",
+                "form",
+                "input",
+                "select",
+                "tags"
+            ]
+        },
+        {
             "name": "phpoffice/phpexcel",
             "version": "1.8.1",
             "source": {
@@ -906,23 +967,24 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.4.3",
+            "version": "v5.4.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "4cc92842069c2bbc1f28daaaf1d2576ec4dfe153"
+                "reference": "cd142238a339459b10da3d8234220963f392540c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/4cc92842069c2bbc1f28daaaf1d2576ec4dfe153",
-                "reference": "4cc92842069c2bbc1f28daaaf1d2576ec4dfe153",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/cd142238a339459b10da3d8234220963f392540c",
+                "reference": "cd142238a339459b10da3d8234220963f392540c",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "require-dev": {
-                "mockery/mockery": "~0.9.1"
+                "mockery/mockery": "~0.9.1",
+                "symfony/phpunit-bridge": "~3.2"
             },
             "type": "library",
             "extra": {
@@ -955,7 +1017,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2016-07-08 11:51:25"
+            "time": "2016-12-29 10:02:40"
         },
         {
             "name": "yiisoft/yii2",
@@ -1103,20 +1165,23 @@
         },
         {
             "name": "yiisoft/yii2-composer",
-            "version": "2.0.4",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-composer.git",
-                "reference": "7452fd908a5023b8bb5ea1b123a174ca080de464"
+                "reference": "3f4923c2bde6caf3f5b88cc22fdd5770f52f8df2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/7452fd908a5023b8bb5ea1b123a174ca080de464",
-                "reference": "7452fd908a5023b8bb5ea1b123a174ca080de464",
+                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/3f4923c2bde6caf3f5b88cc22fdd5770f52f8df2",
+                "reference": "3f4923c2bde6caf3f5b88cc22fdd5770f52f8df2",
                 "shasum": ""
             },
             "require": {
                 "composer-plugin-api": "^1.0"
+            },
+            "require-dev": {
+                "composer/composer": "^1.0"
             },
             "type": "composer-plugin",
             "extra": {
@@ -1146,7 +1211,7 @@
                 "extension installer",
                 "yii2"
             ],
-            "time": "2016-02-06 00:49:24"
+            "time": "2016-12-20 13:26:02"
         },
         {
             "name": "yiisoft/yii2-swiftmailer",
@@ -1315,21 +1380,21 @@
         },
         {
             "name": "yiisoft/yii2-debug",
-            "version": "2.0.6",
+            "version": "2.0.7",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-debug.git",
-                "reference": "55ed2e853ed8050a34415f63a4da84f88a56f895"
+                "reference": "a74a2433ad1dfda30a253a92f6db52c131807432"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/55ed2e853ed8050a34415f63a4da84f88a56f895",
-                "reference": "55ed2e853ed8050a34415f63a4da84f88a56f895",
+                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/a74a2433ad1dfda30a253a92f6db52c131807432",
+                "reference": "a74a2433ad1dfda30a253a92f6db52c131807432",
                 "shasum": ""
             },
             "require": {
-                "yiisoft/yii2": ">=2.0.4",
-                "yiisoft/yii2-bootstrap": "*"
+                "yiisoft/yii2": "~2.0.4",
+                "yiisoft/yii2-bootstrap": "~2.0.0"
             },
             "type": "yii2-extension",
             "extra": {
@@ -1358,7 +1423,7 @@
                 "debugger",
                 "yii2"
             ],
-            "time": "2016-03-17 03:50:19"
+            "time": "2016-11-24 09:42:29"
         },
         {
             "name": "yiisoft/yii2-faker",
