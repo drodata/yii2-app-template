@@ -24,10 +24,10 @@ class AppAsset extends AssetBundle
         'css/site.css',
     ];
     public $js = [
-        'js/jquery.trekshot.js',
         'js/ajax-operations.js',
     ];
     public $depends = [
         'drodata\assets\AdminLTECustomAsset',
+        'drodata\trekshot\TrekshotAsset',
     ];
 }
