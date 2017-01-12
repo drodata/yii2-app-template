@@ -2,13 +2,19 @@
  * Global ajax operations
  */
 $(function(){
-    // enable nested bootstrap modal
+    
+    // global modal show handler
     $(document).on('show.bs.modal', '.modal', function () {
+        // enable nested bootstrap modal
         var zIndex = 1040 + (10 * $('.modal:visible').length);
         $(this).css('z-index', zIndex);
         setTimeout(function() {
             $('.modal-backdrop').not('.modal-stack').css('z-index', zIndex - 1).addClass('modal-stack');
         }, 0);
+
+        // opt in tooltip and popover in modal
+        $('[data-toggle="tooltip"]').tooltip();
+        $('[data-toggle="popover"]').popover();
     });
 
     $('.submit-once').on('click', function (e) {
