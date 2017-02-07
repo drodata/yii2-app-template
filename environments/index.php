@@ -42,9 +42,13 @@ return [
             'frontend/models',
             'frontend/views',
             'frontend/controllers',
+            'mobile/runtime',
+            'mobile/web/assets',
+            'mobile/models',
+            'mobile/views',
+            'mobile/controllers',
             'common/models',
             'static',
-            'dro',
         ],
         'setExecutable' => [
             'yii',
@@ -53,6 +57,7 @@ return [
         'setCookieValidationKey' => [
             'backend/config/main-local.php',
             'frontend/config/main-local.php',
+            'mobile/config/main-local.php',
         ],
     ],
     'Production' => [
@@ -62,6 +67,8 @@ return [
             'backend/web/assets',
             'frontend/runtime',
             'frontend/web/assets',
+            'mobile/runtime',
+            'mobile/web/assets',
             'static',
         ],
         'setExecutable' => [
@@ -70,6 +77,7 @@ return [
         'setCookieValidationKey' => [
             'backend/config/main-local.php',
             'frontend/config/main-local.php',
+            'mobile/config/main-local.php',
         ],
     ],
 ];
