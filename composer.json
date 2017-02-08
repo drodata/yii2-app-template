@@ -21,6 +21,7 @@
         "yiisoft/yii2": "~2.0",
         "yiisoft/yii2-bootstrap": "~2.0",
         "yiisoft/yii2-swiftmailer": "2.0.6",
+        "yiisoft/yii2-imagine": "2.0.4",
         "almasaeed2010/adminlte": "2.3.7",
         "alexgx/yii2-phpexcel": "@dev",
         "bower-asset/chartjs": "2.3.0",
