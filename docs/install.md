@@ -124,6 +124,8 @@ composer create-project --prefer-dist --stability=dev drodata/yii2-app-template
 127.0.0.1	    static.yat.com
 ```
 
+> 注意：每新增一个 tier 时，需要修改上面两处配置：Apache 配置文件和 `/etc/hosts` 文件。
+
 最后，重启 Apache 。
 
 至此，程序安装完成，在浏览器内输入 http://i.yat.com, 即可进入系统后台登录界面。

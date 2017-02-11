@@ -9,6 +9,8 @@ return [
     'aliases' => [
         '@frontendweb'  => 'http://www.' . $arg['domain'],
         '@backendweb'  => 'http://backend.' . $arg['domain'],
+        '@mobileweb'  => 'http://m.' . $arg['domain'],
+        '@staticweb'  => 'http://static.' . $arg['domain'],
     ],
     'components' => [
         'db' => [
