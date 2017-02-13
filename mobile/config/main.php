@@ -9,6 +9,7 @@ $params = array_merge(
 return [
     'id' => 'app-mobile',
     'name' => 'YAT Mobile',
+    'layout' => 'tabbar',
     'timeZone' => 'Australia/Sydney', // timezone list: http://php.net/manual/en/timezones.php
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'mobile\controllers',
