@@ -23,5 +23,6 @@ class AppAsset extends AssetBundle
         'drodata\weui\WeUIAsset',
         'drodata\weui\WeUIJsAsset',
         'drodata\assets\FontAwesomeAsset',
+        'drodata\trekshot\TrekshotAsset',
     ];
 }
