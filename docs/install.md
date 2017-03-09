@@ -12,7 +12,7 @@ Fork 的话，执行
 git clone git@github.com:drodata/yii2-app-template.git
 ```
 
-> :bell: 请确保电脑上已安装 Composer 和 `fxp/composer-asset-plugin` 插件。如未安装，参考 [下载、安装 Composer][download-composer].
+> :bell: 请确保电脑上已安装 Composer 和 `fxp/composer-asset-plugin` 插件。如未安装，参考 [下载、安装 Composer][downloadcomposer].
 
 ## 2. 配置数据库
 
@@ -148,4 +148,4 @@ git clone git@github.com:drodata/yii2-app-template.git
 
 :question:, 同样是使用 ShadowSocks 代理上网，Debian 下如果不手动添加 Ignore Hosts, 就会出现上面的问题；Mac 下则没有该问题。
 
-[download-composer] https://github.com/drodata/learning-notes/blob/master/meet/composer/download.md
+[downloadcomposer] https://github.com/drodata/learning-notes/blob/master/meet/composer/download.md
