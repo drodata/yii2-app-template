@@ -26,7 +26,14 @@ git clone git@github.com:drodata/yii2-app-template.git
 }
 ```
 
-之后修改其权限为 `640`, 确保安全性；同时修改 group owner, 确保 Apache 有读取权限。
+设置 `yii2-sensitive.json` 权限，确保安全：
+
+```bash
+# replace <your> with your login name
+# on Mac, sustitude www-data with _www
+sudo chown <you>:www-data yii2-sensitive.json
+sudo chmod 640 yii2-sensitive.json
+```
 
 ### 2.1 建立数据库
 

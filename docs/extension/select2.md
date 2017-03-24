@@ -10,6 +10,7 @@ http://demos.krajee.com/widget-details/select2
 - string `theme`: 默认值：'krajee', 其它可选值：'default' (和 AdminLTE 更搭配一些), 'bootstrap' 和 'classic'
 - array `options`: 
     - string `placeholder`: 提示符
+    - boolean `multiple`: 是否支持多选，默认为 `false`；
 - array `addon`: 添加 ajax 新建 option 的按钮
     - array | string `prepend`: 如果是数组，可以配置下面两个键：
         - string `content`: 一般为字体图标
