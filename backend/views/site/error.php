@@ -13,10 +13,10 @@ $this->title = $name;
 <div class="row">
     <div class="col-lg-6 col-lg-offset-3 col-md-12">
         <?= Box::widget([
-            'title' => Html::icon('warning'),
+            'title' => Html::fwicon('warning') . $name,
             'style' => 'danger',
             'solid' => true,
-            'content' => $message
+            'content' => $exception->getMessage(),
         ]) ?>
     </div>
 </div>
