@@ -6,25 +6,46 @@ $this->params['title'] = $this->title;
 $this->params['breadcrumbs'][] = $this->title;
 
 $css = <<<CSS
-body {background-color: #ddd;}
+body {background-color: black;}
 .container {
-    background-color: #fff;
     display: flex;
-    width: 300px;
-    height: 300px;
-
     flex-flow: row wrap;
     justify-content: flex-start;
-    align-items: flex-start;
-    align-content: space-between;
+    align-content: flex-start;
+
+    background-color: #ddd;
+    width: 300px;
+    height: 600px;
 }
-.dot {
-    background-color: #24b;
-    color: #eee;
-    text-align: center;
+.card-wrapper {
+    flex: 0 0 100px;
+
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    background-color: #fff;
     width: 100px;
-    height: 100px;
+    height: 160px;
+}
+.card-wrapper:nth-child(odd) {
+    background-color: lightblue;
+}
+.card-img {
+    background-color: #3884ff;
+    width: 90px;
+    height: 30px;
     border-radius: 80%;
+    flex: 0 0 90px;
+
+    order: 3;
+}
+.card-img:nth-child(odd) {
+    background-color: #d4237a;
+}
+.card-title {
+    order: 0;
 }
 .dot-1 {
     flex-grow: 1;
@@ -48,11 +69,27 @@ $this->registerCss($css);
 ?>
 
 <div class="container">
-    <div class="dot">Dot</div>
-    <div class="dot">Dot</div>
-    <div class="dot">Dot</div>
-    <div class="dot">Dot</div>
+    <div class="card-wrapper">
+        <div class="card-img"> </div>
+        <div class="card-img"> </div>
+        <div class="card-img"> </div>
+        <div class="card-img"> </div>
+        <div class="card-img"> </div>
+        <div class="card-img"> </div>
+        <div class="card-img"> </div>
+        <div class="card-img"> </div>
+    </div>
+    <div class="card-wrapper">
+    </div>
+    <div class="card-wrapper">
+    </div>
+    <div class="card-wrapper">
+    </div>
+    <div class="card-wrapper">
+    </div>
     <!--
+        <div class="card-title">Jim Hello</div>
+        <div class="card-desc">$ 900.00</div>
     <div class="item block11">Item</div>
     <div class="item block21">Item</div>
     <div class="item block12">Item</div>
