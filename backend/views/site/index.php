@@ -10,7 +10,8 @@ body {background-color: black;}
 .container {
     display: flex;
     flex-flow: row wrap;
-    justify-content: flex-start;
+    justify-content: space-between;
+    align-items: flex-start;
     align-content: flex-start;
 
     background-color: #ddd;
@@ -18,44 +19,46 @@ body {background-color: black;}
     height: 600px;
 }
 .card-wrapper {
-    flex: 0 0 100px;
+    flex: 0 0 48%;
 
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: flex-start;
 
     background-color: #fff;
-    width: 100px;
     height: 160px;
-}
-.card-wrapper:nth-child(odd) {
-    background-color: lightblue;
+    margin-bottom: 10px;
 }
 .card-img {
+    width: 80%;
+    padding: 0 10%;
     background-color: #3884ff;
-    width: 90px;
-    height: 30px;
-    border-radius: 80%;
-    flex: 0 0 90px;
-
-    order: 3;
-}
-.card-img:nth-child(odd) {
-    background-color: #d4237a;
+    text-align: center;
+    flex: 0 0 70%;
 }
 .card-title {
-    order: 0;
+    width: 80%;
+    color: #333;
+    padding: 0 10%;
+    font-size: 12pt;
+    flex: 0 0 15%;
 }
-.dot-1 {
-    flex-grow: 1;
+.card-desc {
+    width: 80%;
+    color: #777;
+    padding: 0 10%;
+    font-size: 10pt;
+    flex: 0 0 5%;
 }
-.dot-2 {
-    flex-grow: 2;
-}
+.fb12 { flex: 0 0 50% }
+.fb13 { flex: 0 0 33.3333% }
+.fb14 { flex: 0 0 25% }
 .dot-bottom {
     align-self: flex-end;
 }
+.dot-1 { flex-grow: 1; }
+.dot-2 { flex-grow: 2; }
 .shrink-0 { flex-shrink: 0; }
 .shrink-2 { flex-shrink: 2; }
 .item {
@@ -70,14 +73,9 @@ $this->registerCss($css);
 
 <div class="container">
     <div class="card-wrapper">
-        <div class="card-img"> </div>
-        <div class="card-img"> </div>
-        <div class="card-img"> </div>
-        <div class="card-img"> </div>
-        <div class="card-img"> </div>
-        <div class="card-img"> </div>
-        <div class="card-img"> </div>
-        <div class="card-img"> </div>
+        <div class="card-img">Hello</div>
+        <div class="card-title">A2 Milk Best</div>
+        <div class="card-desc">$99.00</div>
     </div>
     <div class="card-wrapper">
     </div>
@@ -88,6 +86,8 @@ $this->registerCss($css);
     <div class="card-wrapper">
     </div>
     <!--
+        <div class="card-img fb14">3</div>
+        <div class="card-img fb14">4</div>
         <div class="card-title">Jim Hello</div>
         <div class="card-desc">$ 900.00</div>
     <div class="item block11">Item</div>
