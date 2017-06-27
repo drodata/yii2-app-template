@@ -6,7 +6,7 @@
 composer create-project --prefer-dist --stability=dev drodata/yii2-app-template
 ```
 
-Fork 的话，执行
+Fork 的话，执行（clone 完毕后需手动 `composer install`）
 
 ```bash
 git clone git@github.com:drodata/yii2-app-template.git
@@ -18,7 +18,7 @@ git clone git@github.com:drodata/yii2-app-template.git
 
 ### 2.1 配置数据库敏感信息
 
-在 `common/` 目录下，将文件 `common/yii2-sensitive.json.sample` 重命名为 `yii2-sensitive.json` 文件；打开文件，输入 MySQL 密码
+在 `common/` 目录下，复制 `yii2-sensitive.json.sample` 为 `yii2-sensitive.json` 文件；编辑新复制的文件 `yii2-sensitive.json`，输入 MySQL 密码
    
 ```
 {
@@ -29,7 +29,7 @@ git clone git@github.com:drodata/yii2-app-template.git
 设置 `yii2-sensitive.json` 权限，确保安全：
 
 ```bash
-# replace <your> with your login name
+# replace <you> with your login name
 # on Mac, sustitude www-data with _www
 sudo chown <you>:www-data yii2-sensitive.json
 sudo chmod 640 yii2-sensitive.json
