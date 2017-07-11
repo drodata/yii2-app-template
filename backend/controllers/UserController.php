@@ -5,8 +5,8 @@ namespace backend\controllers;
 use Yii;
 use backend\models\User;
 use backend\models\UserSearch;
-use backend\models\UserForm;
 use yii\web\Controller;
+use yii\web\NotFoundHttpException;
 use yii\web\ForbiddenHttpException;
 use yii\filters\AccessControl;
 use yii\filters\VerbFilter;
@@ -25,13 +25,6 @@ class UserController extends Controller
             'access' => [
                 'class' => AccessControl::className(),
                 'rules' => [
-                    /*
-                    [
-                        'actions' => ['index'],
-                        'allow' => true,
-                        'roles' => ['admin'],
-                    ],
-                    */
                     [
                         //'actions' => ['create', 'view', 'update', 'delete'],
                         'allow' => true,
@@ -49,6 +42,21 @@ class UserController extends Controller
     }
 
     /**
+     * Finds the User model based on its primary key value.
+     * If the model is not found, a 404 HTTP exception will be thrown.
+     * @param integer $id
+     * @return User the loaded model
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    protected function findModel($id)
+    {
+        if (($model = User::findOne($id)) !== null) {
+            return $model;
+        } else {
+            throw new NotFoundHttpException('The requested page does not exist.');
+        }
+    }
+    /**
      * Lists all User models.
      * @return mixed
      */
@@ -65,7 +73,7 @@ class UserController extends Controller
 
     /**
      * Displays a single User model.
-     * @param string $id
+     * @param integer $id
      * @return mixed
      */
     public function actionView($id)
@@ -76,104 +84,56 @@ class UserController extends Controller
     }
 
     /**
-     * Displays current user model.
-     * @param string $id
-     * @return mixed
-     */
-    public function actionProfile()
-    {
-        return $this->render('profile', [
-            'model' => $this->findModel(Yii::$app->user->id),
-        ]);
-    }
-
-    /**
      * Creates a new User model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $user = new User;
-        $userForm = new UserForm(['scenario' => UserForm::SCENARIO_CREATE]);
+        $model = new User();
 
-        if ($user->load(Yii::$app->request->post()) && $userForm->load(Yii::$app->request->post())) {
-			if ($user->validate() && $userForm->validate()) {
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success', '新记录已创建');
+            return $this->redirect('index');
+            //return $this->redirect(['view', 'id' => $model->id]);
+        }
 
-                $user->on(User::EVENT_BEFORE_INSERT, [$user, 'generatePassword'], $userForm->password);
-                $user->on(User::EVENT_AFTER_INSERT, [$user, 'saveRole'], $userForm->role);
-
-                if ($user->save()) {
-                    Yii::$app->session->setFlash('success', '用户已创建');
-				    return $this->redirect('index');
-                }
-			}
-		}
         return $this->render('create', [
-            'user' => $user,
-            'userForm' => $userForm,
+            'model' => $model,
         ]);
     }
 
     /**
      * Updates an existing User model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param string $id
+     * @param integer $id
      * @return mixed
      */
     public function actionUpdate($id)
     {
-        $user = $this->findModel($id);
+        $model = $this->findModel($id);
 
-        // RBAC rule
-        if (!Yii::$app->user->can('updateOwnAccount', ['user' => $user])) {
-            throw new ForbiddenHttpException('Only your own account could be updated.');
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success', '修改已保存');
+            return $this->redirect('index');
         }
 
-        $userForm = UserForm::loadModel($user);
-
-        if ($user->load(Yii::$app->request->post()) && $userForm->load(Yii::$app->request->post())) {
-			if ($user->validate() && $userForm->validate()) {
-
-                $user->userForm = $userForm;
-                if ($user->save()) {
-                    Yii::$app->session->setFlash('success', '用户信息已保存');
-				    return $this->redirect('index');
-                }
-			}
-		}
         return $this->render('update', [
-            'user' => $user,
-            'userForm' => $userForm,
+            'model' => $model,
         ]);
     }
 
     /**
      * Deletes an existing User model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param string $id
+     * @param integer $id
      * @return mixed
      */
     public function actionDelete($id)
     {
         $this->findModel($id)->delete();
+        Yii::$app->session->setFlash('success', '已删除');
 
         return $this->redirect(['index']);
-    }
-
-    /**
-     * Finds the User model based on its primary key value.
-     * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param string $id
-     * @return User the loaded model
-     * @throws NotFoundHttpException if the model cannot be found
-     */
-    protected function findModel($id)
-    {
-        if (($model = User::findOne($id)) !== null) {
-            return $model;
-        } else {
-            throw new NotFoundHttpException('The requested page does not exist.');
-        }
     }
 }

@@ -1,30 +1,28 @@
 <?php
 
-use yii\bootstrap\Html;
+use drodata\helpers\Html;
 use drodata\widgets\Box;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\User */
+/* @var $model backend\models\User */
 
-$this->title = 'Update User: ' . $model->id;
+$this->title = '修改User: ' . $model->id;
 $this->params = [
-    'title' => $this->title,
+    'title' => '修改',
+    'subtitle' => '',
     'breadcrumbs' => [
         ['label' => 'Users', 'url' => ['index']],
         ['label' => $model->id, 'url' => ['view', 'id' => $model->id]],
-        'Update',
     ],
 ];
 ?>
 <div class=row "user-update">
-    <div class="col-md-12 col-lg-8 col-lg-offset-2">
-        <?php Box::begin([
+    <div class="col-md-12 col-lg-6 col-lg-offset-3">
+        <?= Box::widget([
             'title' => $this->title,
-        ]);?>
-            <?= $this->render('_form', [
-                'user' => $user,
-                'userForm' => $userForm,
-            ]) ?>
-        <?php Box::end();?>
+            'content' => $this->render('_form', [
+                'model' => $model,
+            ]),
+        ]) ?>
     </div>
 </div>

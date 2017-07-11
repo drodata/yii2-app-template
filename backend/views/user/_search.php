@@ -1,9 +1,8 @@
 <?php
 
-use yii\helpers\Html;
-use yii\bootstrap\BaseHtml;
 use yii\bootstrap\ActiveForm;
-use common\widgets\Box;
+use drodata\helpers\Html;
+use drodata\widgets\Box;
 use commom\models\Lookup;
 
 /* @var $this yii\web\View */
@@ -13,7 +12,7 @@ use commom\models\Lookup;
 
 <div class="row user-search">
     <div class="col-sm-12">
-        <?php Box::begin([ 'title' => '搜索', ]);?>
+        <?php Box::begin([ 'title' => '搜索', 'style' => 'info']);?>
             <?php $form = ActiveForm::begin([
                 'action' => ['index'],
                 'method' => 'get',
@@ -24,9 +23,11 @@ use commom\models\Lookup;
 
             <?= $form->field($model, 'screen_name') ?>
 
+            <?= $form->field($model, 'group_id') ?>
+
             <?= $form->field($model, 'auth_key') ?>
 
-            <?= $form->field($model, 'password_hash') ?>
+            <?php // echo $form->field($model, 'password_hash') ?>
 
             <?php // echo $form->field($model, 'password_reset_token') ?>
 
@@ -34,26 +35,21 @@ use commom\models\Lookup;
 
             <?php // echo $form->field($model, 'status') ?>
 
-            <?php // echo $form->field($model, 'group_id') ?>
+            <?php // echo $form->field($model, 'created_by') ?>
+
+            <?php // echo $form->field($model, 'updated_by') ?>
 
             <?php // echo $form->field($model, 'created_at') ?>
 
             <?php // echo $form->field($model, 'updated_at') ?>
 
-            <?php // echo $form->field($model, 'last_login_at') ?>
-
-            <?php // echo $form->field($model, 'created_by') ?>
-
-            <?php // echo $form->field($model, 'updated_by') ?>
-
-            <?php // echo $form->field($model, 'owned_by') ?>
-
-            <?php // echo $form->field($model, 'note') ?>
+            <?php // echo $form->field($model, 'last_logined_at') ?>
 
             <div class="form-group">
-                <?= Html::submitButton('Search', ['class' => 'btn btn-primary']) ?>
-                <?= Html::resetButton('Reset', ['class' => 'btn btn-default']) ?>
+                <?= Html::submitButton('搜索', ['class' => 'btn btn-primary']) ?>
+                <?= Html::a('重置', "/user/index", ['class' => 'btn btn-default']) ?>
             </div>
-        <?php ActiveForm::end(); ?>
+            <?php ActiveForm::end(); ?>
+        <?php Box::end();?>
     </div>
 </div>

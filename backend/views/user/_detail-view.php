@@ -1,36 +1,32 @@
 <?php
 
-use yii\helpers\Html;
-use yii\bootstrap\BaseHtml;
-use common\widgets\Box;
-use commom\models\Lookup;
 use yii\widgets\DetailView;
+use drodata\helpers\Html;
+use backend\models\Lookup;
 
-/* @var $model common\models\User */
+/* @var $model backend\models\User */
 
 ?>
-<?php Box::begin([
-    'title' => $model->id,
-]);?>
     <?= DetailView::widget([
         'model' => $model,
+        'template' => Html::beginTag('tr')
+            . Html::tag('th', '{label}', ['width' => '30%', 'class' => 'text-right'])
+            . Html::tag('td', '{value}')
+            . Html::endTag('td'),
         'attributes' => [
             'id',
             'username',
             'screen_name',
+            'group_id',
             'auth_key',
             'password_hash',
             'password_reset_token',
             'email:email',
             'status',
-            'group_id',
-            'created_at',
-            'updated_at',
-            'last_login_at',
             'created_by',
             'updated_by',
-            'owned_by',
-            'note:ntext',
+            'created_at',
+            'updated_at',
+            'last_logined_at',
         ],
     ]) ?>
-<?php Box::end();?>

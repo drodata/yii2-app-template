@@ -5,9 +5,10 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
+use backend\models\User;
 
 /**
- * UserSearch represents the model behind the search form about `common\models\User`.
+ * UserSearch represents the model behind the search form about `backend\models\User`.
  */
 class UserSearch extends User
 {
@@ -24,8 +25,8 @@ class UserSearch extends User
     public function rules()
     {
         return [
-            [['id', 'status', 'group_id', 'created_at', 'updated_at', 'last_logined_at'], 'integer'],
-            [['username', 'screen_name', 'auth_key', 'password_hash', 'password_reset_token', 'email', 'note'], 'safe'],
+            [['id', 'group_id', 'status', 'created_by', 'updated_by', 'created_at', 'updated_at', 'last_logined_at'], 'integer'],
+            [['username', 'screen_name', 'auth_key', 'password_hash', 'password_reset_token', 'email'], 'safe'],
             // usefull when filtering on related columns
             //[['author.name'], 'safe'],
         ];
@@ -49,7 +50,7 @@ class UserSearch extends User
      */
     public function search($params)
     {
-        $query = User::find()->joinWith(['group']);;
+        $query = User::find();
         /*
         $query = User::find()->joinWith(['company']);
             ->where(['{{%company}}.category' => Company::CATEGORY_LOGISTICS]);
@@ -93,8 +94,10 @@ class UserSearch extends User
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'status' => $this->status,
             'group_id' => $this->group_id,
+            'status' => $this->status,
+            'created_by' => $this->created_by,
+            'updated_by' => $this->updated_by,
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
             'last_logined_at' => $this->last_logined_at,
