@@ -5,9 +5,10 @@ namespace backend\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
+use backend\models\Lookup;
 
 /**
- * LookupSearch represents the model behind the search form about `common\models\Lookup`.
+ * LookupSearch represents the model behind the search form about `backend\models\Lookup`.
  */
 class LookupSearch extends Lookup
 {
@@ -24,7 +25,7 @@ class LookupSearch extends Lookup
     public function rules()
     {
         return [
-            [['id', 'code', 'position'], 'integer'],
+            [['id', 'code', 'position', 'visible'], 'integer'],
             [['name', 'type'], 'safe'],
             // usefull when filtering on related columns
             //[['author.name'], 'safe'],
@@ -95,6 +96,7 @@ class LookupSearch extends Lookup
             'id' => $this->id,
             'code' => $this->code,
             'position' => $this->position,
+            'visible' => $this->visible,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])

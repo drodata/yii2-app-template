@@ -23,7 +23,7 @@ use yii\web\IdentityInterface;
  * @property integer $status
  * @property integer $created_at
  * @property integer $updated_at
- * @property integer $last_logined_at
+ * @property integer $logined_at
  *
  * @property Comment[] $comments
  * @property Comment[] $comments0
@@ -89,7 +89,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return [
             [['username', 'group_id'], 'required'],
-            [['group_id', 'status', 'created_at', 'updated_at', 'last_logined_at'], 'integer'],
+            [['group_id', 'status', 'created_at', 'updated_at', 'logined_at'], 'integer'],
             [['username', 'password_hash', 'password_reset_token', 'email'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],
             [['username'], 'unique'],
@@ -136,7 +136,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
             'created_at' => '创建时间',
             'updated_at' => '修改时间',
             'created_by' => '创建人',
-            'last_logined_at' => '最近登录时间',
+            'logined_at' => '最近登录时间',
         ];
     }
     /**
@@ -347,18 +347,18 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
 
     public function getReadableLastLoginedAt()
     {
-        return $this->last_logined_at == 0 
+        return $this->logined_at == 0 
             ? '未曾登录' 
-            : Yii::$app->formatter->asRelativeTime($this->last_logined_at);
+            : Yii::$app->formatter->asRelativeTime($this->logined_at);
     }
 
     // ==== getter ends ====
 
     // ==== event handlers start ====
 
-    public function updateLastLoginedAt($event)
+    public function updateLoginedAt($event)
     {
-        $this->updateAttributes(['last_logined_at' => time()]);
+        $this->updateAttributes(['logined_at' => time()]);
     }
 
     // ==== event handlers ends ====

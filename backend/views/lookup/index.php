@@ -1,9 +1,10 @@
 <?php
 
+use yii\widgets\ListView;
 use drodata\helpers\Html;
-use yii\grid\GridView;
 use drodata\widgets\Box;
 use common\models\Lookup;
+use yii\grid\GridView;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\LookupSearch */
@@ -12,61 +13,52 @@ use common\models\Lookup;
 $this->title = 'Lookups';
 $this->params = [
     'title' => $this->title,
+    'subtitle' => '',
     'breadcrumbs' => [
         ['label' => $this->title, 'url' => 'index'],
         '管理',
     ],
 ];
+
+// operation buttons
+$buttons = [
+    Html::actionLink('/lookup/create', [
+        'type' => 'button',
+        'title' => '新建',
+        'icon' => 'plus',
+        'color' => 'success',
+    ]),
+];
 ?>
 <div class="row lookup-index">
-    <div class="col-sm-12">
+    <!-- hide on phone -->
+    <div class="col-xs-12 hidden-xs">
         <?php Box::begin([
             'title' => $this->title,
-            'tools' => [
-                Html::a('新建 Lookup', ['create'], ['class' => 'btn btn-sm btn-success'])
-            ],
+            'tools' => [],
         ]);?>
-
-            <?= GridView::widget([
-                'dataProvider' => $dataProvider,
-                'filterModel' => $searchModel,
-               'columns' => [
-                    ['class' => 'yii\grid\SerialColumn'],
-                    'id',
-                    'name',
-                    'code',
-                    'type',
-                    'position',
-
-                    /*
-                    [
-                        'attribute' => 'status',
-                        'filter' => Lookup::items('UserStatus'),
-                        'value' => function ($model, $key, $index, $column) {
-                            return Lookup::item('UserStatus', $model->status);
-                        },
-                    ],
-                    [
-                        'label' => '',
-                        'format' => 'raw',
-                        'value' => function ($model, $key, $index, $column) {
-                            return $model->rolesString;
-                        },
-                    ],
-                    */
-                    [
-                        'class' => 'yii\grid\ActionColumn',
-                        'template' => '{update}',
-                        'buttons' => [
-                            'update' => function ($url, $model, $key) {
-                                return Html::a(Html::icon('pencil'), ['update', 'id' => $model->id],[
-                                    'title' => '修改',
-                                ]);
-                            },
-                        ],
-                    ],
-                ],
-            ]); ?>
+             <?= $this->render('_button', ['buttons' => $buttons]) ?>
+             <?= $this->render('_grid', [
+                 'searchModel' => $searchModel,
+                 'dataProvider' => $dataProvider,
+             ]) ?>
         <?php Box::end();?>
+    </div>
+    <!-- visible on phone -->
+    <div class="col-xs-12 visible-xs-block">
+        <?= $this->render('_button', ['buttons' => $buttons]) ?>
+        <?= $this->render('_search', [
+            'model' => $searchModel,
+        ]) ?>
+        <?= ListView::widget([
+            'dataProvider' => $dataProvider,
+            'options' => ['class' => 'row'],
+            'itemOptions' => ['class' => 'col-xs-12'],
+            'summaryOptions' => ['class' => 'col-xs-12'],
+            'emptyTextOptions' => ['class' => 'col-xs-12'],
+            'layout' => "{summary}\n{items}\n<div class=\"col-xs-12\">{pager}</div>",
+            'pager' => ['maxButtonCount' => 5],
+            'itemView' => '_list-view',
+        ]) ?>
     </div>
 </div> <!-- .row -->

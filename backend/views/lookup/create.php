@@ -1,14 +1,15 @@
 <?php
 
-use yii\bootstrap\Html;
-use common\widgets\Box;
+use drodata\helpers\Html;
+use drodata\widgets\Box;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Lookup */
+/* @var $model backend\models\Lookup */
 
-$this->title = 'Create Lookup';
+$this->title = '新建';
 $this->params = [
     'title' => $this->title,
+    'subtitle' => '',
     'breadcrumbs' => [
         ['label' => 'Lookups', 'url' => ['index']],
         $this->title,
@@ -16,13 +17,12 @@ $this->params = [
 ];
 ?>
 <div class="row lookup-create">
-    <div class="col-md-12 col-lg-8 col-lg-offset-2">
-        <?php Box::begin([
+    <div class="col-md-12 col-lg-6 col-lg-offset-3">
+        <?= Box::widget([
             'title' => $this->title,
-        ]);?>
-            <?= $this->render('_form', [
+            'content' => $this->render('_form', [
                 'model' => $model,
-            ]) ?>
-        <?php Box::end();?>
+            ]),
+        ]) ?>
     </div>
 </div>

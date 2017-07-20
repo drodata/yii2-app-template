@@ -9,7 +9,7 @@ use yii\base\NotSupportedException;
 
 /**
  */
-class Lookup extends \common\models\BaseLookup
+class Lookup extends \common\models\Lookup
 {
 }
 
