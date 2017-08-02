@@ -19,6 +19,19 @@ $this->params = [
 
 $model = new Lookup();
 $lists = ArrayHelper::map(Lookup::find()->asArray()->all(), 'id', 'name');
+
+$js = <<<JS
+$('.select-modal').click(function(){
+    $.get(APP.baseUrl + 'demo/ajax-get-select-modal', function(response) {
+        $(response).appendTo('body');
+
+        $('#select2-modal').modal().on('shown.bs.modal', function (e) {
+            $(this).attr('tabindex', false)
+        })
+    });
+});
+JS;
+$this->registerJs($js);
 ?>
 <div class="col-lg-6 col-lg-offset-3 col-md-12">
 <?php
@@ -48,7 +61,7 @@ Box::begin([
     ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? '新建' : '保存', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::button('通过 AJAX 的方式显示含有 Select2 widget 的 Modal', ['class' => 'btn btn-primary select-modal']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>

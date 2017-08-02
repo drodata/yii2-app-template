@@ -67,7 +67,6 @@ $this->registerJs($js);
         <strong>&copy; <?= Html::a(Yii::$app->name, Yii::getAlias('@frontendweb')) ?> <?= date('Y') ?></strong> All rights reserved.
     </div>
 </footer>
-
 <?php $this->endBody() ?>
 </body>
 </html>
