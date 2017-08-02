@@ -48,7 +48,7 @@ Box::begin([
     ?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? '新建' : '保存', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::button('在 Modal 内使用 Select2', ['class' => 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
