@@ -42,14 +42,12 @@ use kartik\widgets\Select2;
 
 ### 在 Modal 内动态显示 Select2
 
-在 Modal 内使用 Select2 分两种情况：一种是 Modal 内容是静态生成，这种情况可以使用上面的 widget() 方法实现；另一种情况是下拉菜单通过 AJAX 动态生成，例如订单系统中的快速新建客户 Modal, 表单 HTML 内容是通过 AJAX 方法传递。这种情况使用 widget() 就不管用了。需要使用 Select2 原生的办法通过 `select2()` 实现。例如：
+在 Modal 内使用 Select2 分两种情况：
 
-```js
-var select2Config = {"theme":"krajee","width":"100%","placeholder":"请选择","language":"zh-CN"}
-$('#address-country_id').select2(select2Config);
-```
+- 借助 `yii\bootstrap\Modal` 在页面内直接显示；
+- Modal 内容通过 AJAX 动态添加到 DOM 内，而后通过 JS 显示；
 
-也就是说，HTML 表单还是用传统下拉菜单实现，传递到本地后，通过 `select2()` 更换样式。
+后一种情况必须使用 `renderAjax()` 才能正常显示，因为 Select widget 内涉及 registering assets.
 
 #### Modal 内 Select2 无法搜索的问题
 
@@ -59,6 +57,6 @@ $('#address-country_id').select2(select2Config);
 $('#customer-quick-cu-modal').modal({
     // ...
 }).on('shown.bs.modal', function (e) {
-    $('#customer-quick-cu-modal').attr('tabindex', false)
+    $(this).attr('tabindex', false)
 })
 ```
