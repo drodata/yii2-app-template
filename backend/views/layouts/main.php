@@ -6,6 +6,7 @@
 use backend\assets\AppAsset;
 use yii\helpers\Html;
 use yii\widgets\Breadcrumbs;
+use yii\bootstrap\Modal;
 use common\widgets\Alert;
 
 AppAsset::register($this);
@@ -67,6 +68,21 @@ $this->registerJs($js);
         <strong>&copy; <?= Html::a(Yii::$app->name, Yii::getAlias('@frontendweb')) ?> <?= date('Y') ?></strong> All rights reserved.
     </div>
 </footer>
+
+<?php 
+Modal::begin([
+    'header' => '',
+    'options' => ['id' => 'general-modal'],
+]);
+Modal::end();
+
+Modal::begin([
+    'header' => '',
+    'options' => ['id' => 'general-nested-modal'],
+]);
+Modal::end();
+?>
+
 
 <?php $this->endBody() ?>
 </body>

@@ -1,21 +1,17 @@
 <?php
 use yii\bootstrap\ActiveForm;
 use backend\models\Lookup;
-use kartik\widgets\Select2;
+use kartik\select2\Select2;
 
 $model = new Lookup();
 ?>
 
-<?= Select2::widget([
-    'data' => $lists,
+<?php $form = ActiveForm::begin(); ?>
+
+<?php
+echo $form->field($model, 'visible')->widget(Select2::classname(), [
+    'data' => Lookup::items('UserStatus'),
     'options' => ['placeholder' => '请选择'],
-    'addon' => [
-        'append' => [
-            'content' => Html::button(Html::icon('plus'), [
-                'class' => 'btn btn-default modal-create-customer', 
-                'title' => '新建', 
-            ]),
-            'asButton' => true
-        ]
-    ],
-])?>
+]);
+?>
+<?php ActiveForm::end(); ?>

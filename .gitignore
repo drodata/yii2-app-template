@@ -44,6 +44,9 @@ backend/views/test/
 # Vim's swap files
 *.swp
 
+# Vim session files
+*.vim-session
+
 common/yii2-sensitive.json
 
 # gitbook's published directory

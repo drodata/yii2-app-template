@@ -19,6 +19,23 @@ $this->params = [
 
 $model = new Lookup();
 $lists = ArrayHelper::map(Lookup::find()->asArray()->all(), 'id', 'name');
+
+$js = <<<JS
+$('.select-modal').click(function(){
+    $.get(APP.baseUrl + 'demo/ajax-get-select-modal', function(response) {
+        $('#general-modal .modal-body').html(response)
+        $('#general-modal').modal({
+            'keyboard': false,
+            'backdrop': 'static',
+        }).on('hidden.bs.modal', function (e) {
+        }).on('shown.bs.modal', function (e) {
+            $(this).attr('tabindex', false)
+            $('#lookup-visible').focus();
+        });
+    });
+});
+JS;
+$this->registerJs($js);
 ?>
 <div class="col-lg-6 col-lg-offset-3 col-md-12">
 <?php
@@ -48,7 +65,7 @@ Box::begin([
     ?>
 
     <div class="form-group">
-        <?= Html::button('在 Modal 内使用 Select2', ['class' => 'btn btn-primary']) ?>
+        <?= Html::button('在 Modal 内使用 Select2', ['class' => 'btn btn-primary select-modal']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
