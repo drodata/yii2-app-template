@@ -147,6 +147,7 @@ class Lookup extends \yii\db\ActiveRecord
                         'type' => $type,
                         'title' => '详情',
                         'icon' => 'eye',
+                        'class' => 'modal-view',
                     ]
                 );
                 break;

@@ -19,30 +19,26 @@ $this->params = [
 ];
 ?>
 <div class="row lookup-view">
-    <div class="col-md-12 col-lg-6 col-lg-offset-3">
-        <?php Box::begin([
+    <div class="col-xs-12 visible-xs-block">
+        <?php
+        Box::begin([
             'title' => $this->title,
             'tools' => [],
-        ]);?>
-        <?= $this->render('_detail-action', ['model' => $model])?>
-        <?= DetailView::widget([
-            'model' => $model,
-            'attributes' => [
-                'id',
-                'name',
-                'code',
-                'type',
-                'position',
-                'visible',
-                /*
-                [
-                    'attribute' => 'status',
-                    'value' => Lookup::item('UserStatus', $model->status),
-                ],
-                */
-            ],
-        ]) ?>
-
-        <?php Box::end();?>
+        ]);
+        echo $this->render('_detail-action-xs', ['model' => $model]);
+        echo $this->render('_detail-view-xs', ['model' => $model]);
+        Box::end();
+        ?>
+    </div>
+    <div class="col-sm-12 col-lg-8 col-lg-offset-2 hidden-xs">
+        <?php
+        Box::begin([
+            'title' => $this->title,
+            'tools' => [],
+        ]);
+        echo $this->render('_detail-action', ['model' => $model]);
+        echo $this->render('_detail-view', ['model' => $model]);
+        Box::end();
+        ?>
     </div>
 </div>

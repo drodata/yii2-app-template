@@ -1,9 +1,6 @@
 <?php
 
-/**
- * Action buttons in list item footer
- *
- */
+/* action buttons in detail view on Mobile */
 
 /* @var $this yii\web\View */
 /* @var $model backend\models\Lookup */
@@ -13,7 +10,6 @@
     <div class="col-xs-12">
         <div class="operation-group text-right">
             <?php
-            echo $model->actionLink('view', 'button');
             echo $model->actionLink('update', 'button');
             echo $model->actionLink('delete', 'button');
             ?>

@@ -41,6 +41,25 @@ $(function(){
             }, 10000);
         }
     });
+
+    /**
+     * 将普通的 view action 改用在 Modal 内显示
+     */
+    $(document).on('click', '.modal-view', function(e) {
+        e.preventDefault();
+        var queryString = $(this).prop('href').split('?')[1];
+        var slices = $(this).prop('href').split('/');
+        var ajaxRoute = slices[slices.length - 2] + '/modal-view?' + queryString;
+        $.get(APP.baseUrl + ajaxRoute, function(response) {
+            $(response).appendTo('body');
+            $('#view-modal').modal('show')
+        }).fail(ajax_fail_handler).always(function(){
+            $(document).on('hide.bs.modal', '#view-modal', function() {
+                $('#view-modal').remove()
+            });
+        });
+    });
+
     /*
     $('#batch-print-shipment-btn').click(function(e){
         var ab = $(this); 

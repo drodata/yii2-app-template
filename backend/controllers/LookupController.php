@@ -84,6 +84,20 @@ class LookupController extends Controller
     }
 
     /**
+     * View a model in modal
+     * @param integer $id
+     */
+    public function actionModalView($id)
+    {
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        return $this->renderPartial('modal-view', [
+            'model' => $this->findModel($id),
+        ]);
+    }
+
+
+    /**
      * Creates a new Lookup model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
