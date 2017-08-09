@@ -14,5 +14,11 @@ $config = yii\helpers\ArrayHelper::merge(
     require(__DIR__ . '/../config/main-local.php')
 );
 
+/**
+ * Customize core classmap. The `@ut` aliases was defined in
+ * common/config/main-local.php
+ */
+// Yii::$classMap['drodata\adminlte\Tabs'] = '@ut/adminlte/Tabs.php';
+
 $application = new yii\web\Application($config);
 $application->run();
