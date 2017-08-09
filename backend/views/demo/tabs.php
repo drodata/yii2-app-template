@@ -18,7 +18,6 @@ $this->params = [
 ?>
 <div class="row">
     <div class="col-md-6 col-sm-12">
-        <div class="nav-tabs-custom">
             <?= Tabs::widget([
                 'items' => [
                     [
@@ -40,10 +39,8 @@ $this->params = [
                     ],
                 ],
             ]) ?>
-        </div>
     </div>
     <div class="col-md-6 col-sm-12">
-        <div class="nav-tabs-custom">
             <?= Tabs::widget([
                 'options' => ['class' => 'pull-right'],
                 'items' => [
@@ -68,10 +65,8 @@ $this->params = [
                     ],
                 ],
             ]) ?>
-        </div>
     </div>
     <div class="col-md-6 col-sm-12">
-        <div class="nav-tabs-custom">
             <?= Tabs::widget([
                 'options' => ['class' => 'pull-right'],
                 'items' => [
@@ -106,6 +101,5 @@ $this->params = [
                     ],
                 ],
             ]) ?>
-        </div>
     </div>
 </div>
