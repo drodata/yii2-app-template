@@ -48,8 +48,11 @@ $(function(){
     $(document).on('click', '.modal-view', function(e) {
         e.preventDefault();
         var queryString = $(this).prop('href').split('?')[1];
-        var slices = $(this).prop('href').split('/');
-        var ajaxRoute = slices[slices.length - 2] + '/modal-view?' + queryString;
+        var slices = $(this).prop('href').split('?')[0].split('/');
+        var controller = slices[slices.length - 2];
+        var action = slices[slices.length - 1];
+        var ajaxRoute = controller + '/modal-' + action + '?' + queryString;
+
         $.get(APP.baseUrl + ajaxRoute, function(response) {
             $(response).appendTo('body');
             $('#view-modal').modal('show')
