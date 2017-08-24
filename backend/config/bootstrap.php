@@ -11,3 +11,10 @@ Yii::$container->set('yii\widgets\ListView', [
     'summaryOptions' => ['class' => 'col-sm-12'],
     'emptyTextOptions' => ['class' => 'col-sm-12'],
 ]);
+
+/**
+ * Attribute hints 改用 Bootstrap Popover 显示
+ */
+Yii::$container->set('yii\bootstrap\ActiveForm', [
+    'fieldClass' => 'drodata\bootstrap\ActiveField',
+]);

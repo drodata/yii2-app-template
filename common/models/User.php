@@ -142,6 +142,16 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     /**
      * @inheritdoc
      */
+    public function attributeHints()
+    {
+        return [
+            'username' => '此提示仅仅为了演示支持 Markdown, Popover 的 attribute hint, 在 `common\models\User::attributeHints()` 中删除 `username` 键删除此提示。',
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     */
     public static function findIdentityByAccessToken($token, $type = null)
     {
         throw new NotSupportedException('"findIdentityByAccessToken" is not implemented.');
