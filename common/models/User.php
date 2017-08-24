@@ -49,7 +49,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
 
     public function init()
     {
-        $this->on(self::EVENT_AFTER_LOGIN, [$this, 'updateLastLoginedAt']);
+        $this->on(self::EVENT_AFTER_LOGIN, [$this, 'updateLoginedAt']);
     }
 
     public function scenarios()
@@ -366,6 +366,9 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
 
     // ==== event handlers start ====
 
+    /**
+     * 登录后更新用户最后登录时间戳（user.logined_at 列）
+     */
     public function updateLoginedAt($event)
     {
         $this->updateAttributes(['logined_at' => time()]);
