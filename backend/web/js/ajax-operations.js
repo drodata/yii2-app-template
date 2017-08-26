@@ -47,6 +47,9 @@ $(function(){
      */
     $(document).on('click', '.modal-view', function(e) {
         e.preventDefault();
+
+        $(this).tooltip('hide');
+
         var queryString = $(this).prop('href').split('?')[1];
         var slices = $(this).prop('href').split('?')[0].split('/');
         var controller = slices[slices.length - 2];
@@ -60,7 +63,7 @@ $(function(){
             $(document).on('hide.bs.modal', '#view-modal', function() {
                 $('#view-modal').remove()
             });
-        });
+        })
     });
 
     /*
