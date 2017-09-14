@@ -2,7 +2,7 @@
 return [
     'vendorPath' => dirname(dirname(__DIR__)) . '/vendor',
     'language' => 'zh-CN',
-    'timeZone' => 'Asia/Shanghai',
+    'timeZone' => 'Asia/Shanghai', // timezone list: http://php.net/manual/en/timezones.php
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
