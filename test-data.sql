@@ -1,6 +1,7 @@
 INSERT INTO lookup (name, code, type, position) VALUES 
-    ('正常', 1, 'UserStatus', 1),
-    ('冻结', 2, 'UserStatus', 2),
+    ('冻结', 0, 'UserStatus', 1),
+    ('正常', 1, 'UserStatus', 2),
+    ('未审核', 2, 'UserStatus', 3),
     ('是', 1, 'Boolean', 1),
     ('否', 2, 'Boolean', 2);
 INSERT INTO `user_group` VALUES 

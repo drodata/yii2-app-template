@@ -37,6 +37,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
 {
     const FROZEN = 0;
     const ACTIVE = 1;
+    const PENDING = 2; // 未审核
 
     const EVENT_AFTER_LOGIN = 'after-login';
     /**
@@ -52,6 +53,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     {
         $this->on(self::EVENT_AFTER_LOGIN, [$this, 'updateLoginedAt']);
         $this->on(self::EVENT_BEFORE_INSERT, [$this, 'generateAccessToken']);
+        $this->on(self::EVENT_BEFORE_INSERT, [$this, 'generateAuthKey']);
     }
 
     public function scenarios()
@@ -79,8 +81,12 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     public function behaviors()
     {
         return [
-            TimestampBehavior::className(),
-            BlameableBehavior::className(),
+            'timestamp' => [
+                'class' => TimestampBehavior::className(),
+            ],
+            'blameable' => [
+                'class' => BlameableBehavior::className(),
+            ],
         ];
     }
 
@@ -91,6 +97,7 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
     {
         return [
             [['username', 'group_id'], 'required'],
+            [['status'], 'default', 'value' => self::PENDING],
             [['group_id', 'status', 'created_at', 'updated_at', 'logined_at'], 'integer'],
             [['username', 'password_hash', 'password_reset_token', 'access_token', 'email'], 'string', 'max' => 255],
             [['auth_key'], 'string', 'max' => 32],
@@ -118,7 +125,10 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
      */
     public static function findIdentity($id)
     {
-        return static::findOne(['id' => $id, 'status' => self::ACTIVE]);
+        return static::findOne([
+            'id' => $id,
+            'status' => [self::ACTIVE, self::PENDING],
+        ]);
     }
 
     /**
@@ -253,6 +263,15 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         $this->setPassword($event->data);
     }
 
+    /**
+     * 生成随机 auth_key 值
+     *
+     * 由 self::EVENT_BEFORE_INSERT 触发
+     */
+    public function generateAuthKey($event)
+    {
+        $this->auth_key = Yii::$app->security->generateRandomString(32);
+    }
     /**
      * 生成随机 access_token 值
      *

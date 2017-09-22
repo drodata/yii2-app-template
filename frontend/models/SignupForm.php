@@ -58,7 +58,9 @@ class SignupForm extends Model
             $user->email = $this->email;
             $user->group_id = UserGroup::STAFF;
             $user->setPassword($this->password);
-            $user->generateAuthKey();
+
+            // 用户注册不需要设置 created_by 和 updated_by 两列
+            $user->detachBehavior('blameable');
             $user->save();
 
             $transaction->commit();
