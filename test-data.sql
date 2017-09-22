@@ -8,10 +8,11 @@ INSERT INTO `user_group` VALUES
     ;
 
 /* default password: 123456 */
-INSERT INTO `user` (username, password_hash, password_reset_token, group_id, status) VALUES (
+INSERT INTO `user` (username, password_hash, password_reset_token, access_token, group_id, status) VALUES (
     'admin',
     '$2y$13$qrJfT4ExDCuDclDCqDRRL.FypbYfl98ot.mgmyElho39AcPSZfQtG',
     '$2y$13$BnT.whUJcDH9q5vMnox2We3YtYJnv9wyUQb4vZyS6.HfA2NPIzIL.',
+    '4l-Ezuu3pGZRco8Yq3zLHS5_r7FNWbU5XU2hUDseZJKG6a311JbIi57PDhbg',
     1,
     1
 );
