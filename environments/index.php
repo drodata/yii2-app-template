@@ -47,6 +47,8 @@ return [
             'mobile/models',
             'mobile/views',
             'mobile/controllers',
+            'api/runtime',
+            'api/controllers',
             'common/models',
             'static',
         ],
@@ -69,6 +71,8 @@ return [
             'frontend/web/assets',
             'mobile/runtime',
             'mobile/web/assets',
+            'api/runtime',
+            'api/controllers',
             'static',
         ],
         'setExecutable' => [
