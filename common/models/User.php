@@ -65,6 +65,27 @@ class User extends \yii\db\ActiveRecord implements IdentityInterface
         return yii\helpers\ArrayHelper::merge($default, $custom);
     }
 
+    public function fields()
+    {
+        $fields = parent::fields();
+        
+        // 删除涉及敏感信息的字段
+        unset(
+            $fields['auth_key'], $fields['password_hash'],
+            $fields['password_reset_token'],
+            $fields['access_token']
+        );
+        
+        return ArrayHelper::merge($fields, [
+            'fullName' => function (){
+                return $this->id . $this->username;
+            },
+            'group' => function (){
+                return $this->group;
+            },
+        ]);
+    }
+
     /**
      * key means scenario names
      */
