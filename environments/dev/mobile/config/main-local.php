@@ -29,25 +29,25 @@ if (YII_ENV_DEV) {
             'crud' => [
                 'class' => 'yii\gii\generators\crud\Generator',
                 'templates' => [
-                    'drodata' => '@drodata/gii-templates/backend/crud/default',
+                    'drodata' => '@drodata/gii/backend/crud/default',
                 ]
             ],
             'model' => [
                 'class' => 'yii\gii\generators\model\Generator',
                 'templates' => [
-                    'drodata' => '@drodata/gii-templates/backend/model/default',
+                    'drodata' => '@drodata/gii/backend/model/default',
                 ]
             ],
             'controller' => [
                 'class' => 'yii\gii\generators\controller\Generator',
                 'templates' => [
-                    'drodata' => '@drodata/gii-templates/backend/controller/default',
+                    'drodata' => '@drodata/gii/backend/controller/default',
                 ]
             ],
             'form' => [
                 'class' => 'yii\gii\generators\form\Generator',
                 'templates' => [
-                    'drodata' => '@drodata/gii-templates/backend/form/default',
+                    'drodata' => '@drodata/gii/backend/form/default',
                 ]
             ],
         ],

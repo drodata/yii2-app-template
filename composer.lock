@@ -48,7 +48,7 @@
                 "extension",
                 "yii"
             ],
-            "time": "2017-05-10 14:44:10"
+            "time": "2017-05-10T14:44:10+00:00"
         },
         {
             "name": "almasaeed2010/adminlte",
@@ -451,7 +451,7 @@
                 "notification",
                 "yii2"
             ],
-            "time": "2016-11-14 12:17:20"
+            "time": "2016-11-14T12:17:20+00:00"
         },
         {
             "name": "drodata/yii2-utility",
@@ -459,12 +459,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/drodata/yii2-utility.git",
-                "reference": "8f77a53d6106e7d4950782c2820bb9eb86d401ef"
+                "reference": "21fcf4d41d9d81abca9bfc34d48f74bf1c51cd64"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drodata/yii2-utility/zipball/8f77a53d6106e7d4950782c2820bb9eb86d401ef",
-                "reference": "8f77a53d6106e7d4950782c2820bb9eb86d401ef",
+                "url": "https://api.github.com/repos/drodata/yii2-utility/zipball/21fcf4d41d9d81abca9bfc34d48f74bf1c51cd64",
+                "reference": "21fcf4d41d9d81abca9bfc34d48f74bf1c51cd64",
                 "shasum": ""
             },
             "require": {
@@ -503,7 +503,7 @@
                 "helper",
                 "yii2"
             ],
-            "time": "2017-08-07 06:38:22"
+            "time": "2017-09-23T03:50:50+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",

@@ -23,7 +23,8 @@ if (!YII_ENV_TEST) {
 }
 if (YII_ENV_DEV) {    
     // to debug the yii2-utility extension locally
-    $config['aliases']['@ut'] = 'path-to-local-yii2-utility';
+    $config['aliases']['@ut'] = '/home/ts/www/yii2-utility'; // Debian
+    //$config['aliases']['@ut'] = '/Users/drodata/www/yii2-utility'; // Mac
 
     $config['modules']['gii'] = [
         'class' => 'yii\gii\Module',      
@@ -32,29 +33,36 @@ if (YII_ENV_DEV) {
             'crud' => [
                 'class' => 'yii\gii\generators\crud\Generator',
                 'templates' => [
-                    'drodata' => '@drodata/gii-templates/backend/crud/default',
-                    'drodata-local' => '@ut/gii-templates/backend/crud/default',
+                    'drodata' => '@drodata/gii/backend/crud/default',
+                    'drodata-local' => '@ut/gii/backend/crud/default',
                 ]
             ],
             'model' => [
                 'class' => 'yii\gii\generators\model\Generator',
                 'templates' => [
-                    'drodata' => '@drodata/gii-templates/backend/model/default',
-                    'drodata-local' => '@ut/gii-templates/backend/model/default',
+                    'drodata' => '@drodata/gii/backend/model/default',
+                    'drodata-local' => '@ut/gii/backend/model/default',
                 ]
             ],
             'controller' => [
                 'class' => 'yii\gii\generators\controller\Generator',
                 'templates' => [
-                    'drodata' => '@drodata/gii-templates/backend/controller/default',
-                    'drodata-local' => '@ut/gii-templates/backend/controller/default',
+                    'drodata' => '@drodata/gii/backend/controller/default',
+                    'drodata-local' => '@ut/gii/backend/controller/default',
+                    'drodata-local-api' => '@ut/gii/api/controller/default',
+                ]
+            ],
+            'controller-api' => [
+                'class' => 'drodata\gii\api\controller\Generator',
+                'templates' => [
+                    'default' => '@ut/gii/api/controller/default',
                 ]
             ],
             'form' => [
                 'class' => 'yii\gii\generators\form\Generator',
                 'templates' => [
-                    'drodata' => '@drodata/gii-templates/backend/form/default',
-                    'drodata-local' => '@ut/gii-templates/backend/form/default',
+                    'drodata' => '@drodata/gii/backend/form/default',
+                    'drodata-local' => '@ut/gii/backend/form/default',
                 ]
             ],
         ],
