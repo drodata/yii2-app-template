@@ -91,4 +91,28 @@ sudo chmod 640 yii2-sensitive.json
 
 :question:, 同样是使用 ShadowSocks 代理上网，Debian 下如果不手动添加 Ignore Hosts, 就会出现上面的问题；Mac 下则没有该问题。
 
+### Access denied
+
+使用已有的账号和密码登录是提示：
+
+> SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: NO)
+
+原因：`common/yii2-sensitive.json` 权限设置不当造成。在下面的例子中，权限被设置成只有用户 git 有读写权限。
+
+```bash
+-rw------- 1 git git   31 Sep 24 08:47 yii2-sensitive.json
+```
+
+这种设置导致 Apache 没有读取它的权限，进而导致 `common/config/main-loca.php` 中 `$sensitive->password` 的值为 null:
+
+```php
+'components' => [
+    'db' => [
+        'password' => $sensitive->password,
+    ],
+],
+```
+
+这就是提示中 "using password: **NO**" 的原因，'NO' 表示不使用密码。如果提供错误的密码，这里会提示"using password: **YES**". 因此，设置权限时务必确认 Apache 具有读权限。
+
 [download-composer]: https://github.com/drodata/learning-notes/blob/master/meet/composer/download.md
