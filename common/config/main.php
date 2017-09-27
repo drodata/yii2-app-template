@@ -13,6 +13,15 @@ return [
         'cache' => [
             'class' => 'yii\caching\FileCache',
         ],
+        'log' => [
+            'traceLevel' => YII_DEBUG ? 3 : 0,
+            'targets' => [
+                [
+                    'class' => 'yii\log\FileTarget',
+                    'levels' => ['error', 'warning'],
+                ],
+            ],
+        ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
@@ -28,8 +37,8 @@ return [
             'thousandSeparator' => ' ',
             'defaultTimeZone' => 'Asia/Shanghai',
        ],
-        'authManager' => [
-            'class' => 'yii\rbac\DbManager', 
-        ],
+       'authManager' => [
+           'class' => 'yii\rbac\DbManager', 
+       ],
     ],
 ];

@@ -23,24 +23,6 @@ return [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
         ],
-        'log' => [
-            'traceLevel' => YII_DEBUG ? 3 : 0,
-            'targets' => [
-                [
-                    'class' => 'yii\log\DbTarget',
-                    'levels' => ['info'],
-                    'categories' => ['b.*'],
-                    'logVars' => [], // disable append context message
-                    'prefix' => function() {
-                            return Yii::$app->user->isGuest ? 'Guest' : Yii::$app->user->identity->username;
-                        },
-                ],
-                [
-                    'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
-                ],
-            ],
-        ],
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
