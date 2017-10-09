@@ -52,12 +52,14 @@ if (YII_ENV_DEV) {
                     'drodata-local-api' => '@ut/gii/api/controller/default',
                 ]
             ],
+            /*
             'controller-api' => [
                 'class' => 'drodata\gii\api\controller\Generator',
                 'templates' => [
                     'default' => '@ut/gii/api/controller/default',
                 ]
             ],
+            */
             'form' => [
                 'class' => 'yii\gii\generators\form\Generator',
                 'templates' => [
