@@ -31,10 +31,9 @@ if (YII_ENV_DEV) {
         'allowedIPs' => ['127.0.0.1', '::1', '192.168.0.*', '192.168.178.20'],  
         'generators' => [
             'crud' => [
-                'class' => 'yii\gii\generators\crud\Generator',
+                'class' => 'drodata\gii\backend\crud\Generator',
                 'templates' => [
-                    'drodata' => '@drodata/gii/backend/crud/default',
-                    'drodata-local' => '@ut/gii/backend/crud/default',
+                    'local' => '@ut/gii/backend/crud/default',
                 ]
             ],
             'model' => [
@@ -45,11 +44,9 @@ if (YII_ENV_DEV) {
                 ]
             ],
             'controller' => [
-                'class' => 'yii\gii\generators\controller\Generator',
+                'class' => 'drodata\gii\backend\controller\Generator',
                 'templates' => [
-                    'drodata' => '@drodata/gii/backend/controller/default',
-                    'drodata-local' => '@ut/gii/backend/controller/default',
-                    'drodata-local-api' => '@ut/gii/api/controller/default',
+                    'local' => '@ut/gii/backend/controller/default',
                 ]
             ],
             /*
