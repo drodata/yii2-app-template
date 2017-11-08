@@ -18,3 +18,16 @@ Yii::$container->set('yii\widgets\ListView', [
 Yii::$container->set('yii\bootstrap\ActiveForm', [
     'fieldClass' => 'drodata\bootstrap\ActiveField',
 ]);
+Yii::$container->set('kartik\daterange\DateRangePicker', [
+    'convertFormat'=>true,
+    'pluginOptions'=> [
+        'locale'=>[
+            'format'=>'Ymd',
+            'separator' => '-',
+            'cancelLabel' => '重置',
+        ],
+    ],
+    'pluginEvents'=> [
+        "cancel.daterangepicker" => 'function(ev, picker) {$(this).val("").trigger("change");}',
+    ],
+]);

@@ -24,8 +24,8 @@ class UserSearch extends User
     public function rules()
     {
         return [
-            [['id', 'status', 'group_id', 'created_at', 'updated_at', 'logined_at'], 'integer'],
-            [['username', 'screen_name', 'auth_key', 'password_hash', 'password_reset_token', 'email', 'note'], 'safe'],
+            [['id', 'status', 'group_id', 'updated_at', 'logined_at'], 'integer'],
+            [['username', 'screen_name', 'auth_key', 'created_at', 'password_hash', 'password_reset_token', 'email', 'note'], 'safe'],
             // usefull when filtering on related columns
             //[['author.name'], 'safe'],
         ];
@@ -95,10 +95,18 @@ class UserSearch extends User
             'id' => $this->id,
             'status' => $this->status,
             'group_id' => $this->group_id,
-            'created_at' => $this->created_at,
-            'updated_at' => $this->updated_at,
-            'logined_at' => $this->logined_at,
         ]);
+        if (!empty($this->created_at) && strpos($this->created_at, '-') !== false) {
+            list($begin, $end) = explode('-', $this->created_at);
+            $begin .= ' 00:00:00';
+            $end .= ' 23:59:59';
+            $query->andFilterWhere([
+                'BETWEEN',
+                static::tableName() . '.created_at',
+                strtotime($begin),
+                strtotime($end)
+            ]);
+        }
 
         $query->andFilterWhere(['like', 'username', $this->username])
             ->andFilterWhere(['like', 'screen_name', $this->screen_name])

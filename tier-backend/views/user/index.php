@@ -5,6 +5,7 @@ use yii\grid\GridView;
 use common\widgets\Box;
 use backend\models\Lookup;
 use backend\models\UserGroup;
+use kartik\daterange\DateRangePicker;
 
 /* @var $this yii\web\View */
 /* @var $searchModel backend\models\UserSearch */
@@ -33,6 +34,15 @@ $this->params = [
                 'dataProvider' => $dataProvider,
                 'filterModel' => $searchModel,
                'columns' => [
+                    [
+                        'attribute' => 'created_at',
+                        'format' => 'datetime',
+                        'contentOptions' => ['style' => 'width:180px'],
+                        'filter' => DateRangePicker::widget([
+                            'model' => $searchModel,
+                            'attribute' => 'created_at',
+                        ])
+                    ],
                     'id',
                     'username',
                     'screen_name',
