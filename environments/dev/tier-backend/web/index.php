@@ -19,6 +19,7 @@ $config = yii\helpers\ArrayHelper::merge(
  * common/config/main-local.php
  */
 // Yii::$classMap['drodata\adminlte\Tabs'] = '@ut/adminlte/Tabs.php';
+//Yii::$classMap['drodata\gii\backend\crud\Generator'] = '@ut/gii/backend/crud/Generator.php';
 
 $application = new yii\web\Application($config);
 $application->run();

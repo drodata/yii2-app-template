@@ -30,11 +30,9 @@ if (YII_ENV_DEV) {
         'class' => 'yii\gii\Module',      
         'allowedIPs' => ['127.0.0.1', '::1', '192.168.0.*', '192.168.178.20'],  
         'generators' => [
+            // 使用 yii2-utility 中的generator, 如果想使用本地的类，记得在 entry script 内覆盖 classMap
             'crud' => [
                 'class' => 'drodata\gii\backend\crud\Generator',
-                'templates' => [
-                    'local' => '@ut/gii/backend/crud/default',
-                ]
             ],
             'model' => [
                 'class' => 'yii\gii\generators\model\Generator',
