@@ -76,6 +76,7 @@ class Lookup extends \yii\db\ActiveRecord
             [['code', 'position', 'visible'], 'integer'],
             [['name'], 'string', 'max' => 45],
             [['type'], 'string', 'max' => 128],
+            [['name'], 'unique', 'targetAttribute' => ['name', 'type'], 'message' => '{value}已存在'],
         ];
         //['passwordOld', 'inlineV'],
     }
@@ -96,9 +97,17 @@ class Lookup extends \yii\db\ActiveRecord
      */
     public function attributeLabels()
     {
+        switch ($this->type) {
+            case 'DemoProduct':
+                $name = '临时商品名称';
+                break;
+            default:
+                $name = '名称';
+                break;
+        }
         return [
             'id' => 'ID',
-            'name' => 'Name',
+            'name' => $name,
             'code' => 'Code',
             'type' => 'Type',
             'position' => 'Position',
@@ -140,6 +149,16 @@ class Lookup extends \yii\db\ActiveRecord
     {
         $route = '/lookup/' . $action;
         switch ($action) {
+            case 'quick-update':
+                return Html::actionLink(
+                    [$route, 'id' => $this->id],
+                    [
+                        'type' => $type,
+                        'title' => '修改',
+                        'icon' => 'pencil',
+                    ]
+                );
+                break;
             case 'view':
                 return Html::actionLink(
                     [$route, 'id' => $this->id],

@@ -5,6 +5,7 @@ namespace backend\controllers;
 use Yii;
 use backend\models\Lookup;
 use backend\models\LookupSearch;
+use drodata\helpers\Html;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\web\ForbiddenHttpException;
@@ -149,5 +150,96 @@ class LookupController extends Controller
         Yii::$app->session->setFlash('success', '已删除');
 
         return $this->redirect(['index']);
+    }
+
+    /**
+     * 快速新建
+     */
+    public function actionQuickCreate($type)
+    {
+        $model = new Lookup([
+            'type' => $type,
+            'code' => Lookup::nextCode($type),
+            'position' => Lookup::nextCode($type),
+        ]);
+        switch ($type) {
+            case 'DemoProduct':
+                $name = '临时商品';
+                $redirectRoute = '/demo/manage-product';
+                break;
+        }
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success', $name . '已创建');
+            return $this->redirect($redirectRoute);
+        }
+
+        return $this->render('quick-create', [
+            'model' => $model,
+            'name' => $name,
+        ]);
+    }
+    /**
+     * 快速修改（仅修改名称）
+     */
+    public function actionQuickUpdate($id)
+    {
+        $model = $this->findModel($id);
+        switch ($model->type) {
+            case 'DemoProduct':
+                $name = '临时商品';
+                $redirectRoute = '/demo/manage-product';
+                break;
+        }
+
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            Yii::$app->session->setFlash('success', $name . '已修改');
+            return $this->redirect($redirectRoute);
+        }
+
+        return $this->render('quick-update', [
+            'model' => $model,
+            'name' => $name,
+        ]);
+    }
+    /**
+     * 通过 modal 快速新建 lookup
+     */
+    public function actionAjaxGetModal($type)
+    {
+		Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        $model = new Lookup([
+            'type' => $type,
+            'code' => Lookup::nextCode($type),
+            'position' => Lookup::nextCode($type),
+        ]);
+
+        return $this->renderPartial('quick-create-modal', [
+            'model' => $model,
+            'type' => $type,
+        ]);
+    }
+    public function actionAjaxQuickCreate()
+    {
+		Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+		$d['status'] = true;
+        $model = new Lookup();
+        $model->load(Yii::$app->request->post());
+
+		$d['status'] = $model->validate() && $d['status'];
+
+		if (!$model->validate()) {
+			$d['errors']['lookup'] = $model->getErrors();
+        }
+        if ($d['status']) {
+            $model->save();
+            $d['message'] = '<span class="text-success">已创建</span>';
+            $d['entity'] = Html::tag('option', $model->name, [
+                'value' => $model->id,
+                'selected' => true,
+            ]);
+        }
+
+        return $d;
     }
 }

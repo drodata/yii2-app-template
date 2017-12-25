@@ -66,6 +66,56 @@ $(function(){
         })
     });
 
+    // 在 Modal 内通过 AJAX 快速新增 Lookup 记录(仅 name 列)
+    $(document).on('click', '.ajax-quick-create-lookup', function() {
+        var dropDown = {
+            element: $(this).parents('.input-group').first().find('select'),
+            type: $(this).data('type'),
+        };
+	        $.get(APP.baseUrl + 'lookup/ajax-get-modal?type=' + dropDown.type, function(response) {
+                $(response).appendTo('body');
+
+                $('#' + dropDown.type + '-modal').modal({
+                    'keyboard': false,
+                    'backdrop': 'static',
+                }).on('hidden.bs.modal', function (e) {
+                    $('#' + dropDown.type + '-modal').remove();
+                }).on('shown.bs.modal', function (e) {
+                    $('#lookup-name').focus();
+                });
+            
+                var selecter = '#lookup-quick-create-form'
+                var lookup = {
+                    form: $(selecter),
+                    model: $(selecter).afGetYii2('Lookup'),
+                    submit: {
+                        element: $(selecter).find('[type=submit]'),
+                        originalText: $(selecter).find('[type=submit]').text(),
+                    },
+                };
+                lookup.form.submit(function(e) {
+                	e.preventDefault();
+                	e.stopImmediatePropagation();
+                	lookup.submit.element.prop('disabled',true)
+                	$.post(APP.baseUrl + 'lookup/ajax-quick-create', lookup.form.serialize(), function(response) {
+                		if (!response.status) {
+                            lookup.form.displayErrors(response)
+                        } else {
+                            $( response.message ).appendTo(lookup.submit.element.parent());
+                            $( response.entity ).appendTo(dropDown.element);
+                            dropDown.element.trigger('change');
+                        
+                			setTimeout(function(){
+                                $('#' + dropDown.type + '-modal').modal('hide');
+                			},1000);
+                        }
+                	}).fail(ajax_fail_handler).always(function() {
+                	    lookup.submit.element.prop('disabled',false)
+                	});
+                }); //!submit event
+            }); //!create modal fetch
+    });
+
     /*
     $('#batch-print-shipment-btn').click(function(e){
         var ab = $(this); 

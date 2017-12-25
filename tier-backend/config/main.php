@@ -28,8 +28,7 @@ return [
         ],
         'urlManager' => [
             'rules' => [
-                'demo/ajax-get-select-modal' => 'demo/ajax-get-select-modal',
-                'demo/<category>' => 'demo/index',
+                'demo/category/<category>' => 'demo/index',
             ],
         ],
     ],
