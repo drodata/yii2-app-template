@@ -19,10 +19,17 @@ $this->params = [
         ['label' => '临时商品', 'url' => 'manage-product'],
         $this->title,
     ],
+    'alerts' => [
+        [
+            'options' => ['class' => 'alert-info'],
+            'body' => '本页面演示了如何在页面不跳转的情况下，动态新增一条 Lookup 记录。',
+        ],
+    ],
 ];
 
 ?>
 <div class="row acceptance-form">
+    <?= $this->render('@drodata/views/_alert') ?>
     <div class="col-md-12 col-lg-4 col-lg-offset-4">
         <?php Box::begin([
         ]); ?>
