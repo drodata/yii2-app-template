@@ -19,6 +19,18 @@ $this->params = [
         ['label' => '临时商品', 'url' => 'manage-product'],
         $this->title,
     ],
+    'buttons' => [
+        Html::actionLink('#', [
+            'class' => 'modal-create-lookup',
+            'type' => 'button',
+            'title' => 'Modal 新建(新建后不做任何操作)',
+            'color' => 'primary',
+            'data' => [
+                'type' => 'DemoProduct',
+                'scenario' => 'default',
+            ],
+        ]),
+    ],
     'alerts' => [
         [
             'options' => ['class' => 'alert-info'],
@@ -29,10 +41,10 @@ $this->params = [
 
 ?>
 <div class="row acceptance-form">
-    <?= $this->render('@drodata/views/_alert') ?>
     <div class="col-md-12 col-lg-4 col-lg-offset-4">
         <?php Box::begin([
         ]); ?>
+            <?= $this->render('@drodata/views/_button') ?>
             <?php $form = ActiveForm::begin(); ?>
                 <?= $form->field($model, 'from_id')->label('临时商品')->widget(Select2::classname(), [
                     'data' => Lookup::items('DemoProduct'),
@@ -40,10 +52,11 @@ $this->params = [
                     'addon' => [
                         'append' => [
                             'content' => Html::button(Html::icon('plus'), [
-                                'class' => 'btn btn-primary ajax-quick-create-lookup', 
+                                'class' => 'btn btn-primary modal-create-lookup', 
                                 'title' => '新增临时商品', 
                                 'data' => [
                                     'type' => 'DemoProduct',
+                                    'scenario' => 'dropDown',
                                 ],
                             ]),
                             'asButton' => true
