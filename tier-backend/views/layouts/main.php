@@ -54,6 +54,7 @@ $this->registerJs($js);
             </section>
             <section class="content">
                 <?= Alert::widget() ?>
+                <?= $this->render('@drodata/views/_alert') ?>
                 <?= $content ?>
             </section>
         </div>
