@@ -65,6 +65,23 @@ $(function(){
             });
         })
     });
+    /**
+     * 通用的高级搜索
+     */
+    $(document).on('click', '.modal-search', function(e) {
+        e.preventDefault();
+
+        $(this).tooltip('hide');
+
+        $.get($(this).prop('href'), function(response) {
+            $(response).appendTo('body');
+            $('#search-modal').modal('show')
+        }).fail(ajax_fail_handler).always(function(){
+            $(document).on('hide.bs.modal', '#view-modal', function() {
+                $('#search-modal').remove()
+            });
+        })
+    });
 
     // 在 Modal 内通过 AJAX 快速新增 Lookup 记录(仅 name 列)
     $(document).on('click', '.modal-create-lookup', function() {
