@@ -48,6 +48,7 @@ $(function(){
     $(document).on('click', '.modal-view', function(e) {
         e.preventDefault();
 
+        var selecter = '#view-modal'
         $(this).tooltip('hide');
 
         var queryString = $(this).prop('href').split('?')[1];
@@ -58,10 +59,10 @@ $(function(){
 
         $.get(APP.baseUrl + ajaxRoute, function(response) {
             $(response).appendTo('body');
-            $('#view-modal').modal('show')
+            $(selecter).modal('show')
         }).fail(ajax_fail_handler).always(function(){
-            $(document).on('hide.bs.modal', '#view-modal', function() {
-                $('#view-modal').remove()
+            $(document).on('hide.bs.modal', selecter, function() {
+                $(selecter).remove()
             });
         })
     });
@@ -71,14 +72,15 @@ $(function(){
     $(document).on('click', '.modal-search', function(e) {
         e.preventDefault();
 
+        var selecter = '#search-modal'
         $(this).tooltip('hide');
 
         $.get($(this).prop('href'), function(response) {
             $(response).appendTo('body');
-            $('#search-modal').modal('show')
+            $(selecter).modal('show')
         }).fail(ajax_fail_handler).always(function(){
-            $(document).on('hide.bs.modal', '#view-modal', function() {
-                $('#search-modal').remove()
+            $(document).on('hide.bs.modal', selecter, function() {
+                $(selecter).remove()
             });
         })
     });
