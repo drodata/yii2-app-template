@@ -17,6 +17,8 @@ class m171229_132303_creata_table_activity extends Migration
             'action' => $this->string(100)->notNull(),
             'note' => $this->text(),
         ], $tableOptions);
+        $this->addCommentOnColumn('activity', 'type', '类别');
+        $this->addCommentOnTable('activity', '活动');
         /*
         $this->addForeignKey(
             'fk-visit-interaction',
