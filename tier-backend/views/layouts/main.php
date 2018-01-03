@@ -39,7 +39,7 @@ $this->registerJs($js);
     <title><?= Html::encode($this->title) ?> | <?= Yii::$app->name ?></title>
     <?php $this->head() ?>
 </head>
-<body class="skin-<?= Yii::$app->params['skin'] ?> layout-top-nav">
+<body class="skin-<?= Yii::$app->params['skin'] ?> layout-top-nav fixed">
 <?php $this->beginBody() ?>
 
 <div class="wrap">

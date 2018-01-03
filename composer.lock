@@ -48,7 +48,7 @@
                 "extension",
                 "yii"
             ],
-            "time": "2017-05-10 14:44:10"
+            "time": "2017-05-10T14:44:10+00:00"
         },
         {
             "name": "almasaeed2010/adminlte",
@@ -414,7 +414,7 @@
                 "notification",
                 "yii2"
             ],
-            "time": "2016-11-14 12:17:20"
+            "time": "2016-11-14T12:17:20+00:00"
         },
         {
             "name": "drodata/yii2-utility",
@@ -422,12 +422,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/drodata/yii2-utility.git",
-                "reference": "c0e196ea1ac1ac7e0e077fb2995739a02153ee38"
+                "reference": "ba2cac08a80858276456b8d113937513cce4dc56"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drodata/yii2-utility/zipball/c0e196ea1ac1ac7e0e077fb2995739a02153ee38",
-                "reference": "c0e196ea1ac1ac7e0e077fb2995739a02153ee38",
+                "url": "https://api.github.com/repos/drodata/yii2-utility/zipball/ba2cac08a80858276456b8d113937513cce4dc56",
+                "reference": "ba2cac08a80858276456b8d113937513cce4dc56",
                 "shasum": ""
             },
             "require": {
@@ -466,7 +466,7 @@
                 "helper",
                 "yii2"
             ],
-            "time": "2017-12-25 06:39:32"
+            "time": "2018-01-02T13:50:02+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -1577,7 +1577,7 @@
             "version": "v0.11.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/twitter/typeahead.js.git",
+                "url": "git@github.com:twitter/typeahead.js.git",
                 "reference": "588440f66559714280628a4f9799f0c4eb880a4a"
             },
             "dist": {

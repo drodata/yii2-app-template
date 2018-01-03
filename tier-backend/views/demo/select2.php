@@ -33,6 +33,7 @@ $('.select-modal').click(function(){
 JS;
 $this->registerJs($js);
 ?>
+<div class="row">
 <div class="col-lg-6 col-lg-offset-3 col-md-12">
 <?php
 Box::begin([
@@ -66,4 +67,6 @@ Box::begin([
 
     <?php ActiveForm::end(); ?>
 
-<?php Box::end();?></div>
+<?php Box::end();?>
+</div>
+</div>
