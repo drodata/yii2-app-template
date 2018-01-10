@@ -23,7 +23,7 @@ if (!YII_ENV_TEST) {
 }
 if (YII_ENV_DEV) {    
     // to debug the yii2-utility extension locally
-    $config['aliases']['@ut'] = '/home/ts/www/yii2-utility'; // Debian
+    $config['aliases']['@ut'] = '/home/drodata/www/yii2-utility'; // Debian
     //$config['aliases']['@ut'] = '/Users/drodata/www/yii2-utility'; // Mac
 
     $config['modules']['gii'] = [
