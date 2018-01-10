@@ -65,6 +65,8 @@ use drodata\widgets\NavBar;
                  ['label' => Html::fwicon('line-chart') . 'Chart.js', 'url' => '/demo/category/chartjs', 'encode' => false],
                  ['label' => 'Tabs', 'url' => '/demo/category/tabs', 'encode' => false],
                  '<li class="divider"></li>',
+                 ['label' => Html::fwicon('flag') . 'FontAwesome', 'url' => '/demo/category/fontawesome', 'encode' => false],
+                 '<li class="divider"></li>',
                  '<li class="dropdown-header">Dropdown Header</li>',
                  ['label' => 'Level 1 - Dropdown B', 'url' => '#'],
             ],
