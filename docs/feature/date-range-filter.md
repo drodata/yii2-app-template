@@ -41,6 +41,7 @@ echo GridView::widget([
         // other columns configuration
     ],
 ]);
+```
 
 ## Search Model Configuration
 
@@ -70,4 +71,48 @@ if (!empty($this->created_at) && strpos($this->created_at, '-') !== false) {
         strtotime($end)
     ]);
 }
+```
+
+## 个性化
+
+### 增加预定义时间段
+
+借助 `ranges` 属性，可以显示一些常用的时间段，且里面有一个“自选范围”的按钮。总体来看，这个比直接显示日历卡体验要好。
+
+```php
+'pluginOptions'=> ArrayHelper::merge($configs, [
+    // ...
+    'ranges' => [ 
+        '今天' => ["moment()", "moment()"],
+        '昨天' => ["moment().startOf('day').subtract(1,'days')", "moment().endOf('day').subtract(1,'days')"],
+        '最近3天' => ["moment().subtract(2,'days')", "moment()"],
+        '最近7天' => ["moment().subtract(6,'days')", "moment()"],
+        '本月' => ["moment().startOf('month')", "moment().endOf('month')"],
+    ],
+]),
+```
+
+![](../_asset/date-range-picker-predefined-range.png)
+
+## Troubleshooting
+
+### 筛选当天记录不工作
+
+如果想筛选当天的记录，点击确定发现不起作用，且文本框内容仍是空字符。但是先选择一个时间段，再次选择当天时又工作了。
+
+![](../_asset/date-range-picker-today-not-work.png)
+
+解决：显性在 `apply` event 内赋值并触发 change 事件：
+
+```php
+return DateRangePicker::widget([
+    'model' => $model,
+    'attribute' => $attribute,
+    // ...
+    'pluginEvents'=> [
+        "apply.daterangepicker" => 'function(ev, picker) {
+             $(this).val(picker.startDate.format("YYYYMMDD") + "-" + picker.endDate.format("YYYYMMDD")).trigger("change");
+        }',
+    ],
+]);
 ```
