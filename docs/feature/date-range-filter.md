@@ -92,7 +92,7 @@ if (!empty($this->created_at) && strpos($this->created_at, '-') !== false) {
 ]),
 ```
 
-![](/_asset/date-range-picker-predefined-range.png)
+![](/docs/_asset/date-range-picker-predefined-range.png)
 
 ## Troubleshooting
 
