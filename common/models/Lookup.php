@@ -74,8 +74,8 @@ class Lookup extends \yii\db\ActiveRecord
         return [
             [['name', 'code', 'type', 'position'], 'required'],
             [['code', 'position', 'visible'], 'integer'],
-            [['name'], 'string', 'max' => 45],
-            [['type'], 'string', 'max' => 128],
+            [['name'], 'string', 'max' => 50],
+            [['type'], 'string', 'max' => 90],
             [['name'], 'unique', 'targetAttribute' => ['name', 'type'], 'message' => '{value}已存在'],
         ];
         //['passwordOld', 'inlineV'],
