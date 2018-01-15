@@ -14,12 +14,10 @@ $config = yii\helpers\ArrayHelper::merge(
     require(__DIR__ . '/../config/main-local.php')
 );
 
-/**
- * Customize core classmap. The `@ut` aliases was defined in
- * common/config/main-local.php
- */
-// Yii::$classMap['drodata\adminlte\Tabs'] = '@ut/adminlte/Tabs.php';
-//Yii::$classMap['drodata\gii\backend\crud\Generator'] = '@ut/gii/backend/crud/Generator.php';
-
 $application = new yii\web\Application($config);
+/**
+ * 为方便在本地调试插件，在这里重新映射 extension alias
+ */
+Yii::setAlias('@drodata', '/home/drodata/www/yii2-utility'); // Debian
+// Yii::setAlias('@drodata', '/Users/drodata/www/yii2-utility'); // Mac
 $application->run();
