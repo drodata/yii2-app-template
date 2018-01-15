@@ -29,6 +29,11 @@ return [
                 ],
             ],
         ],
+        'temp-product' => [
+            'class' => 'drodata\controllers\QuickLookupController',
+            'name' => '临时商品',
+            'type' => 'TempProduct',
+        ],
     ],
     'controllerNamespace' => 'backend\controllers',
     'defaultRoute' => 'dashboard/index',
