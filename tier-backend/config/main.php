@@ -33,6 +33,21 @@ return [
             'class' => 'drodata\controllers\QuickLookupController',
             'name' => '临时商品',
             'type' => 'TempProduct',
+            'as access' => [
+                'class' => 'yii\filters\AccessControl',
+                'rules' => [
+                    [
+                        'allow' => true,
+                        'roles' => ['@'],
+                    ],
+                ],
+            ],
+            'as verbs' => [
+                'class' => 'yii\filters\VerbFilter',
+                'actions' => [
+                    'toggle-visibility' => ['POST'],
+                ],
+            ],
         ],
     ],
     'controllerNamespace' => 'backend\controllers',

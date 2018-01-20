@@ -48,4 +48,5 @@ backend/views/test/index.php
 common/yii2-sensitive.json
 
 # gitbook's published directory
+_book/
 docs/_book/
