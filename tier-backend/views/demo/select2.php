@@ -1,8 +1,8 @@
 <?php
 use drodata\helpers\Html;
 use drodata\widgets\Box;
+use drodata\models\Lookup;
 use yii\widgets\ActiveForm;
-use common\models\Lookup;
 use yii\helpers\ArrayHelper;
 use kartik\select2\Select2;
 
@@ -18,7 +18,7 @@ $this->params = [
 ];
 
 $model = new Lookup();
-$lists = ArrayHelper::map(Lookup::find()->asArray()->all(), 'id', 'name');
+$lists = Lookup::items('UserStatus');
 
 $js = <<<JS
 $('.select-modal').click(function(){
