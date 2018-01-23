@@ -62,12 +62,12 @@ function add_row(i) {
 var af = $('#order-form');
 var submitBtn = af.find('button[type=submit]');
 
-// 在其它地方使用，仅需更改 $.post() 中的 url
-af.submit(function(e){
-    e.preventDefault();
-    e.stopImmediatePropagation();
+af.on('beforeSubmit', function() {
+    // 禁用提交按钮
+    submitBtn.prop('disabled', true)
 
-    $.post(APP.baseUrl + 'order/ajax-submit', af.serialize(), function(response) {
+    // $.post() url 在 ActiveForm widget 内设置
+    $.post(af.attr('action'), af.serialize(), function(response) {
         // 含有非法数据，显示错误提示
         if (!response.status) {
             af.displayErrors(response)
@@ -81,7 +81,11 @@ af.submit(function(e){
 			window.location.href = response.redirectUrl;
 		},1000);
     }).fail(ajax_fail_handler).always(function(){
+        submitBtn.prop('disabled', false)
     });
+
+    // 禁用默认的提交行为
+    return false
 });
 ```
 
