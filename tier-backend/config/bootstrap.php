@@ -18,6 +18,9 @@ Yii::$container->set('yii\widgets\ListView', [
 Yii::$container->set('yii\bootstrap\ActiveForm', [
     'fieldClass' => 'drodata\bootstrap\ActiveField',
 ]);
+Yii::$container->set('yii\bootstrap\BootstrapAsset', [
+    'cssOptions' => ['media' => 'print, screen'],
+]);
 Yii::$container->set('kartik\daterange\DateRangePicker', [
     'convertFormat'=>true,
     'pluginOptions'=> [

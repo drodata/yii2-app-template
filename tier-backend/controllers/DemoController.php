@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use backend\models\Map;
+use backend\models\CommonForm;
 use backend\models\LookupSearch;
 
 class DemoController extends \yii\web\Controller
@@ -27,6 +28,18 @@ class DemoController extends \yii\web\Controller
     {
         Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
         return $this->renderAjax('_select2-modal');
+    }
+
+    public function actionAjaxPrint()
+    {
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+        $model = new CommonForm(['scenario' => CommonForm::SCENARIO_DEMO]);
+        $model->load(Yii::$app->request->post());
+
+        // 为了演示提交按钮禁用效果
+        sleep(3);
+
+        return $this->renderPartial('_print', ['name' => $model->name]);
     }
 
 }
