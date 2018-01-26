@@ -278,7 +278,7 @@
             "version": "2.0.7.1",
             "source": {
                 "type": "git",
-                "url": "https://github.com/yiisoft/jquery-pjax.git",
+                "url": "git@github.com:yiisoft/jquery-pjax.git",
                 "reference": "aef7b953107264f00234902a3880eb50dafc48be"
             },
             "dist": {
@@ -422,12 +422,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/drodata/yii2-utility.git",
-                "reference": "af4d45fcf54b1ac7239f3c4f417b25dbfd3db809"
+                "reference": "2f0e65690e55c0627c1e9586765d53cc3d46e179"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drodata/yii2-utility/zipball/af4d45fcf54b1ac7239f3c4f417b25dbfd3db809",
-                "reference": "af4d45fcf54b1ac7239f3c4f417b25dbfd3db809",
+                "url": "https://api.github.com/repos/drodata/yii2-utility/zipball/2f0e65690e55c0627c1e9586765d53cc3d46e179",
+                "reference": "2f0e65690e55c0627c1e9586765d53cc3d46e179",
                 "shasum": ""
             },
             "require": {
@@ -466,7 +466,7 @@
                 "helper",
                 "yii2"
             ],
-            "time": "2018-01-13T08:11:13+00:00"
+            "time": "2018-01-26T00:56:58+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
