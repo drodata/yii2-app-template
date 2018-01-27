@@ -18,7 +18,7 @@ $this->params = [
 ];
 
 $model = new Lookup();
-$lists = Lookup::items('UserStatus');
+$lists = Lookup::items('TempProduct');
 
 $js = <<<JS
 $('.select-modal').click(function(){
@@ -52,8 +52,12 @@ Box::begin([
         'addon' => [
             'append' => [
                 'content' => Html::button(Html::icon('plus'), [
-                    'class' => 'btn btn-default modal-create-customer', 
+                    'class' => 'btn btn-default modal-create-quick-lookup', 
                     'title' => '新建', 
+                    'data' => [
+                        'scenario' => 'dropDown',
+                        'controller' => 'temp-product',
+                    ],
                 ]),
                 'asButton' => true
             ]
