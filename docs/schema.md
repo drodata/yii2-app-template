@@ -38,6 +38,7 @@ type | VARCHAR(50) | NO |
 name | VARCHAR(50) | NO |
 slug | VARCHAR(50) | YES |
 parent_id | BIGINT | NO | MUL
+visible | TINYINT | NO | |
 
 ## `attachment`
 
