@@ -422,12 +422,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/drodata/yii2-utility.git",
-                "reference": "2f0e65690e55c0627c1e9586765d53cc3d46e179"
+                "reference": "cf5466426125b74f4c31ab875ed92a178133a71b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drodata/yii2-utility/zipball/2f0e65690e55c0627c1e9586765d53cc3d46e179",
-                "reference": "2f0e65690e55c0627c1e9586765d53cc3d46e179",
+                "url": "https://api.github.com/repos/drodata/yii2-utility/zipball/cf5466426125b74f4c31ab875ed92a178133a71b",
+                "reference": "cf5466426125b74f4c31ab875ed92a178133a71b",
                 "shasum": ""
             },
             "require": {
@@ -466,7 +466,7 @@
                 "helper",
                 "yii2"
             ],
-            "time": "2018-01-26T00:56:58+00:00"
+            "time": "2018-02-02T03:21:13+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
@@ -1055,6 +1055,7 @@
                 "xls",
                 "xlsx"
             ],
+            "abandoned": "phpoffice/phpspreadsheet",
             "time": "2015-05-01T07:00:55+00:00"
         },
         {
