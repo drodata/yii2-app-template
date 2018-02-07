@@ -30,6 +30,10 @@ $('.select-modal').click(function(){
         })
     });
 });
+
+$('#sku-selecter').on('selected.sku', function (e, item) {
+    alert('Your selected ' + item.name + ', whose id is ' + item.id);
+})
 JS;
 $this->registerJs($js);
 ?>
@@ -44,6 +48,8 @@ Box::begin([
 ?>
     <?php $form = ActiveForm::begin(); ?>
     <?= $form->field($model, 'id')->dropDownList($lists) ?>
+
+    <?= $this->render('_product-selecter') ?>
 
     <?php
     echo $form->field($model, 'name')->widget(Select2::classname(), [

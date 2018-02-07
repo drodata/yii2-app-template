@@ -60,3 +60,70 @@ $('#customer-quick-cu-modal').modal({
     $(this).attr('tabindex', false)
 })
 ```
+
+### Ajax Loading Remote Data
+
+对于内容较多的 Select2, 适合通过 AJAX 从远端获取数据。以下是核心配置的一个示例（EBP 中的产品选择器）：
+
+```php
+echo Select2::widget([
+    'name' => 'sku_selecter',
+    'options' => ['id' => 'sku-selecter', 'placeholder' => '选填。用于创建具有多种规格的商品'],
+    'pluginOptions' => [
+        'allowClear' => true,
+        'minimumInputLength' => 2,
+        'ajax' => [
+            'url' => \yii\helpers\Url::to(['/demo/search']),
+            'dataType' => 'json',
+            'data' => new JsExpression('function(params) { return {keyword:params.term}; }')
+        ],
+        'language' => [
+            'errorLoading' => new JsExpression("function () { return '查询中……'; }"),
+            'noResults' => new JsExpression("function () { return '没有符合条件的记录'; }"),
+            'inputTooShort' => new JsExpression("function () { return '输入关键字搜索（至少 2 个字符, 多个关键字用空格隔开）'; }"),
+        ],
+        'escapeMarkup' => new JsExpression('function (markup) { return markup; }'),
+        'templateResult' => new JsExpression('function format(item) { return item.name; }'),
+        'templateSelection' => new JsExpression('function format(item) { return item.name; }'),
+    ],
+]);
+```
+
+要点：
+
+- `ajax` 选项：`url` 指定远端数据源地址; `data` 中，`params.term` 存储输入的字符；在上例中，将其值存储在 `keyword` 内发送到远端
+- `templateResult`: 函数中的 `item` 就是从远端获取的数据集合中单个数据对象，通常对应一个 AR 模型，例如一个订单、一个产品等；
+
+#### Product Selecter
+[Collect tabular input][ajax-tabular-input] 中通过一个“继续添加”的按钮动态新增一行 tabular 记录。还有一个场景是通过下拉菜单来搜索商品，选定后同样新增一行数据。两者的结果相同，不同的是触发方式，前者通过下拉菜单的 `select2:select` 事件触发，后者通过点击按钮触发。
+
+配置 `ploginEvents` 属性，对 `select2:select` 事件指定一个 handler 响应:
+
+```php
+echo Select2::widget([
+    // ...
+    'pluginEvents' => [
+        "select2:select" => "selectSku",
+    ],
+]);
+```
+
+Handler 内容大致如下：
+
+```js
+function selectSku(e) {
+    var selector = $('#sku-selecter')
+    var activeItem = e.params.data
+    selector.select2('val', '')
+    selector.select2('open');
+
+    selector.trigger('selected.sku', activeItem)
+}
+```
+
+Handler 说明：
+
+- `e.params.data` 含有所选条目的对象;
+- 自定义一个事件（如 `selected.sku`）携带选中的条目对象触发。根据需要编写对应的 handler (如 tabular input 中新增一行记录);
+
+[ajax-tabular-input]: ../feature/collect-tabular-input.md

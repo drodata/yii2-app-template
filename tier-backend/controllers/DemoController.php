@@ -4,6 +4,7 @@ namespace backend\controllers;
 
 use Yii;
 use backend\models\Map;
+use backend\models\Lookup;
 use backend\models\CommonForm;
 use backend\models\LookupSearch;
 
@@ -42,4 +43,19 @@ class DemoController extends \yii\web\Controller
         return $this->renderPartial('_print', ['name' => $model->name]);
     }
 
+    /*
+     * @param string $keyword 
+     */
+    public function actionSearch($keyword)
+    {
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        $keywords = array_map('trim', explode(' ', $keyword));
+
+        $items = Lookup::find()->where(['like', 'name', $keywords])->asArray()->all();
+
+        return [
+            'results' => $items,
+        ];
+    }
 }
