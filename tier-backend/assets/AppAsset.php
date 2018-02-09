@@ -29,5 +29,6 @@ class AppAsset extends AssetBundle
     public $depends = [
         'drodata\assets\AdminLTECustomAsset',
         'drodata\trekshot\TrekshotAsset',
+        'drodata\assets\GenericModelAsset',
     ];
 }

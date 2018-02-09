@@ -27,18 +27,6 @@ type | VARCHAR(90) | NO |
 from_id | BIGINT | NO |
 to_id | BIGINT | NO |
 
-## `taxonomy`
-
-'taxonomy', 意思是分类学, 用来存储各种较复杂的分类名称。'taxonomy' 一词借鉴自 WordPress 表格结构。
-
-Field | Type | Null | Key
-------|------|------|----
-id | BIGINT | NO | PRI
-type | VARCHAR(50) | NO |
-name | VARCHAR(50) | NO |
-slug | VARCHAR(50) | YES |
-parent_id | BIGINT | NO | MUL
-visible | TINYINT | NO | |
 
 ## `attachment`
 

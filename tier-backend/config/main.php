@@ -11,6 +11,10 @@ return [
     'name' => 'YAT',
     'basePath' => dirname(__DIR__),
     'controllerMap' => [
+        'spu-category' => [
+            'class' => 'drodata\controllers\TaxonomyController',
+            'name' => '商品分类',
+        ],
         'lookup' => [
             'class' => 'drodata\controllers\LookupController',
             'as access' => [

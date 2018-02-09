@@ -7,7 +7,6 @@ use yii\helpers\ArrayHelper;
 use kartik\select2\Select2;
 
 /* @var $this yii\web\View */
-
 $this->title = 'Select2';
 $this->params = [
     'title' => $this->title,
@@ -16,7 +15,6 @@ $this->params = [
         $this->title,
     ],
 ];
-
 $model = new Lookup();
 $lists = Lookup::items('UserStatus');
 
@@ -33,6 +31,16 @@ $('.select-modal').click(function(){
 
 $('#sku-selecter').on('selected.sku', function (e, item) {
     alert('Your selected ' + item.name + ', whose id is ' + item.id);
+})
+
+$('.blabla').on('select2:select', function (e, item) {
+    if (typeof(item) === 'undefined') {
+        item = {
+            id: e.params.data.id,
+            name: e.params.data.text
+        }
+    }
+    console.log('Your selected ' + item.name + ', whose id is ' + item.id);
 })
 JS;
 $this->registerJs($js);
@@ -53,13 +61,21 @@ Box::begin([
 
     <?php
     echo $form->field($model, 'name')->widget(Select2::classname(), [
-        'data' => $lists,
-        'options' => ['placeholder' => '请选择'],
+        'data' => Lookup::taxonomies('spu-category'),
+        'options' => ['class' => 'blabla', 'placeholder' => '请选择'],
         'addon' => [
             'append' => [
                 'content' => Html::button(Html::icon('plus'), [
-                    'class' => 'btn btn-default modal-create-customer', 
-                    'title' => '新建', 
+                    'class' => 'modal-create-taxonomy btn btn-default', 
+                    'data' => [
+                        'toggle' => 'tooltip',
+                        'title' => '新建商品类别', 
+                        'type' => 'spu-category',
+                        'taxonomy' => [
+                            'hide_parent' => 1,
+                            'parent_id' => 19,
+                        ],
+                    ],
                 ]),
                 'asButton' => true
             ]
