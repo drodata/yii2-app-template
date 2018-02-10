@@ -17,6 +17,7 @@ $this->params = [
 $icons = [
     'sliders', 
     'toggle-on', 'toggle-off',
+    'database', 'sign-in',
 ];
 ?>
 <div class="row">
