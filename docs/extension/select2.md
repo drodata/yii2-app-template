@@ -94,7 +94,69 @@ echo Select2::widget([
 - `ajax` 选项：`url` 指定远端数据源地址; `data` 中，`params.term` 存储输入的字符；在上例中，将其值存储在 `keyword` 内发送到远端
 - `templateResult`: 函数中的 `item` 就是从远端获取的数据集合中单个数据对象，通常对应一个 AR 模型，例如一个订单、一个产品等；
 
+数据源控制器示例：
+
+```php
+public function actionSearch($q)
+{
+    Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+    return [
+        'results' => Sku::find()->nameContains(explode(' ', $q))->asArray()->all(),
+    ];
+}
+```
+
+自定义模板信息
+
+默认情况下， select2 option 内容仅仅显示文本内容。如果需要显示 HTML 内容（如图片等），就需要对数据稍作处理，例如:
+
+
+```php
+public function actionSearch($q)
+{
+    Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+    $data = [];
+    
+    $items = Sku::find()->nameContains(explode(' ', $q))->all();
+
+    if (!empty($items)) {
+        foreach ($items as $sku) {
+            $data[] = [
+                'id' => $sku->id,
+                'name' => $sku->name,
+                'template' => $sku->getSelect2Option(),
+            ];
+        }
+    }
+
+    return [
+        'results' => $data,
+    ];
+}
+```
+
+在返回的对象中，除了 id 和 name 外，增加了 template 属性。内容如下：
+
+```php
+public function getSelect2Option()
+{
+    return <<<OPT
+<div class="row">
+    <div class="col-xs-8">{$this->name}</div>
+    <div class="col-xs-4">库存: {$this->stock}</div>
+</div>
+OPT;
+}
+```
+
+借助 Bootstrap, 在显示商品名称同时，同时显示当前库存数。配置好后，前面 Select2 `templateResult` 属性返回 'template' 即可。
+
+![](../images/select2-result-template.png)
+
 #### Product Selecter
+
 [Collect tabular input][ajax-tabular-input] 中通过一个“继续添加”的按钮动态新增一行 tabular 记录。还有一个场景是通过下拉菜单来搜索商品，选定后同样新增一行数据。两者的结果相同，不同的是触发方式，前者通过下拉菜单的 `select2:select` 事件触发，后者通过点击按钮触发。
 
 配置 `ploginEvents` 属性，对 `select2:select` 事件指定一个 handler 响应:
