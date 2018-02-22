@@ -15,28 +15,9 @@ return [
             'class' => 'drodata\controllers\TaxonomyController',
             'name' => '商品分类',
         ],
-        'lookup' => [
+        'expense-type' => [
             'class' => 'drodata\controllers\LookupController',
-            'as access' => [
-                'class' => 'yii\filters\AccessControl',
-                'rules' => [
-                    [
-                        'allow' => true,
-                        'roles' => ['@'],
-                    ],
-                ],
-            ],
-            'as verbs' => [
-                'class' => 'yii\filters\VerbFilter',
-                'actions' => [
-                    'delete' => ['POST'],
-                ],
-            ],
-        ],
-        'temp-product' => [
-            'class' => 'drodata\controllers\QuickLookupController',
-            'name' => '临时商品',
-            'type' => 'TempProduct',
+            'name' => '报销类别',
             'as access' => [
                 'class' => 'yii\filters\AccessControl',
                 'rules' => [

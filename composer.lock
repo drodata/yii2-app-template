@@ -422,12 +422,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/drodata/yii2-utility.git",
-                "reference": "85321649c52b2900784a938ea3a134b3d3d59bcd"
+                "reference": "c98b9f30917008eb31d59f228f55eaca9544924e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drodata/yii2-utility/zipball/85321649c52b2900784a938ea3a134b3d3d59bcd",
-                "reference": "85321649c52b2900784a938ea3a134b3d3d59bcd",
+                "url": "https://api.github.com/repos/drodata/yii2-utility/zipball/c98b9f30917008eb31d59f228f55eaca9544924e",
+                "reference": "c98b9f30917008eb31d59f228f55eaca9544924e",
                 "shasum": ""
             },
             "require": {
@@ -466,7 +466,7 @@
                 "helper",
                 "yii2"
             ],
-            "time": "2018-02-09T06:22:19+00:00"
+            "time": "2018-02-21T09:17:59+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",

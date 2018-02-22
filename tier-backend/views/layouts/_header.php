@@ -60,7 +60,7 @@ use drodata\widgets\NavBar;
             'encode' => false,
             'items' => [
                  ['label' => 'Select2', 'url' => '/demo/category/select2', 'encode' => false],
-                 ['label' => '临时商品', 'url' => '/temp-product', 'encode' => false],
+                 ['label' => '报销类别(借助通用 Lookup 模型)', 'url' => '/expense-type', 'encode' => false],
                  ['label' => '商品分类(借助通用 Taxonomy 模型)', 'url' => '/spu-category', 'encode' => false],
                  [ 'label' => 'WeUI', 'url' => ['/weui/index'], ],
                  ['label' => Html::fwicon('line-chart') . 'Chart.js', 'url' => '/demo/category/chartjs', 'encode' => false],
