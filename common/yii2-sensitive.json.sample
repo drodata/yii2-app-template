@@ -1,3 +1,4 @@
 {
-    "password": "input-your-mysql-pasword-here"
+    "password": "input-your-mysql-pasword-here",
+    "dbname": "input-your-mysql-database-name"
 }

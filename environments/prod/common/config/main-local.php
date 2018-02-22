@@ -1,9 +1,7 @@
 <?php
 $sensitive = json_decode(file_get_contents(Yii::getAlias('@common') . '/yii2-sensitive.json'));
 $arg = [
-    'password' => $sensitive->password,
     'domain' => 'yat.com',
-    'dbname' => 'yat',
 ];
 return [
     'aliases' => [
@@ -15,9 +13,9 @@ return [
     'components' => [
         'db' => [
             'class' => 'yii\db\Connection',
-            'dsn' => 'mysql:host=localhost;dbname=' . $arg['dbname'],
+            'dsn' => "mysql:host=localhost;dbname={$sensitive->dbname}",
             'username' => 'root',
-            'password' => $arg['password'],
+            'password' => $sensitive->password,
             'charset' => 'utf8',
         ],
         'mailer' => [
