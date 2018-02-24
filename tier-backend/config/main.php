@@ -11,6 +11,9 @@ return [
     'name' => 'YAT',
     'basePath' => dirname(__DIR__),
     'controllerMap' => [
+        'user' => [
+            'class' => 'drodata\controllers\UserController',
+        ],
         'spu-category' => [
             'class' => 'drodata\controllers\TaxonomyController',
             'name' => '商品分类',
@@ -45,7 +48,7 @@ return [
     ],
     'components' => [
         'user' => [
-            'identityClass' => 'common\models\User',
+            'identityClass' => 'drodata\models\User',
             'enableAutoLogin' => true,
         ],
         'errorHandler' => [
