@@ -22,7 +22,8 @@ git clone git@github.com:drodata/yii2-app-template.git
    
 ```
 {
-    "password": "yourpassword"
+    "password": "yourpassword",
+    "dbname": "your-db-name"
 }
 ```
 
@@ -37,7 +38,7 @@ sudo chmod 640 yii2-sensitive.json
 
 ### 2.1 建立数据库
 
-使用 MySQL Workbench 打开项目根目录下的文件 `yat.mwb`, 导出至 SQL 文件，假设名称为 `yat.sql`. 使用 MySQL 终端或 phpMyAdmin 导入 yat.sql.
+新建数据库，数据库名称与上面 `yii2-sensitive.json` 中配置的值一致。
 
 ### 2.2 初始化数据库
 
@@ -49,19 +50,16 @@ sudo chmod 640 yii2-sensitive.json
 
 # build RBAC tables
 ./yii migrate --migrationPath=@yii/rbac/migrations
+
+# 初始化 RBAC 数据. ./yii rbac/flush 可清空所有授权信息
+./yii rbac/init
+
+# 初始化基础表格 (user, lookup, taxonomy 等)
+./yii migrate --migrationPath=@drodata/migrations
+
+# 撤销
+# ./yii migrate/redo --migrationPath=@drodata/migrations
 ```
-
-### 2.3 导入基础数据
-
-1. 导入 RBAC 权限配置信息(如需变更，请更改后再执行命令)
-
-   ```bash
-   ./yii rbac/init
-   
-   # ./yii rbac/flush 可清空所有授权信息
-   ```
-
-2. 导入测试数据 `test-data.sql`.
 
 ## 3. 配置 Apache 虚拟主机
 
