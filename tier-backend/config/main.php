@@ -14,6 +14,12 @@ return [
         'user' => [
             'class' => 'drodata\controllers\UserController',
         ],
+        'rate' => [
+            'class' => 'drodata\controllers\RateController',
+        ],
+        'currency' => [
+            'class' => 'drodata\controllers\CurrencyController',
+        ],
         'spu-category' => [
             'class' => 'drodata\controllers\TaxonomyController',
             'name' => '商品分类',

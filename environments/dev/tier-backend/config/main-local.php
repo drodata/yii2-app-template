@@ -27,7 +27,7 @@ if (YII_ENV_DEV) {
         'allowedIPs' => ['127.0.0.1', '::1', '192.168.0.*', '192.168.178.20'],  
         'generators' => [
             'model' => [
-                'class' => 'yii\gii\generators\model\Generator',
+                'class' => 'drodata\gii\backend\model\Generator',
                 'templates' => [
                     'local' => '@drodata/gii/backend/model/default',
                 ]
