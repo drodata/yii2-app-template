@@ -1,14 +1,11 @@
 <?php
 $sensitive = json_decode(file_get_contents(Yii::getAlias('@common') . '/yii2-sensitive.json'));
-$arg = [
-    'domain' => 'yat.com',
-];
 return [
     'aliases' => [
-        '@frontendweb'  => 'http://www.' . $arg['domain'],
-        '@backendweb'  => 'http://backend.' . $arg['domain'],
-        '@mobileweb'  => 'http://m.' . $arg['domain'],
-        '@staticweb'  => 'http://static.' . $arg['domain'],
+        '@frontendweb'  => 'http://www.' . $sensitive->domain,
+        '@backendweb'  => 'http://backend.' . $sensitive->domain,
+        '@mobileweb'  => 'http://m.' . $sensitive->domain,
+        '@staticweb'  => 'http://static.' . $sensitive->domain,
     ],
     'components' => [
         'db' => [
@@ -30,14 +27,14 @@ return [
             'class' => 'yii\web\User',
             'identityCookie' => [
                 'name' => '_identity',
-                'domain'   => '.' .$arg['domain'],
+                'domain'   => '.' . $sensitive->domain,
                 'httpOnly' => true,
             ],
         ],
         'session' => [
             'class' => 'yii\web\Session',
             'cookieParams' => [
-                'domain'   => '.' .$arg['domain'],
+                'domain'   => '.' . $sensitive->domain,
                 'httpOnly' => true,
             ],
         ],

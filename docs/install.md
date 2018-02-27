@@ -23,6 +23,7 @@ git clone git@github.com:drodata/yii2-app-template.git
 ```
 {
     "password": "yourpassword",
+    "domain": "domain-name",
     "dbname": "your-db-name"
 }
 ```
