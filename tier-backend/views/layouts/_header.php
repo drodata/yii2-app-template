@@ -25,24 +25,6 @@ use drodata\widgets\NavBar;
     ]);
     $leftMenuItems = [
         [
-            'label' => Html::icon('cog'),
-            'encode' => false,
-            'visible' => ! Yii::$app->user->isGuest,
-            'linkOptions' => [
-                'title' => '设置',
-            ],
-            'items' => [
-                [
-                    'encode' => false,
-                    'label' => Html::fwicon('user') . '用户',
-                    'url' => '/user/index',
-                ],
-                ['label' => 'Lookup', 'url' => '/lookup/index'],
-                '<li class="divider"></li>',
-                ['label' => 'Notification', 'url' => '/notification/'],
-            ],
-        ],
-        [
             'label' => Html::icon('plus'),
             'visible' => ! Yii::$app->user->isGuest,
             'encode' => false,
@@ -51,7 +33,7 @@ use drodata\widgets\NavBar;
             ],
             'items' => [
                  ['label' => '用户', 'url' => '/user/create'],
-                 '<li class="divider"></li>',
+                 //'<li class="divider"></li>',
             ],
         ],
         [

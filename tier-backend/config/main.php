@@ -47,11 +47,6 @@ return [
     'controllerNamespace' => 'backend\controllers',
     'defaultRoute' => 'dashboard/index',
     'bootstrap' => ['log'],
-    'modules' => [
-        'notification' => [
-            'class' => 'dro\notification\Module',
-        ],
-    ],
     'components' => [
         'user' => [
             'identityClass' => 'drodata\models\User',
