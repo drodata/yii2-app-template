@@ -70,6 +70,12 @@ use drodata\widgets\NavBar;
 
     $rightMenuItems = [
         [
+            'label' => Html::icon('flash'),
+            'encode' => false,
+            'visible' => YII_DEBUG && !Yii::$app->user->isGuest,
+            'url' => ['/user/switch'],
+        ],
+        [
             'label' => Html::icon('user') . '&nbsp;' . Yii::$app->user->identity->username,
             'encode' => false,
             'visible' => !Yii::$app->user->isGuest,
