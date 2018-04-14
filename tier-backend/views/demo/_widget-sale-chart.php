@@ -1,5 +1,9 @@
-<?= \common\widgets\ChartJs::widget([
-    'type' => 'line',
+<?php
+
+use drodata\widgets\ChartJs;
+
+echo ChartJs::widget([
+    'type' => 'bar',
     'options' => [
         'height' => 108,
         'width' => 470,
@@ -12,8 +16,8 @@
                 'fill' => true,
                 'lineTension' => 0.3,
                 'data' => [12, 19, 3, 5, 2, 3],
-                'backgroundColor' =>  'rgba(255, 99, 132, 0.2)',
-                'borderColor' => 'rgba(255, 99, 132, 0.6)',
+                'backgroundColor' =>  '#24b',
+                'borderColor' => '#24b',
                 'borderWidth' => 2,
                 'pointStyle' => false,//'rect',
             ],
@@ -37,6 +41,10 @@
         ],
     ],
     'clientOptions' => [
+        'title' => [
+            'display' => true, // defaults to false
+            'text' => 'Tile desc',
+        ],
         'elements' => [
             'point' => [
                 'radius' => 0,
@@ -68,4 +76,4 @@
             ],
         ],
     ],
-]) ?>
+]);
