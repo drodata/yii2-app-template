@@ -17,29 +17,19 @@ $(function(){
         $('[data-toggle="popover"]').popover();
     });
 
-    $('.submit-once').on('click', function (e) {
-        var $button = $(this);
-        if ($button.data('brother') == undefined) {
-            var $brother = $(document.createElement($button[0].tagName));
-            $brother.html('处理中……');
-            $brother.attr('disabled', true);
-            $brother.addClass('disabled');
-            $brother.addClass($button.attr('class'));
-            $brother.hide();
-            $brother.insertAfter($button);
-            $button.data('brother', $brother)
-        }else{
-            var $brother = $button.data('brother');
+    /**
+     * 全局防止重复提交表单
+     *
+     * 使用：在所需的表单上增加 .prevent-duplicate-submission 类名
+     */
+    jQuery('form.prevent-duplicate-submission').on('beforeSubmit', function(event){
+        if(jQuery(this).data('submitting')) {
+            event.preventDefault();
+            return false
         }
-
-        if ($button.css('display') !== 'none') {
-            $brother.show();
-            $button.hide();
-            setTimeout(function () {
-                $brother.hide();
-                $button.show();
-            }, 10000);
-        }
+    
+        jQuery(this).data('submitting', true);
+        return true;
     });
 
     /**

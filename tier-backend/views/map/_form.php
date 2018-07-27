@@ -17,7 +17,9 @@ $this->registerJs($js);
 
 <div class="map-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin([
+        'options' => ['class' => 'prevent-duplicate-submission'],
+    ]); ?>
         <!--
         <div class="row">
             <div class="col-lg-6 col-md-12">
@@ -34,7 +36,7 @@ $this->registerJs($js);
 
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? '新建' : '保存', [
-            'class' => ($model->isNewRecord ? 'btn btn-success' : 'btn btn-primary') . ' submit-once',
+            'class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary',
         ]) ?>
     </div>
 
