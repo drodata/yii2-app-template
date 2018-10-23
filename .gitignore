@@ -32,7 +32,6 @@ phpunit.phar
 # vagrant runtime
 /.vagrant
 
-vim-session
 *.mwb.bak
 yat.sql
 yat-bak.sql
@@ -46,6 +45,8 @@ backend/views/test/index.php
 *.vim-session
 
 common/yii2-sensitive.json
+
+static
 
 # gitbook's published directory
 _book/
