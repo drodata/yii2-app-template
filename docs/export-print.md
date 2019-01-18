@@ -28,4 +28,4 @@ $this->registerJs($js);
 
 ## AJAX 表单提交打印范例
 
-[代码链接](https://github.com/drodata/yii2-app-template/blob/master/tier-backend/views/demo/print.php#L29)
+[代码链接](https://github.com/drodata/yii2-app-template/blob/master/backend/views/demo/print.php#L29)
