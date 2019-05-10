@@ -15,4 +15,18 @@ use yii\base\NotSupportedException;
  */
 class Lookup extends \drodata\models\Lookup
 {
+    /**
+     * Logic unit of site/fetch-change-data action
+     *
+     */
+    public static function fetchChangeData($configs)
+    {
+        $key = ArrayHelper::remove($configs, 'key');
+        $id = ArrayHelper::remove($configs, 'id');
+        switch ($key) {
+            case 'xxx':
+                // fill your real code here
+                break;
+        }
+    }
 }

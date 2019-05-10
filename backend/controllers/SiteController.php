@@ -25,7 +25,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index'],
+                        'actions' => ['logout', 'index', 'fetch-change-data'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -35,6 +35,7 @@ class SiteController extends Controller
                 'class' => VerbFilter::className(),
                 'actions' => [
                     'logout' => ['post'],
+                    'fetch-change-data' => ['post'],
                 ],
             ],
         ];
@@ -65,6 +66,16 @@ class SiteController extends Controller
         Yii::$app->user->logout();
 
         return $this->goHome();
+    }
+
+    /**
+     * 通用获取由表单元素变化产生的动态数据
+     */
+    public function actionFetchChangeData()
+    {
+        Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+    
+        return Lookup::fetchChangeData(Yii::$app->request->post());
     }
 
     /**
