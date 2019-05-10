@@ -18,6 +18,20 @@ return [
             'enableSession' => false,
             'loginUrl' => null,
         ],
+        'request' => [
+            'parsers' => [
+                'application/json' => 'yii\web\JsonParser',
+            ],
+        ],
+        'response' => [
+            'class' => 'yii\web\Response',
+            'on beforeSend' => function ($event) {
+                $response = $event->sender;
+                if ($response->isSuccessful) {
+                    $response->statusCode = 200;
+                }
+            },
+        ],
         'urlManager' => [
             'enablePrettyUrl' => true,
             'enableStrictParsing' => true,
@@ -32,6 +46,12 @@ return [
                         'GET locate' => 'locate',
                         'GET find' => 'find',
                         'GET badge' => 'badge',
+                    ],
+                    'ruleConfig' => [
+                        'class' => 'yii\web\UrlRule',
+                        'defaults' => [
+                            'expand' => 'spu',
+                        ]
                     ],
                 ],
                 */
