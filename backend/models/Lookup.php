@@ -29,4 +29,29 @@ class Lookup extends \drodata\models\Lookup
                 break;
         }
     }
+
+    /**
+     * @param array $configs 关系配置数组， 'key' 表示类别
+     */
+    public static function fetchPrintData($configs)
+    {
+        $key = ArrayHelper::remove($configs, 'key');
+        $section = ArrayHelper::remove($configs, 'section');
+        $view = $section ? "/{$key}/_print-{$section}" : "/{$key}/_print";
+        $id = ArrayHelper::remove($configs, 'id');
+
+        switch ($key) {
+            /** fill your concrete codes here
+            case 'exchange':
+                $header = '物资调配单';
+                $model = Exchange::findOne($id);
+                break;
+            */
+        }
+
+        return Yii::$app->view->render('/site/_print', [
+            'header' => $header,
+            'content' => Yii::$app->view->render($view, ['model' => $model]),
+        ]);
+    }
 }

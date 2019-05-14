@@ -68,6 +68,9 @@ $this->registerJs($js);
         <strong>&copy; <?= Html::a(Yii::$app->name, Yii::getAlias('@frontendweb')) ?> <?= date('Y') ?></strong> All rights reserved.
     </div>
 </footer>
+
+<div class="hidden"><div class="generic-print-wrapper"><!-- generic print wrapper--></div></div>
+
 <?php $this->endBody() ?>
 </body>
 </html>

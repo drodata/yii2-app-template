@@ -5,6 +5,7 @@ use Yii;
 use yii\web\Controller;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
+use backend\models\Lookup;
 
 /**
  * Site controller
@@ -25,7 +26,7 @@ class SiteController extends Controller
                         'allow' => true,
                     ],
                     [
-                        'actions' => ['logout', 'index', 'fetch-change-data'],
+                        'actions' => ['logout', 'index', 'fetch-change-data', 'fetch-print-data'],
                         'allow' => true,
                         'roles' => ['@'],
                     ],
@@ -36,6 +37,7 @@ class SiteController extends Controller
                 'actions' => [
                     'logout' => ['post'],
                     'fetch-change-data' => ['post'],
+                    'fetch-print-data' => ['post'],
                 ],
             ],
         ];
@@ -76,6 +78,18 @@ class SiteController extends Controller
         Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
     
         return Lookup::fetchChangeData(Yii::$app->request->post());
+    }
+
+    /**
+     * Generic jqprint server action
+     *
+     * This action is accessed by jQuery's $.post()
+     */
+    public function actionFetchPrintData()
+    {
+		Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+
+        return Lookup::fetchPrintData(Yii::$app->request->post());
     }
 
     /**
