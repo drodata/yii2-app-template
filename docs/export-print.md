@@ -10,7 +10,7 @@
 // in backend\controllers\SiteController
 public function actionFetchPrintData()
 {
-	Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
+    Yii::$app->response->format = \yii\web\Response::FORMAT_JSON;
 
     return Lookup::fetchPrintData(Yii::$app->request->post());
 }
@@ -106,13 +106,14 @@ public static function fetchPrintData($configs)
 
 ```php
 echo Html::a('打印订单', 'javascript:void(0)', [
-    'class' => 'btn btn-primary',
+    'class' => 'btn btn-primary direct-print',
     'data' => [
         'post' => [
             'key' => 'order',
+            'section' => 'shipping-list',
             'id' => 123,
         ],
     ],
 ]);
 ```
-
+`direct-print` 类名触发事件。携带的数据中，`key` 代表模型名称，如果一个模型内需要打印多个内容，例如一个订单既需要打印发货清单又需要打印订单，此时可以使用 `section` 选项进一步标记。
