@@ -84,6 +84,12 @@ public function actionDownloadShippingList($id)
 
 注意，由于 url 会被当做命令的一部分，因此必要时，使用 `escapeshellcmd()` 进行元字符转义，否则如果 url 中含有 `&` 等 shell 元字符，将导致命令执行异常；
 
-### url 暴露如何实现权限控制？
+### 已知的问题
 
-由于上面的 `view-shipping-list` action 需要被 wkhtmltopdf 命令执行，因此它需要能被公开访问。如何避免用户通过此地址访问到所有订单的发货信息呢？
+1. url 暴露如何实现权限控制？
+   
+   由于上面的 `view-shipping-list` action 需要被 wkhtmltopdf 命令执行，因此它需要能被公开访问。如何避免用户通过此地址访问到所有订单的发货信息呢？
+
+1. RBAC 权限判断在指定 url 内失效的问题
+
+   以前面的 view-shipping-list 为例，`order/view-shipping-list` action 是通过终端命令调用的，因此没有用户身份信息，也就无法正常使用 `Yii::$app->user->can()`. 最近就遇到了这个问题：发货清单上的单价是否显示取决于两点，客户 show_price 开关是否开启；用户的身份是否是销售。此时后者返回 false, 致使业务员在下载发货清单时，那些需要显示单价的客户的发货清单上也不显示单价。这个问题还是使用页面内直接打印的办法。
