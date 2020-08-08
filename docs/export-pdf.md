@@ -12,15 +12,7 @@ wkhtmltopdf 是类似 Composer 的命令。在命令行键入一条简单的命�
 >
 > 注意此 .deb 包仅适用于 Debian 9.4 或更新版本。
 
-从 https://github.com/wkhtmltopdf/wkhtmltopdf/releases/ 下载所需版本。Debian 需要下载含有 `linux-generic-amd64.tar.xz`字样的文件，假设完整的文件名为 `file-name.tar.xz`, 在终端依次执行：
-
-```bash
-unxz file-name.xz
-tar -xvf file-name.tar
-cd ./wkhtmltopdf/bin
-# bin 目录内含有两个脚本: wkhtmltopdf 和 wkhtmltoimage, 我们主要使用前者
-sudo mv wkhtmlto* to /usr/local/bin
-```
+从 https://wkhtmltopdf.org/downloads.html 下载安装所需版本。
 
 Mac 上安装更简单：下载 `wkhtmltox-0.12.4_osx-cocoa-x86-64.pkg` 文件后双击安装后，就能直接使用 wkhtmltopdf 和 wkhtmltoimage 两个命令，这里的”双击安装“等同于上面在 Debian 上执行的命令，最终的结果都是将两个命令脚本放在 `/usr/local/bin` 目录内。
 
@@ -88,8 +80,10 @@ public function actionDownloadShippingList($id)
 
 1. url 暴露如何实现权限控制？
    
-   由于上面的 `view-shipping-list` action 需要被 wkhtmltopdf 命令执行，因此它需要能被公开访问。如何避免用户通过此地址访问到所有订单的发货信息呢？
+   由于上面的 `view-shipping-list` action 需要被 wkhtmltopdf 命令执行，因此它需要能被公开访问。如何避免用户通过此地址访问到所有订单的发货信息呢？解决办法是生成一个 hash 字符串，让 url 中的 query string 变成没有意义的字符串；
 
 1. RBAC 权限判断在指定 url 内失效的问题
 
    以前面的 view-shipping-list 为例，`order/view-shipping-list` action 是通过终端命令调用的，因此没有用户身份信息，也就无法正常使用 `Yii::$app->user->can()`. 最近就遇到了这个问题：发货清单上的单价是否显示取决于两点，客户 show_price 开关是否开启；用户的身份是否是销售。此时后者返回 false, 致使业务员在下载发货清单时，那些需要显示单价的客户的发货清单上也不显示单价。这个问题还是使用页面内直接打印的办法。
+
+   另一个办法是将各种控制元素以 query string 的形式出现，例如：`order/view-shipping-list?hash=xxxx&show_price=0`;
