@@ -33,6 +33,9 @@ wkhtmltopdf http://google.com google.pdf
   在命令末尾加上神奇的 `2>&1` 后可以显示错误提示，例如：`wkhtmltopdf http::/a.com b.pdf 2>&1`, 出现提示信息：sh:wkhtmltopdf command not found. 这表示系统找不到命令路径。解决：使用绝对路径执行。
 - 如何分页
   设置类名 `.page-break { page-break-after: always; }` 并在需要分页处放置一个 `<div class="page-break"></div>` 即可。
+- **目标网址不能出现`?`等特殊字符**
+  
+  类似 `a.com?a=b&c=d` 格式的网址无法导出 PDF 文件。可借助 urlManager 将其转换成 `a.com/b/d` 解决；
 
 ## 服务端一个实际的例子——下载订单发货清单
 
@@ -80,7 +83,7 @@ public function actionDownloadShippingList($id)
 
 1. url 暴露如何实现权限控制？
    
-   由于上面的 `view-shipping-list` action 需要被 wkhtmltopdf 命令执行，因此它需要能被公开访问。如何避免用户通过此地址访问到所有订单的发货信息呢？解决办法是生成一个 hash 字符串，让 url 中的 query string 变成没有意义的字符串；
+   由于上面的 `view-shipping-list` action 需要被 wkhtmltopdf 命令执行，因此它需要能被公开访问。如何避免用户通过此地址访问到所有订单的发货信息呢？解决办法是生成一个 hash 字符串，让 url 中的 query string 变成没有意义的字符串。可以用一个单独的通用存储此 hash 值，给每个值增加一个有效值，完美解公开链接权限问题；
 
 1. RBAC 权限判断在指定 url 内失效的问题
 
