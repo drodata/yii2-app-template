@@ -39,8 +39,14 @@
     },
     "config": {
         "process-timeout": 1800,
+        "github-oauth": {
+
+        },
         "fxp-asset": {
-            "enable": false
+            "installer-paths": {
+                "npm-asset-library": "vendor/npm",
+                "bower-asset-library": "vendor/bower"
+            }
         }
     },
     "extra": {
@@ -50,11 +56,5 @@
     },
     "scripts": {
         "post-install-cmd": "php init --env=Development --overwrite=n"
-    },
-    "repositories": [
-        {
-            "type": "composer",
-            "url": "https://asset-packagist.org"
-        }
-    ]
+    }
 }

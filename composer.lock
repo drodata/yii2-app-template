@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c41eb5972ab81d9a648cc562188ede38",
+    "content-hash": "cb757906186280ba6362010c7c1c2f91",
     "packages": [
         {
             "name": "alexgx/yii2-phpexcel",
@@ -55,12 +55,12 @@
             "version": "v2.3.7",
             "source": {
                 "type": "git",
-                "url": "https://github.com/almasaeed2010/AdminLTE.git",
+                "url": "https://github.com/ColorlibHQ/AdminLTE.git",
                 "reference": "797b65b3ca90525a4e048de5b8d02ba6878ea239"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/almasaeed2010/AdminLTE/zipball/797b65b3ca90525a4e048de5b8d02ba6878ea239",
+                "url": "https://api.github.com/repos/ColorlibHQ/AdminLTE/zipball/797b65b3ca90525a4e048de5b8d02ba6878ea239",
                 "reference": "797b65b3ca90525a4e048de5b8d02ba6878ea239",
                 "shasum": ""
             },
@@ -137,7 +137,8 @@
                 "mobile-first",
                 "responsive",
                 "web"
-            ]
+            ],
+            "time": "2016-07-25T15:51:55+00:00"
         },
         {
             "name": "bower-asset/chartjs",
@@ -160,7 +161,8 @@
             "license": [
                 "MIT"
             ],
-            "description": "Simple HTML5 charts using the canvas element."
+            "description": "Simple HTML5 charts using the canvas element.",
+            "time": "2016-09-22T19:03:01+00:00"
         },
         {
             "name": "bower-asset/inputmask",
@@ -174,15 +176,53 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/RobinHerbots/Inputmask/zipball/5e670ad62f50c738388d4dcec78d2888505ad77b",
                 "reference": "5e670ad62f50c738388d4dcec78d2888505ad77b",
-                "shasum": null
+                "shasum": ""
             },
             "require": {
                 "bower-asset/jquery": ">=1.7"
             },
-            "type": "bower-asset",
+            "type": "bower-asset-library",
+            "extra": {
+                "bower-asset-main": [
+                    "./dist/inputmask/inputmask.js",
+                    "./dist/inputmask/inputmask.extensions.js",
+                    "./dist/inputmask/inputmask.date.extensions.js",
+                    "./dist/inputmask/inputmask.numeric.extensions.js",
+                    "./dist/inputmask/inputmask.phone.extensions.js",
+                    "./dist/inputmask/jquery.inputmask.js",
+                    "./dist/inputmask/global/document.js",
+                    "./dist/inputmask/global/window.js",
+                    "./dist/inputmask/phone-codes/phone.js",
+                    "./dist/inputmask/phone-codes/phone-be.js",
+                    "./dist/inputmask/phone-codes/phone-nl.js",
+                    "./dist/inputmask/phone-codes/phone-ru.js",
+                    "./dist/inputmask/phone-codes/phone-uk.js",
+                    "./dist/inputmask/dependencyLibs/inputmask.dependencyLib.jqlite.js",
+                    "./dist/inputmask/dependencyLibs/inputmask.dependencyLib.jquery.js",
+                    "./dist/inputmask/dependencyLibs/inputmask.dependencyLib.js",
+                    "./dist/inputmask/bindings/inputmask.binding.js"
+                ],
+                "bower-asset-ignore": [
+                    "**/*",
+                    "!dist/*",
+                    "!dist/inputmask/*",
+                    "!dist/min/*",
+                    "!dist/min/inputmask/*"
+                ]
+            },
             "license": [
                 "http://opensource.org/licenses/mit-license.php"
-            ]
+            ],
+            "description": "Inputmask is a javascript library which creates an input mask.  Inputmask can run against vanilla javascript, jQuery and jqlite.",
+            "keywords": [
+                "form",
+                "input",
+                "inputmask",
+                "jquery",
+                "mask",
+                "plugins"
+            ],
+            "time": "2017-11-21T11:46:23+00:00"
         },
         {
             "name": "bower-asset/jquery",
@@ -213,19 +253,20 @@
                 "javascript",
                 "jquery",
                 "library"
-            ]
+            ],
+            "time": "2017-03-20T19:02:00+00:00"
         },
         {
             "name": "bower-asset/punycode",
             "version": "v1.3.2",
             "source": {
                 "type": "git",
-                "url": "git@github.com:bestiejs/punycode.js.git",
+                "url": "https://github.com/mathiasbynens/punycode.js.git",
                 "reference": "38c8d3131a82567bfef18da09f7f4db68c84f8a3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bestiejs/punycode.js/zipball/38c8d3131a82567bfef18da09f7f4db68c84f8a3",
+                "url": "https://api.github.com/repos/mathiasbynens/punycode.js/zipball/38c8d3131a82567bfef18da09f7f4db68c84f8a3",
                 "reference": "38c8d3131a82567bfef18da09f7f4db68c84f8a3",
                 "shasum": ""
             },
@@ -241,7 +282,8 @@
                     "node_modules",
                     "package.json"
                 ]
-            }
+            },
+            "time": "2014-10-22T12:02:42+00:00"
         },
         {
             "name": "bower-asset/weui",
@@ -271,14 +313,15 @@
                 "ui",
                 "wechat",
                 "weixin"
-            ]
+            ],
+            "time": "2017-01-17T08:06:08+00:00"
         },
         {
             "name": "bower-asset/yii2-pjax",
             "version": "2.0.7.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:yiisoft/jquery-pjax.git",
+                "url": "https://github.com/yiisoft/jquery-pjax.git",
                 "reference": "aef7b953107264f00234902a3880eb50dafc48be"
             },
             "dist": {
@@ -305,7 +348,8 @@
             },
             "license": [
                 "MIT"
-            ]
+            ],
+            "time": "2017-10-12T10:11:14+00:00"
         },
         {
             "name": "cebe/markdown",
@@ -373,17 +417,17 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/drodata/yii2-utility.git",
-                "reference": "f8d51e3ed6f2712d446ed3667f3e3e47f5390e3d"
+                "reference": "59249fe9ec14c0124df70773611ade6a6699c812"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/drodata/yii2-utility/zipball/f8d51e3ed6f2712d446ed3667f3e3e47f5390e3d",
-                "reference": "f8d51e3ed6f2712d446ed3667f3e3e47f5390e3d",
+                "url": "https://api.github.com/repos/drodata/yii2-utility/zipball/59249fe9ec14c0124df70773611ade6a6699c812",
+                "reference": "59249fe9ec14c0124df70773611ade6a6699c812",
                 "shasum": ""
             },
             "require": {
                 "bower-asset/bootstrap": "3.3.* | 3.2.* | 3.1.*",
-                "fortawesome/font-awesome": "*",
+                "fortawesome/font-awesome": "4.7.0",
                 "npm-asset/bootstrap-tagsinput": "0.7.1",
                 "yiisoft/yii2": "*"
             },
@@ -417,27 +461,27 @@
                 "helper",
                 "yii2"
             ],
-            "time": "2019-02-21T03:07:33+00:00"
+            "time": "2021-08-07T00:20:55+00:00"
         },
         {
             "name": "ezyang/htmlpurifier",
-            "version": "v4.10.0",
+            "version": "v4.13.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/ezyang/htmlpurifier.git",
-                "reference": "d85d39da4576a6934b72480be6978fb10c860021"
+                "reference": "08e27c97e4c6ed02f37c5b2b20488046c8d90d75"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/d85d39da4576a6934b72480be6978fb10c860021",
-                "reference": "d85d39da4576a6934b72480be6978fb10c860021",
+                "url": "https://api.github.com/repos/ezyang/htmlpurifier/zipball/08e27c97e4c6ed02f37c5b2b20488046c8d90d75",
+                "reference": "08e27c97e4c6ed02f37c5b2b20488046c8d90d75",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.2"
             },
             "require-dev": {
-                "simpletest/simpletest": "^1.1"
+                "simpletest/simpletest": "dev-master#72de02a7b80c6bb8864ef9bf66d41d2f58f826bd"
             },
             "type": "library",
             "autoload": {
@@ -446,11 +490,14 @@
                 },
                 "files": [
                     "library/HTMLPurifier.composer.php"
+                ],
+                "exclude-from-classmap": [
+                    "/library/HTMLPurifier/Language/"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "LGPL"
+                "LGPL-2.1-or-later"
             ],
             "authors": [
                 {
@@ -464,7 +511,7 @@
             "keywords": [
                 "html"
             ],
-            "time": "2018-02-23T01:58:20+00:00"
+            "time": "2020-06-29T00:56:53+00:00"
         },
         {
             "name": "fortawesome/font-awesome",
@@ -519,12 +566,12 @@
             "version": "v0.5.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/avalanche123/Imagine.git",
+                "url": "https://github.com/php-imagine/Imagine.git",
                 "reference": "f64ec666baaa800edcbf237db41121a569230709"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/avalanche123/Imagine/zipball/f64ec666baaa800edcbf237db41121a569230709",
+                "url": "https://api.github.com/repos/php-imagine/Imagine/zipball/f64ec666baaa800edcbf237db41121a569230709",
                 "reference": "f64ec666baaa800edcbf237db41121a569230709",
                 "shasum": ""
             },
@@ -622,16 +669,16 @@
         },
         {
             "name": "kartik-v/yii2-krajee-base",
-            "version": "v1.8.9",
+            "version": "v1.9.9",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-krajee-base.git",
-                "reference": "0cafe6376780cedcd00f52c9d82b172d5851f6b0"
+                "reference": "1693374160c24443524ddc23508d2eb2955443f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-krajee-base/zipball/0cafe6376780cedcd00f52c9d82b172d5851f6b0",
-                "reference": "0cafe6376780cedcd00f52c9d82b172d5851f6b0",
+                "url": "https://api.github.com/repos/kartik-v/yii2-krajee-base/zipball/1693374160c24443524ddc23508d2eb2955443f4",
+                "reference": "1693374160c24443524ddc23508d2eb2955443f4",
                 "shasum": ""
             },
             "require": {
@@ -640,12 +687,12 @@
             "type": "yii2-extension",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.8.x-dev"
+                    "dev-master": "1.9.x-dev"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "kartik\\base\\": ""
+                    "kartik\\base\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -669,24 +716,24 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2017-09-29T06:18:14+00:00"
+            "time": "2018-09-27T18:02:35+00:00"
         },
         {
             "name": "kartik-v/yii2-mpdf",
-            "version": "v1.0.2",
+            "version": "v1.0.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-mpdf.git",
-                "reference": "67980ab7861ae9541b1a1784be8938dbeba13045"
+                "reference": "7ea3a5f9bcf5bcf6d681bd82cbe843c356d1428c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-mpdf/zipball/67980ab7861ae9541b1a1784be8938dbeba13045",
-                "reference": "67980ab7861ae9541b1a1784be8938dbeba13045",
+                "url": "https://api.github.com/repos/kartik-v/yii2-mpdf/zipball/7ea3a5f9bcf5bcf6d681bd82cbe843c356d1428c",
+                "reference": "7ea3a5f9bcf5bcf6d681bd82cbe843c356d1428c",
                 "shasum": ""
             },
             "require": {
-                "mpdf/mpdf": "~7.0"
+                "mpdf/mpdf": "~8.0"
             },
             "type": "yii2-extension",
             "extra": {
@@ -696,12 +743,12 @@
             },
             "autoload": {
                 "psr-4": {
-                    "kartik\\mpdf\\": ""
+                    "kartik\\mpdf\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD 3-Clause"
+                "BSD-3-Clause"
             ],
             "authors": [
                 {
@@ -721,7 +768,7 @@
                 "utf8",
                 "yii2"
             ],
-            "time": "2017-07-19T09:51:02+00:00"
+            "time": "2020-04-14T08:55:18+00:00"
         },
         {
             "name": "kartik-v/yii2-widget-select2",
@@ -778,31 +825,33 @@
         },
         {
             "name": "mpdf/mpdf",
-            "version": "v7.0.3",
+            "version": "v8.0.13",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mpdf/mpdf.git",
-                "reference": "5681a0cae1eea197143d5d27f06e19b0523cd8d6"
+                "reference": "42f145615cfe830fd432474da1d2e1f927efe402"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/mpdf/mpdf/zipball/5681a0cae1eea197143d5d27f06e19b0523cd8d6",
-                "reference": "5681a0cae1eea197143d5d27f06e19b0523cd8d6",
+                "url": "https://api.github.com/repos/mpdf/mpdf/zipball/42f145615cfe830fd432474da1d2e1f927efe402",
+                "reference": "42f145615cfe830fd432474da1d2e1f927efe402",
                 "shasum": ""
             },
             "require": {
                 "ext-gd": "*",
                 "ext-mbstring": "*",
-                "paragonie/random_compat": "^1.4|^2.0",
-                "php": "^5.6 || ~7.0.0 || ~7.1.0 || ~7.2.0",
+                "myclabs/deep-copy": "^1.7",
+                "paragonie/random_compat": "^1.4|^2.0|^9.99.99",
+                "php": "^5.6 || ^7.0 || ~8.0.0 || ~8.1.0",
                 "psr/log": "^1.0",
-                "setasign/fpdi": "1.6.*"
+                "setasign/fpdi": "^2.1"
             },
             "require-dev": {
-                "mockery/mockery": "^0.9.5",
-                "phpunit/phpunit": "^5.0",
-                "squizlabs/php_codesniffer": "^2.7.0",
-                "tracy/tracy": "^2.4"
+                "mockery/mockery": "^1.3.0",
+                "mpdf/qrcode": "^1.1.0",
+                "squizlabs/php_codesniffer": "^3.5.0",
+                "tracy/tracy": "^2.4",
+                "yoast/phpunit-polyfills": "^1.0"
             },
             "suggest": {
                 "ext-bcmath": "Needed for generation of some types of barcodes",
@@ -810,11 +859,6 @@
                 "ext-zlib": "Needed for compression of embedded resources, such as fonts"
             },
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-development": "7.0-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Mpdf\\": "src/"
@@ -822,7 +866,7 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "GPL-2.0"
+                "GPL-2.0-only"
             ],
             "authors": [
                 {
@@ -834,14 +878,62 @@
                     "role": "Developer (retired)"
                 }
             ],
-            "description": "A PHP class to generate PDF files from HTML with Unicode/UTF-8 and CJK support",
+            "description": "PHP library generating PDF files from UTF-8 encoded HTML",
             "homepage": "https://mpdf.github.io",
             "keywords": [
                 "pdf",
                 "php",
                 "utf-8"
             ],
-            "time": "2018-01-03T07:32:36+00:00"
+            "time": "2021-09-10T10:09:59+00:00"
+        },
+        {
+            "name": "myclabs/deep-copy",
+            "version": "1.10.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/myclabs/DeepCopy.git",
+                "reference": "776f831124e9c62e1a2c601ecc52e776d8bb7220"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/776f831124e9c62e1a2c601ecc52e776d8bb7220",
+                "reference": "776f831124e9c62e1a2c601ecc52e776d8bb7220",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.1 || ^8.0"
+            },
+            "replace": {
+                "myclabs/deep-copy": "self.version"
+            },
+            "require-dev": {
+                "doctrine/collections": "^1.0",
+                "doctrine/common": "^2.6",
+                "phpunit/phpunit": "^7.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DeepCopy\\": "src/DeepCopy/"
+                },
+                "files": [
+                    "src/DeepCopy/deep_copy.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Create deep copies (clones) of your objects",
+            "keywords": [
+                "clone",
+                "copy",
+                "duplicate",
+                "object",
+                "object graph"
+            ],
+            "time": "2020-11-13T09:40:50+00:00"
         },
         {
             "name": "npm-asset/bootstrap-tagsinput",
@@ -849,23 +941,7 @@
             "dist": {
                 "type": "tar",
                 "url": "https://registry.npmjs.org/bootstrap-tagsinput/-/bootstrap-tagsinput-0.7.1.tgz",
-                "reference": null,
                 "shasum": "ffe3b06bbe2a106945ef2814568005a94f211937"
-            },
-            "require-dev": {
-                "npm-asset/bower": "~1.3.8",
-                "npm-asset/grunt": "~0.4.1",
-                "npm-asset/grunt-bower-task": "~0.4.0",
-                "npm-asset/grunt-cli": "~0.1.13",
-                "npm-asset/grunt-contrib-copy": "~0.5.0",
-                "npm-asset/grunt-contrib-uglify": ">=0.9.1,<0.10.0",
-                "npm-asset/grunt-jquerymanifest": "~0.1.4",
-                "npm-asset/grunt-karma": "~0.8.3",
-                "npm-asset/grunt-zip": "~0.15.0",
-                "npm-asset/karma": "~0.12.19",
-                "npm-asset/karma-jasmine": "~0.1.5",
-                "npm-asset/karma-phantomjs-launcher": "~0.1.3",
-                "npm-asset/phantomjs": "~1.9.7-patch15"
             },
             "type": "npm-asset-library",
             "extra": {
@@ -901,37 +977,34 @@
                 "input",
                 "select",
                 "tags"
-            ]
+            ],
+            "time": "2015-11-11T04:22:43+00:00"
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v2.0.11",
+            "version": "v9.99.100",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "5da4d3c796c275c55f057af5a643ae297d96b4d8"
+                "reference": "996434e5492cb4c3edcb9168db6fbb1359ef965a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/5da4d3c796c275c55f057af5a643ae297d96b4d8",
-                "reference": "5da4d3c796c275c55f057af5a643ae297d96b4d8",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/996434e5492cb4c3edcb9168db6fbb1359ef965a",
+                "reference": "996434e5492cb4c3edcb9168db6fbb1359ef965a",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.2.0"
+                "php": ">= 7"
             },
             "require-dev": {
-                "phpunit/phpunit": "4.*|5.*"
+                "phpunit/phpunit": "4.*|5.*",
+                "vimeo/psalm": "^1"
             },
             "suggest": {
                 "ext-libsodium": "Provides a modern crypto API that can be used to generate random bytes."
             },
             "type": "library",
-            "autoload": {
-                "files": [
-                    "lib/random.php"
-                ]
-            },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
@@ -946,10 +1019,11 @@
             "description": "PHP 5.x polyfill for random_bytes() and random_int() from PHP 7",
             "keywords": [
                 "csprng",
+                "polyfill",
                 "pseudorandom",
                 "random"
             ],
-            "time": "2017-09-27T21:40:39+00:00"
+            "time": "2020-10-15T08:29:30+00:00"
         },
         {
             "name": "phpoffice/phpexcel",
@@ -1080,16 +1154,16 @@
         },
         {
             "name": "psr/log",
-            "version": "1.0.2",
+            "version": "1.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/php-fig/log.git",
-                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d"
+                "reference": "d49695b909c3b7628b6289db5479a1c204601f11"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/php-fig/log/zipball/4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
-                "reference": "4ebe3a8bf773a19edfe0a84b6585ba3d401b724d",
+                "url": "https://api.github.com/repos/php-fig/log/zipball/d49695b909c3b7628b6289db5479a1c204601f11",
+                "reference": "d49695b909c3b7628b6289db5479a1c204601f11",
                 "shasum": ""
             },
             "require": {
@@ -1098,7 +1172,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.0.x-dev"
+                    "dev-master": "1.1.x-dev"
                 }
             },
             "autoload": {
@@ -1113,7 +1187,7 @@
             "authors": [
                 {
                     "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
+                    "homepage": "https://www.php-fig.org/"
                 }
             ],
             "description": "Common interface for logging libraries",
@@ -1123,36 +1197,44 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2016-10-10T12:19:37+00:00"
+            "time": "2021-05-03T11:20:27+00:00"
         },
         {
             "name": "setasign/fpdi",
-            "version": "1.6.2",
+            "version": "v2.3.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Setasign/FPDI.git",
-                "reference": "a6ad58897a6d97cc2d2cd2adaeda343b25a368ea"
+                "reference": "6231e315f73e4f62d72b73f3d6d78ff0eed93c31"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Setasign/FPDI/zipball/a6ad58897a6d97cc2d2cd2adaeda343b25a368ea",
-                "reference": "a6ad58897a6d97cc2d2cd2adaeda343b25a368ea",
+                "url": "https://api.github.com/repos/Setasign/FPDI/zipball/6231e315f73e4f62d72b73f3d6d78ff0eed93c31",
+                "reference": "6231e315f73e4f62d72b73f3d6d78ff0eed93c31",
                 "shasum": ""
             },
+            "require": {
+                "ext-zlib": "*",
+                "php": "^5.6 || ^7.0 || ^8.0"
+            },
+            "conflict": {
+                "setasign/tfpdf": "<1.31"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~5.7",
+                "setasign/fpdf": "~1.8",
+                "setasign/tfpdf": "1.31",
+                "squizlabs/php_codesniffer": "^3.5",
+                "tecnickcom/tcpdf": "~6.2"
+            },
             "suggest": {
-                "setasign/fpdf": "FPDI will extend this class but as it is also possible to use \"tecnickcom/tcpdf\" as an alternative there's no fixed dependency configured.",
-                "setasign/fpdi-fpdf": "Use this package to automatically evaluate dependencies to FPDF.",
-                "setasign/fpdi-tcpdf": "Use this package to automatically evaluate dependencies to TCPDF."
+                "setasign/fpdf": "FPDI will extend this class but as it is also possible to use TCPDF or tFPDF as an alternative. There's no fixed dependency configured."
             },
             "type": "library",
             "autoload": {
-                "classmap": [
-                    "filters/",
-                    "fpdi.php",
-                    "fpdf_tpl.php",
-                    "fpdi_pdf_parser.php",
-                    "pdf_context.php"
-                ]
+                "psr-4": {
+                    "setasign\\Fpdi\\": "src/"
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -1163,6 +1245,11 @@
                     "name": "Jan Slabon",
                     "email": "jan.slabon@setasign.com",
                     "homepage": "https://www.setasign.com"
+                },
+                {
+                    "name": "Maximilian Kresse",
+                    "email": "maximilian.kresse@setasign.com",
+                    "homepage": "https://www.setasign.com"
                 }
             ],
             "description": "FPDI is a collection of PHP classes facilitating developers to read pages from existing PDF documents and use them as templates in FPDF. Because it is also possible to use FPDI with TCPDF, there are no fixed dependencies defined. Please see suggestions for packages which evaluates the dependencies automatically.",
@@ -1172,20 +1259,20 @@
                 "fpdi",
                 "pdf"
             ],
-            "time": "2017-05-11T14:25:49+00:00"
+            "time": "2021-02-11T11:37:01+00:00"
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.4.9",
+            "version": "v5.4.12",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "7ffc1ea296ed14bf8260b6ef11b80208dbadba91"
+                "reference": "181b89f18a90f8925ef805f950d47a7190e9b950"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/7ffc1ea296ed14bf8260b6ef11b80208dbadba91",
-                "reference": "7ffc1ea296ed14bf8260b6ef11b80208dbadba91",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/181b89f18a90f8925ef805f950d47a7190e9b950",
+                "reference": "181b89f18a90f8925ef805f950d47a7190e9b950",
                 "shasum": ""
             },
             "require": {
@@ -1226,7 +1313,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2018-01-23T07:37:21+00:00"
+            "time": "2018-07-31T09:26:32+00:00"
         },
         {
             "name": "yiisoft/yii2",
@@ -1330,26 +1417,39 @@
         },
         {
             "name": "yiisoft/yii2-bootstrap",
-            "version": "2.0.8",
+            "version": "2.0.11",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-bootstrap.git",
-                "reference": "3f49c47924bb9fa5363c3fc7b073d954168cf438"
+                "reference": "83d144f4089adaa7064ad60dc4c1436daa2eb30e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/3f49c47924bb9fa5363c3fc7b073d954168cf438",
-                "reference": "3f49c47924bb9fa5363c3fc7b073d954168cf438",
+                "url": "https://api.github.com/repos/yiisoft/yii2-bootstrap/zipball/83d144f4089adaa7064ad60dc4c1436daa2eb30e",
+                "reference": "83d144f4089adaa7064ad60dc4c1436daa2eb30e",
                 "shasum": ""
             },
             "require": {
-                "bower-asset/bootstrap": "3.3.* | 3.2.* | 3.1.*",
+                "bower-asset/bootstrap": "3.4.* | 3.3.* | 3.2.* | 3.1.*",
                 "yiisoft/yii2": "~2.0.6"
+            },
+            "require-dev": {
+                "cweagans/composer-patches": "^1.7",
+                "phpunit/phpunit": "4.8.34"
             },
             "type": "yii2-extension",
             "extra": {
                 "branch-alias": {
                     "dev-master": "2.0.x-dev"
+                },
+                "patches": {
+                    "phpunit/phpunit-mock-objects": {
+                        "Fix PHP 7 and 8 compatibility": "https://yiisoft.github.io/phpunit-patches/phpunit_mock_objects.patch"
+                    },
+                    "phpunit/phpunit": {
+                        "Fix PHP 7 compatibility": "https://yiisoft.github.io/phpunit-patches/phpunit_php7.patch",
+                        "Fix PHP 8 compatibility": "https://yiisoft.github.io/phpunit-patches/phpunit_php8.patch"
+                    }
                 }
             },
             "autoload": {
@@ -1363,8 +1463,9 @@
             ],
             "authors": [
                 {
-                    "name": "Paul Klimov",
-                    "email": "klimov.paul@gmail.com"
+                    "name": "Qiang Xue",
+                    "email": "qiang.xue@gmail.com",
+                    "homepage": "http://www.yiiframework.com/"
                 },
                 {
                     "name": "Alexander Makarov",
@@ -1376,9 +1477,8 @@
                     "email": "amigo.cobos@gmail.com"
                 },
                 {
-                    "name": "Qiang Xue",
-                    "email": "qiang.xue@gmail.com",
-                    "homepage": "http://www.yiiframework.com/"
+                    "name": "Paul Klimov",
+                    "email": "klimov.paul@gmail.com"
                 }
             ],
             "description": "The Twitter Bootstrap extension for the Yii framework",
@@ -1386,27 +1486,28 @@
                 "bootstrap",
                 "yii2"
             ],
-            "time": "2018-02-16T10:41:52+00:00"
+            "time": "2021-08-09T20:54:06+00:00"
         },
         {
             "name": "yiisoft/yii2-composer",
-            "version": "2.0.5",
+            "version": "2.0.10",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-composer.git",
-                "reference": "3f4923c2bde6caf3f5b88cc22fdd5770f52f8df2"
+                "reference": "94bb3f66e779e2774f8776d6e1bdeab402940510"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/3f4923c2bde6caf3f5b88cc22fdd5770f52f8df2",
-                "reference": "3f4923c2bde6caf3f5b88cc22fdd5770f52f8df2",
+                "url": "https://api.github.com/repos/yiisoft/yii2-composer/zipball/94bb3f66e779e2774f8776d6e1bdeab402940510",
+                "reference": "94bb3f66e779e2774f8776d6e1bdeab402940510",
                 "shasum": ""
             },
             "require": {
-                "composer-plugin-api": "^1.0"
+                "composer-plugin-api": "^1.0 | ^2.0"
             },
             "require-dev": {
-                "composer/composer": "^1.0"
+                "composer/composer": "^1.0 | ^2.0@dev",
+                "phpunit/phpunit": "<7"
             },
             "type": "composer-plugin",
             "extra": {
@@ -1428,6 +1529,10 @@
                 {
                     "name": "Qiang Xue",
                     "email": "qiang.xue@gmail.com"
+                },
+                {
+                    "name": "Carsten Brandt",
+                    "email": "mail@cebe.cc"
                 }
             ],
             "description": "The composer plugin for Yii extension installer",
@@ -1436,7 +1541,7 @@
                 "extension installer",
                 "yii2"
             ],
-            "time": "2016-12-20T13:26:02+00:00"
+            "time": "2020-06-24T00:04:01+00:00"
         },
         {
             "name": "yiisoft/yii2-imagine",
@@ -1543,7 +1648,7 @@
             "version": "v0.11.1",
             "source": {
                 "type": "git",
-                "url": "git@github.com:twitter/typeahead.js.git",
+                "url": "https://github.com/twitter/typeahead.js.git",
                 "reference": "588440f66559714280628a4f9799f0c4eb880a4a"
             },
             "dist": {
@@ -1555,42 +1660,49 @@
             "require": {
                 "bower-asset/jquery": ">=1.7"
             },
-            "require-dev": {
-                "bower-asset/jasmine-ajax": "~1.3.1",
-                "bower-asset/jasmine-jquery": "~1.5.2",
-                "bower-asset/jquery": "~1.7"
-            },
             "type": "bower-asset-library",
             "extra": {
                 "bower-asset-main": "dist/typeahead.bundle.js"
-            }
+            },
+            "time": "2015-04-27T04:02:14+00:00"
         },
         {
-            "name": "fzaninotto/faker",
-            "version": "v1.7.1",
+            "name": "fakerphp/faker",
+            "version": "v1.16.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/fzaninotto/Faker.git",
-                "reference": "d3ed4cc37051c1ca52d22d76b437d14809fc7e0d"
+                "url": "https://github.com/FakerPHP/Faker.git",
+                "reference": "271d384d216e5e5c468a6b28feedf95d49f83b35"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/fzaninotto/Faker/zipball/d3ed4cc37051c1ca52d22d76b437d14809fc7e0d",
-                "reference": "d3ed4cc37051c1ca52d22d76b437d14809fc7e0d",
+                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/271d384d216e5e5c468a6b28feedf95d49f83b35",
+                "reference": "271d384d216e5e5c468a6b28feedf95d49f83b35",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3.3 || ^7.0"
+                "php": "^7.1 || ^8.0",
+                "psr/container": "^1.0 || ^2.0",
+                "symfony/deprecation-contracts": "^2.2"
+            },
+            "conflict": {
+                "fzaninotto/faker": "*"
             },
             "require-dev": {
+                "bamarni/composer-bin-plugin": "^1.4.1",
                 "ext-intl": "*",
-                "phpunit/phpunit": "^4.0 || ^5.0",
-                "squizlabs/php_codesniffer": "^1.5"
+                "symfony/phpunit-bridge": "^4.4 || ^5.2"
+            },
+            "suggest": {
+                "ext-curl": "Required by Faker\\Provider\\Image to download images.",
+                "ext-dom": "Required by Faker\\Provider\\HtmlLorem for generating random HTML.",
+                "ext-iconv": "Required by Faker\\Provider\\ru_RU\\Text::realText() for generating real Russian text.",
+                "ext-mbstring": "Required for multibyte Unicode string functionality."
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.8-dev"
+                    "dev-main": "v1.16-dev"
                 }
             },
             "autoload": {
@@ -1613,20 +1725,81 @@
                 "faker",
                 "fixtures"
             ],
-            "time": "2017-08-15T16:48:10+00:00"
+            "time": "2021-09-06T14:53:37+00:00"
         },
         {
-            "name": "phpspec/php-diff",
-            "version": "v1.1.0",
+            "name": "opis/closure",
+            "version": "3.6.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/phpspec/php-diff.git",
-                "reference": "0464787bfa7cd13576c5a1e318709768798bec6a"
+                "url": "https://github.com/opis/closure.git",
+                "reference": "06e2ebd25f2869e54a306dda991f7db58066f7f6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpspec/php-diff/zipball/0464787bfa7cd13576c5a1e318709768798bec6a",
-                "reference": "0464787bfa7cd13576c5a1e318709768798bec6a",
+                "url": "https://api.github.com/repos/opis/closure/zipball/06e2ebd25f2869e54a306dda991f7db58066f7f6",
+                "reference": "06e2ebd25f2869e54a306dda991f7db58066f7f6",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^5.4 || ^7.0 || ^8.0"
+            },
+            "require-dev": {
+                "jeremeamia/superclosure": "^2.0",
+                "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0 || ^8.0 || ^9.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.6.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Opis\\Closure\\": "src/"
+                },
+                "files": [
+                    "functions.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Marius Sarca",
+                    "email": "marius.sarca@gmail.com"
+                },
+                {
+                    "name": "Sorin Sarca",
+                    "email": "sarca_sorin@hotmail.com"
+                }
+            ],
+            "description": "A library that can be used to serialize closures (anonymous functions) and arbitrary objects.",
+            "homepage": "https://opis.io/closure",
+            "keywords": [
+                "anonymous functions",
+                "closure",
+                "function",
+                "serializable",
+                "serialization",
+                "serialize"
+            ],
+            "time": "2021-04-09T13:42:10+00:00"
+        },
+        {
+            "name": "phpspec/php-diff",
+            "version": "v1.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phpspec/php-diff.git",
+                "reference": "fc1156187f9f6c8395886fe85ed88a0a245d72e9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phpspec/php-diff/zipball/fc1156187f9f6c8395886fe85ed88a0a245d72e9",
+                "reference": "fc1156187f9f6c8395886fe85ed88a0a245d72e9",
                 "shasum": ""
             },
             "type": "library",
@@ -1651,35 +1824,152 @@
                 }
             ],
             "description": "A comprehensive library for generating differences between two hashable objects (strings or arrays).",
-            "time": "2016-04-07T12:29:16+00:00"
+            "time": "2020-09-18T13:47:07+00:00"
         },
         {
-            "name": "yiisoft/yii2-debug",
-            "version": "2.0.13",
+            "name": "psr/container",
+            "version": "1.0.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/yiisoft/yii2-debug.git",
-                "reference": "b37f414959c2fafefb332020b42037cd17c1cb7f"
+                "url": "https://github.com/php-fig/container.git",
+                "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/b37f414959c2fafefb332020b42037cd17c1cb7f",
-                "reference": "b37f414959c2fafefb332020b42037cd17c1cb7f",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
+                "reference": "b7ce3b176482dbbc1245ebf52b181af44c2cf55f",
                 "shasum": ""
             },
             "require": {
-                "yiisoft/yii2": "~2.0.13",
-                "yiisoft/yii2-bootstrap": "~2.0.0"
+                "php": ">=5.3.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Container\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
+                }
+            ],
+            "description": "Common Container Interface (PHP FIG PSR-11)",
+            "homepage": "https://github.com/php-fig/container",
+            "keywords": [
+                "PSR-11",
+                "container",
+                "container-interface",
+                "container-interop",
+                "psr"
+            ],
+            "time": "2017-02-14T16:28:37+00:00"
+        },
+        {
+            "name": "symfony/deprecation-contracts",
+            "version": "v2.4.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/deprecation-contracts.git",
+                "reference": "5f38c8804a9e97d23e0c8d63341088cd8a22d627"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/5f38c8804a9e97d23e0c8d63341088cd8a22d627",
+                "reference": "5f38c8804a9e97d23e0c8d63341088cd8a22d627",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.1"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-main": "2.4-dev"
+                },
+                "thanks": {
+                    "name": "symfony/contracts",
+                    "url": "https://github.com/symfony/contracts"
+                }
+            },
+            "autoload": {
+                "files": [
+                    "function.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nicolas Grekas",
+                    "email": "p@tchwork.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "A generic function and convention to trigger deprecation notices",
+            "homepage": "https://symfony.com",
+            "time": "2021-03-23T23:28:01+00:00"
+        },
+        {
+            "name": "yiisoft/yii2-debug",
+            "version": "2.1.18",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiisoft/yii2-debug.git",
+                "reference": "45bc5d2ef4e3b0ef6f638190d42f04a77ab1df6c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiisoft/yii2-debug/zipball/45bc5d2ef4e3b0ef6f638190d42f04a77ab1df6c",
+                "reference": "45bc5d2ef4e3b0ef6f638190d42f04a77ab1df6c",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mbstring": "*",
+                "opis/closure": "^3.3",
+                "php": ">=5.4",
+                "yiisoft/yii2": "~2.0.13"
+            },
+            "require-dev": {
+                "cweagans/composer-patches": "^1.7",
+                "phpunit/phpunit": "4.8.34",
+                "yiisoft/yii2-coding-standards": "~2.0",
+                "yiisoft/yii2-swiftmailer": "*"
             },
             "type": "yii2-extension",
             "extra": {
                 "branch-alias": {
                     "dev-master": "2.0.x-dev"
+                },
+                "composer-exit-on-patch-failure": true,
+                "patches": {
+                    "phpunit/phpunit-mock-objects": {
+                        "Fix PHP 7 and 8 compatibility": "https://yiisoft.github.io/phpunit-patches/phpunit_mock_objects.patch"
+                    },
+                    "phpunit/phpunit": {
+                        "Fix PHP 7 compatibility": "https://yiisoft.github.io/phpunit-patches/phpunit_php7.patch",
+                        "Fix PHP 8 compatibility": "https://yiisoft.github.io/phpunit-patches/phpunit_php8.patch"
+                    }
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "yii\\debug\\": ""
+                    "yii\\debug\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1690,6 +1980,10 @@
                 {
                     "name": "Qiang Xue",
                     "email": "qiang.xue@gmail.com"
+                },
+                {
+                    "name": "Simon Karlen",
+                    "email": "simi.albi@outlook.com"
                 }
             ],
             "description": "The debugger extension for the Yii framework",
@@ -1698,35 +1992,49 @@
                 "debugger",
                 "yii2"
             ],
-            "time": "2017-12-05T07:36:23+00:00"
+            "time": "2021-08-09T20:57:58+00:00"
         },
         {
             "name": "yiisoft/yii2-faker",
-            "version": "2.0.4",
+            "version": "2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-faker.git",
-                "reference": "3df62b1dcb272a8413f9c6e532c9d73f325ccde1"
+                "reference": "8c361657143bfaea58ff7dcc9bf51f1991a46f5d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-faker/zipball/3df62b1dcb272a8413f9c6e532c9d73f325ccde1",
-                "reference": "3df62b1dcb272a8413f9c6e532c9d73f325ccde1",
+                "url": "https://api.github.com/repos/yiisoft/yii2-faker/zipball/8c361657143bfaea58ff7dcc9bf51f1991a46f5d",
+                "reference": "8c361657143bfaea58ff7dcc9bf51f1991a46f5d",
                 "shasum": ""
             },
             "require": {
-                "fzaninotto/faker": "~1.4",
+                "fakerphp/faker": "~1.9|~1.10",
                 "yiisoft/yii2": "~2.0.0"
+            },
+            "require-dev": {
+                "cweagans/composer-patches": "^1.7",
+                "phpunit/phpunit": "4.8.34"
             },
             "type": "yii2-extension",
             "extra": {
                 "branch-alias": {
                     "dev-master": "2.0.x-dev"
+                },
+                "composer-exit-on-patch-failure": true,
+                "patches": {
+                    "phpunit/phpunit-mock-objects": {
+                        "Fix PHP 7 and 8 compatibility": "https://yiisoft.github.io/phpunit-patches/phpunit_mock_objects.patch"
+                    },
+                    "phpunit/phpunit": {
+                        "Fix PHP 7 compatibility": "https://yiisoft.github.io/phpunit-patches/phpunit_php7.patch",
+                        "Fix PHP 8 compatibility": "https://yiisoft.github.io/phpunit-patches/phpunit_php8.patch"
+                    }
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "yii\\faker\\": ""
+                    "yii\\faker\\": "src"
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -1745,7 +2053,7 @@
                 "faker",
                 "yii2"
             ],
-            "time": "2018-02-19T20:27:10+00:00"
+            "time": "2020-11-10T12:27:35+00:00"
         },
         {
             "name": "yiisoft/yii2-gii",

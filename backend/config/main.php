@@ -47,11 +47,6 @@ return [
     'controllerNamespace' => 'backend\controllers',
     'defaultRoute' => 'dashboard/index',
     'bootstrap' => ['log'],
-    // change default path for asset-packagist.org
-    'aliases' => [
-         '@bower' => '@vendor/bower-asset',
-         '@npm'   => '@vendor/npm-asset',
-    ],
     'components' => [
         'user' => [
             'identityClass' => 'drodata\models\User',
