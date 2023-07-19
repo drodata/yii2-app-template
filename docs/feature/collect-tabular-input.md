@@ -2,7 +2,8 @@
 
 假设有一个新建订单页面，一个订单包括多个商品。这里的“多个商品”就属于 tabular input, 而且是动态改变的——用户可以新增、删除商品，最后提交订单，一个订单涉及的所有模型数据会被一次性写入。商品的个数是动态改变这一特性，决定了这里的操作需要通过 AJAX 完成。[Yii2 Guide 对应章节的文档还是空白][related-section]，这里简述一下过程。
 
-## 一、商品行内容的生成方式
+一、商品行内容的生成方式
+---------------------------------------------------------------------------
 
 我们可以完全使用 JS 来拼装出对应的表单元素，但这种办法不能最大程度上发挥 Yii2 Active Form 的相关 API, 且手动拼装极易出错。这里介绍一种类似模板的思路：在订单视图目录下新建一个专门存储商品行的 HTML 代码模板：
 
@@ -89,7 +90,8 @@ af.on('beforeSubmit', function() {
 });
 ```
 
-## 二 服务器端验证模型数据
+二 服务器端验证模型数据
+---------------------------------------------------------------------------
 
 `ajax-submit` controller action 本身很简单，我们将主要的逻辑代码（模型的验证和保存）放在模型的 `ajaxSubmit()` 内
 
@@ -167,7 +169,8 @@ public static function ajaxSubmit($requestData)
 ]
 ```
 
-## 三 客户端处理返回结果
+三 客户端处理返回结果
+---------------------------------------------------------------------------
 
 回头再看一下前面的 AJAX 提交代码：
 
@@ -179,12 +182,13 @@ $.post(APP.baseUrl + 'order/ajax-submit', af.serialize(), function(response) {
         return false;
     }
 
-    // 提交成功
-    $(response.message).insertAfter(submitBtn);
+    $(response.modal).appendTo($('body'));
 
-	setInterval(function(){
-		window.location.href = response.redirectUrl;
-	},1000);
+    var modalSelecter = '#creation-success-view-modal'
+    $(modalSelecter).modal({
+        backdrop: 'static',
+        show: true
+    })
 }).fail(ajax_fail_handler).always(function(){
 });
 ```
@@ -216,22 +220,23 @@ $.post(APP.baseUrl + 'order/ajax-submit', af.serialize(), function(response) {
 ```
 至此，新建操作的整个流程完成。
 
-## 四、特殊规则的验证
+四、额外验证
+---------------------------------------------------------------------------
 
 上面的数据验证有一定局限性，举一个实际中遇到的例子：一个订单允许提交商品的总数有要求，不允许超过某个值。这个规则就无法直接实现。它的验证规则是基于多个模型而不是单个模型。这类规则的错误信息跟任何属性无关，因此应该单独在地个位置显示，暂时选定在提交按钮的下面。
 
 ### 4.1 服务器端的验证
 
 ```php
-$errors = [];
+$hybridErrors = [];
 $amt = 0;
 foreach ($items as $item) {
     $amt += $item->quantity;
 }
 if ($amt > 10) {
-    $errors[] = '商品总数不允许大于10';
+    $hybridErrors[] = '商品总数不允许大于10';
 }
-if (!empty($errors)) {
+if (!empty($hybridErrors)) {
     $d['status'] = false && $d['status'];
     // 这里选用一个特殊的键值 _hybrid 存储这类错误
     $d['errors']['_hybrid'] = $errors[0];
