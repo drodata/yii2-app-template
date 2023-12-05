@@ -239,7 +239,7 @@ if ($amt > 10) {
 if (!empty($hybridErrors)) {
     $d['status'] = false && $d['status'];
     // 这里选用一个特殊的键值 _hybrid 存储这类错误
-    $d['errors']['_hybrid'] = $errors[0];
+    $d['errors']['_hybrid'] = $hybridErrors[0];
 }
 ```
 
@@ -248,7 +248,7 @@ if (!empty($hybridErrors)) {
 我们对上面的 `displayErrors()` 稍加改进：
 
 ```js
-//displayErrors 函数片段
+//displayErrors 函数片段 (in jquery.trekshot.js)
 
 for (var model in response.errors) {
     // 遍历时如果有混合错误信息，显示在提交按钮下方
