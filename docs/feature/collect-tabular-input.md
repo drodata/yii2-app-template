@@ -105,46 +105,95 @@ public function actionAjaxSubmit()
 ```
 
 ```php
-// in Order.php
 public static function ajaxSubmit($requestData)
 {
     $d['status'] = true;
 
-    $model = new Order();
+    $model = empty($requestData['Purchase']['id'])
+        ? new Purchase()
+        : Purchase::findOne($requestData['Purchase']['id']);
+
     $model->load($requestData);
     $d['status'] = $model->validate() && $d['status'];
     if (!$model->validate()) {
-        $d['errors']['order'] = $model->getErrors();
+        $d['errors']['purchase'] = $model->getErrors();
     }
 
-    // goods items
+    // purchase items
     $items = [];
-    foreach ($requestData['Item'] as $index=>$item) {
-        $items[$index] = new Item();
+    foreach ($requestData['PurchaseItem'] as $index=>$item) {
+        if (empty($item['id'])) {
+            $items[$index] = new PurchaseItem([
+                'scenario' => PurchaseItem::SCENARIO_PURCHASE,
+                'action' => PurchaseItem::ACTION_PURCHASE,
+            ]);
+        } else {
+            // here we use existed record
+            $items[$index] = PurchaseItem::findOne($item['id']);
+            $items[$index]->scenario = PurchaseItem::SCENARIO_PURCHASE;
+        }
     }
-    Item::loadMultiple($items, $requestData);
-    foreach ($requestData['Item'] as $index=>$item) {
+    PurchaseItem::loadMultiple($items, $requestData);
+    foreach ($requestData['PurchaseItem'] as $index=>$item) {
         $d['status'] = $items[$index]->validate() && $d['status'];
         if (!$items[$index]->validate()) {
-            // 这里的 $key 的值是对应表单元素的 'id' 值
-            $key = "item-$index";
+            $key = "purchaseitem-$index";
             $d['errors'][$key] = $items[$index]->getErrors();
         }
     }
-
-    // 所有数据均合法，开始数据写入
+    // all data is safe, start to submit 
     if ($d['status']) {
+
+        $model->on(self::EVENT_AFTER_INSERT, [$model, 'buildItems'], [$items]);
+        $model->on(self::EVENT_AFTER_UPDATE, [$model, 'buildItems'], [$items]);
+
         if (!$model->save()) {
-            throw new \yii\db\Exception('Failed to insert order.');
+            throw new \yii\db\Exception($model->stringifyErrors());
         }
         
         $d['message'] = Html::tag('span', Html::icon('check') . '已保存', [
             'class' => 'text-success',
         ]);
-        $d['redirectUrl'] = Url::to(['/purchase/index']);
+        Yii::$app->session->setFlash('success', '采购单已创建');
+        $d['redirectUrl'] = Lookup::route('dashboard-tab-active-purchase');
     }
 
     return $d;
+}
+```
+
+```php
+public function buildItems($event)
+{
+    list($items) = $event->data;
+
+    $deleteIdList = ArrayHelper::getColumn($this->getItems()->asArray()->all(), 'id');
+
+    foreach ($items as $key => $item) {
+        if ($item->isNewRecord) {
+            $items[$key]->purchase_id = $this->id;
+        }
+
+        // if the record exists, remove it from toDelete list
+        $index = array_search($item->id, $deleteIdList);
+        if ($index !== false) {
+            unset($deleteIdList[$index]);
+        }
+    }
+
+    foreach ($items as $item) {
+        if (!$item->save()) {
+            throw new \yii\db\Exception($item->stringifyErrors());
+        }
+    }
+    if ($deleteIdList) {
+        foreach ($deleteIdList as $id) {
+            $purchaseItem = PurchaseItem::findOne($id);
+            if (!$purchaseItem->delete()) {
+                throw new \yii\db\Exception('Failed to delete.');
+            }
+        }
+    }
 }
 ```
 
@@ -264,5 +313,9 @@ for (var model in response.errors) {
     }
 }
 ```
+
+Change Logs
+--------------------------------------------------------------------------
+- 2023-12-14 `Enh` 修改时不再全部删除子条目，在保留原记录的基础上修改（handler 统一命名为 `buildItems`）；
 
 [related-section]: http://www.yiiframework.com/doc-2.0/guide-input-tabular-input.html#combining-update-create-and-delete-on-one-page
