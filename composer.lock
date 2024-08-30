@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0ebf4642aaa0f385858ccc7fa2e7de0e",
+    "content-hash": "ace959e1f127a542583eaacb49d7e31e",
     "packages": [
         {
             "name": "alexgx/yii2-phpexcel",
@@ -125,7 +125,7 @@
             "version": "3.3.11",
             "source": {
                 "type": "git",
-                "url": "git@github.com:RobinHerbots/Inputmask.git",
+                "url": "https://github.com/RobinHerbots/Inputmask.git",
                 "reference": "5e670ad62f50c738388d4dcec78d2888505ad77b"
             },
             "dist": {
@@ -1427,16 +1427,16 @@
         },
         {
             "name": "yiisoft/yii2",
-            "version": "2.0.49",
+            "version": "2.0.49.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/yiisoft/yii2-framework.git",
-                "reference": "98008bf02a6f6bae78d2ab37e19240b59f8a2957"
+                "reference": "deec9b7330a09e06ab9e002c8718a8b478524dda"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/98008bf02a6f6bae78d2ab37e19240b59f8a2957",
-                "reference": "98008bf02a6f6bae78d2ab37e19240b59f8a2957",
+                "url": "https://api.github.com/repos/yiisoft/yii2-framework/zipball/deec9b7330a09e06ab9e002c8718a8b478524dda",
+                "reference": "deec9b7330a09e06ab9e002c8718a8b478524dda",
                 "shasum": ""
             },
             "require": {
@@ -1545,7 +1545,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-08-29T13:36:17+00:00"
+            "time": "2024-06-10T20:26:16+00:00"
         },
         {
             "name": "yiisoft/yii2-bootstrap",
@@ -2331,5 +2331,5 @@
         "php": ">=5.4.0"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.2.0"
+    "plugin-api-version": "2.6.0"
 }
