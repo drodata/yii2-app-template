@@ -2,6 +2,7 @@
 
 * [Introduction](README.md)
 * [Installation](install.md)
+* [新增 Tier](tier.md)
 * [数据库表格结构](schema.md)
 * [内容导出](export.md)
     * [页面内直接打印](export-print.md)
