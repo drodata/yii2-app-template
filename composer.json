@@ -18,14 +18,13 @@
     "minimum-stability": "stable",
     "require": {
         "php": ">=5.4.0",
-        "yiisoft/yii2": "2.0.13",
+        "yiisoft/yii2": "2.0.49",
         "yiisoft/yii2-bootstrap": "~2.0",
         "yiisoft/yii2-swiftmailer": "2.0.6",
         "yiisoft/yii2-imagine": "2.0.4",
         "almasaeed2010/adminlte": "2.3.7",
         "alexgx/yii2-phpexcel": "@dev",
-        "bower-asset/chartjs": "2.3.0",
-        "bower-asset/weui": "1.1.1",
+        "nnnick/chartjs": "4.4.1",
         "kartik-v/yii2-widget-select2": "2.0.8",
         "kartik-v/yii2-date-range": "1.6.8",
         "kartik-v/yii2-mpdf": "~1.0",
@@ -47,6 +46,9 @@
                 "npm-asset-library": "vendor/npm",
                 "bower-asset-library": "vendor/bower"
             }
+        },
+        "allow-plugins": {
+            "yiisoft/yii2-composer": false
         }
     },
     "extra": {
@@ -56,5 +58,11 @@
     },
     "scripts": {
         "post-install-cmd": "php init --env=Development --overwrite=n"
-    }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ]
 }

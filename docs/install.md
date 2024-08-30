@@ -58,6 +58,9 @@ sudo chmod 640 yii2-sensitive.json
 # 初始化基础表格 (user, lookup, taxonomy 等)
 ./yii migrate --migrationPath=@drodata/migrations
 
+# 初始化 Log 数据库表格 (log)
+./yii migrate --migrationPath=@yii/log/migrations/
+
 # 撤销
 # ./yii migrate/redo --migrationPath=@drodata/migrations
 ```
@@ -75,6 +78,11 @@ sudo chmod 640 yii2-sensitive.json
    ```
 
 4. `sudo systemctl reload apache2` 重启 Apache.
+
+其它
+--------------------------------------------------------------------------
+### 文档
+清空 `doc/` 目录下内容。根据自己需要增删.
 
 至此，程序安装完成，在浏览器内输入 http://i.yat.com, 即可进入系统后台登录界面。默认的用户名和密码分别为 `admin` 和 `123456`.
 
