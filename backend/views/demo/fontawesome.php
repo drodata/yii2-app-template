@@ -18,6 +18,8 @@ $icons = [
     'sliders', 
     'toggle-on', 'toggle-off',
     'database', 'sign-in',
+    'map-signs',
+    'check-circle',
 ];
 ?>
 <div class="row">

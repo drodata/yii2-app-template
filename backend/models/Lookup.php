@@ -93,6 +93,13 @@ class Lookup extends \drodata\models\Lookup
                     'color' => 'default',
                 ];
                 break;
+            case 'back':
+                $route = Yii::$app->request->referrer;
+                $options = [
+                    'title' => '返回',
+                    'color' => 'default',
+                ];
+                break;
             /**
              * TEMPLATE
             case 'download-container-summary':
@@ -120,5 +127,26 @@ class Lookup extends \drodata\models\Lookup
         ]);
 
         return Html::actionLink($route, ArrayHelper::merge($options, $configs));
+    }
+    /**
+     * Host params slices, which will be used in edition detail
+     *
+     * @return array
+     *
+     */
+    public static function modelPrefix($model)
+    {
+        $class = new ReflectionClass($model);
+
+        switch ($class->name) {
+            case 'backend\models\Lookup':
+                $prefix = 'EX-';
+                break;
+            default:
+                $prefix = null;
+                break;
+        }
+
+        return $prefix;
     }
 }
